@@ -1,0 +1,59 @@
+
+
+<ion-content>
+
+
+<div class="container"   align="center" style="padding-top: 10%; padding-left: 15%;">
+  <h1 style="color: honeydew; font-size: 200%" ><strong>STUDENT GRADES</strong></h1>
+            <!--Applications Table  search bar-->
+            <div class="searchbox" >
+              <button class="btn-menu">
+                  <img src="https://img.icons8.com/cute-clipart/24/000000/top-menu.png">
+              </button>
+              <input id="search" type="text" placeholder="Search..." name="search" class="search">
+            <button  class="btn-search">
+                <img src="https://img.icons8.com/cotton/24/000000/search--v2.png">
+              </button>
+          </div>
+  <br/>
+  <br/>
+  <table style="width:110%;">
+ 
+    <thead>
+      <tr>
+        <th scope="col">Student Name</th>
+        <th scope="col">Student Surname</th>
+        <th scope="col">Student Initial</th>
+        <th scope="col">Student Title</th>
+          <th scope="col">Contact Number</th>
+          <th scope="col">Academic Plan</th>
+           <th scope="col">Grades</th>
+           <th scope="col">action </th>
+         <th scope="col">action </th>
+         <th scope="col">action </th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of  students">
+        <td data-label="Name">{{student.Name}}</td>
+        <td data-label="Surname">{{student.Surname}}</td>
+        <td data-label="Initials">{{student.Initials}}</td>
+        <td data-label="Title">{{student.Title}}</td>
+        <td data-label="Number">{{student.Contact}}</td>
+        <td data-label="Plan">{{student.StudyPlanProgram}}</td>
+         <td data-label="Plan">{{student.Marks}}%</td>
+         <td data-label="Plan"><button class="fill" (click)="AddStudentGrade(student.Id)">Add</button></td>
+         <td data-label="Plan"><button class="fill" (click)="DeleteGrade(student.Id)">Remove</button></td>
+         <td data-label="Plan"><button class="fill" (click)="ChangeStudentGrade(student.Id,student.Marks)">Update</button></td>
+      </tr>
+      
+       
+    </tbody>
+  </table>
+</div>
+<br/><br/><br/>
+<ion-footer>
+
+</ion-footer>
+</ion-content>

@@ -1,0 +1,136 @@
+
+
+<ion-content>
+<div align="center" style = "padding-top: 10%;">
+  
+   
+  <div style="padding-left:60% ;">
+    <button class="pulse" style="left: 10%; background-color: darkcyan;" *ngIf="GroupInfo" (click)="ToggleAll()">View All Student information</button>
+    <button class="pulse" style="left: 10%; background-color: darkcyan;" *ngIf="Allinfo" (click)="ToggleGroups()">View  Student Groups</button>
+
+  </div>
+          
+        <div class="container"  *ngIf="GroupInfo">
+          
+          <h1 style="color: honeydew; font-size: 200%" *ngIf="GroupInfo"><strong>STUDENT GROUPS</strong></h1>
+                <!--Applications Table  search bar-->
+                <div class="searchbox" >
+                  <button class="btn-menu">
+                      <img src="https://img.icons8.com/cute-clipart/24/000000/top-menu.png">
+                  </button>
+                  <input id="search" type="text" placeholder="Search..." name="search" class="search">
+                <button  class="btn-search">
+                    <img src="https://img.icons8.com/cotton/24/000000/search--v2.png">
+                  </button>
+              </div>
+              
+              <!--Applications Table -->
+
+              <table class="rwd-table">
+                <tr>
+                  <th>Student Group number</th>
+                  <th>Student Names </th>
+                  <th>Student Numbers</th>
+                  <th>Project Name</th>
+                  <th>Amount Allocated</th>
+                  <th >&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;Action</th>
+                </tr>
+                <tr>
+                  <td data-th="Date">30</td>
+                  <td data-th="Location">
+                    <p>Lerato Pule</p>
+                    <p>Shaun Mlangeni</p>
+                    <p>Max Dolophini</p>
+                  </td>
+                  <td data-th="Time">
+                    <p>U16121279</p>
+                    <p>U116266223</p>
+                    <p>U16126263</p>
+                  </td>
+                  <td data-th="Description">Gate project</td>
+                  <td data-th="Description">R2000</td>
+                  <td data-th="Action">
+                    <div class="btn-group" *ngFor="let number of [0,2]">
+                      <input type="button" value="View" (click)="openStudent()">
+                      &nbsp;&nbsp;
+                      <input type="button" value="Remove" (click)="DeleteStudent()" >
+                      
+                    </div>    
+                  
+                  </td>
+                </tr>
+      
+              
+              </table>
+        </div>
+</div>
+
+<div  *ngIf="Allinfo">
+  <table>
+    <caption style="color: honeydew; font-size: 200%" ><strong>ALL STUDENT INFORMATION</strong></caption>
+    <thead>
+      <tr>
+        <th scope="col">Student Name</th>
+        <th scope="col">Student Surname</th>
+        <th scope="col">Student Initial</th>
+        <th scope="col">Student Title</th>
+          <th scope="col">Contact Number</th>
+         <th scope="col">Plan and Program</th>
+          <th scope="col">Academic Plan</th>
+           <th scope="col">Course code</th>
+           <th scope="col">Student level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Name">Shaun</td>
+        <td data-label="Surname">Mlangeni</td>
+        <td data-label="Initials">SS</td>
+        <td data-label="Title">MR</td>
+        <td data-label="Number">0735346221</td>
+        <td data-label="Plan">Cleaning</td>
+        <td data-label="Plan">BCOM INFORMATICS</td>
+         <td data-label="Plan">JCP 202</td>
+           <td data-label="Plan">2ND YEAR</td>
+      </tr>
+     <tr>
+        <td data-label="Name">Shaun</td>
+        <td data-label="Surname">Mlangeni</td>
+        <td data-label="Initials">SS</td>
+        <td data-label="Title">MR</td>
+        <td data-label="Number">0735346221</td>
+        <td data-label="Plan">Cleaning</td>
+        <td data-label="Plan">BCOM INFORMATICS</td>
+         <td data-label="Plan">JCP 202</td>
+           <td data-label="Plan">2ND YEAR</td>
+      </tr>
+       <tr>
+        <td data-label="Name">Shaun</td>
+        <td data-label="Surname">Mlangeni</td>
+        <td data-label="Initials">SS</td>
+        <td data-label="Title">MR</td>
+        <td data-label="Number">0735346221</td>
+        <td data-label="Plan">Cleaning</td>
+        <td data-label="Plan">BCOM INFORMATICS</td>
+         <td data-label="Plan">JCP 202</td>
+           <td data-label="Plan">2ND YEAR</td>
+      </tr>
+       <tr>
+        <td data-label="Name">Shaun</td>
+        <td data-label="Surname">Mlangeni</td>
+        <td data-label="Initials">SS</td>
+        <td data-label="Title">MR</td>
+        <td data-label="Number">0735346221</td>
+        <td data-label="Plan">Cleaning</td>
+        <td data-label="Plan">BCOM INFORMATICS</td>
+         <td data-label="Plan">JCP 202</td>
+           <td data-label="Plan">2ND YEAR</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br/><br/><br/>
+<ion-footer>
+
+</ion-footer>
+</ion-content>

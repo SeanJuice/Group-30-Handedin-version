@@ -1,0 +1,85 @@
+
+<ion-content>
+<!-- navigation Bar  -->
+
+  <!-- end of navigation Bar -->
+
+     <!-- First table-->
+    <div align="center" style="padding-top: 10%;" >
+      <h1 style="color: honeydew; font-size: 200%" ><strong>Student Group Budget</strong></h1>
+    </div>
+    <div align="center" >
+    
+    <br/>
+    <table style="width: 50%;">
+    
+    
+      <thead>
+        <tr>
+          <th scope="col">Group No</th>
+          <th scope="col">Balance</th>
+    
+        </tr>
+      </thead>
+      <tbody>
+        <div></div>
+        <tr>
+          <td data-label="DN">{{ this.FinancialValues.StudentGroupNo  }}</td>
+          <td data-label="DOU">{{this.FinancialValues.TheBalance}}</td>
+        </tr> 
+      </tbody>
+    </table>
+    </div>
+    <br/><br/><br/>
+  <!-- Second table-->
+    <div style="padding-top: 5%; padding-left: 75%;">
+      <button class="offset" style="color: aliceblue;" (click)="open()">
+        Upload receipt document
+      </button>
+      
+     </div>
+
+<div align="center"  >
+  <h1 style="color: honeydew; font-size: 200%" ><strong>RECEIPTS</strong></h1>
+</div>
+<div align="center">
+
+<br/>
+<table>
+
+
+  <thead>
+    <tr>
+      <th scope="col">Receipt description</th>
+      <th scope="col">Date of Purchase</th>
+        <th scope="col">Balance</th>
+        <th scope="col">Receipt</th>
+       <th scope="col">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <div></div>
+        <tr *ngFor = "let file of Receipts" >
+          <td data-label="DOU">{{file.Description}}</td>
+          <td data-label="DT">{{file.Date}}</td>
+          <td data-label="DT">{{file.Balance}}</td>
+          <td data-label="D"><a href="{{file.Url}}" > {{file.Name}}</a> </td>
+          <td data-label="Plan">
+            <button class="offset" style="height: 5.5px;" (click)="Conifrmation(file.id,file.Url)" >Remove</button>
+          </td>
+        </tr>
+        <tr *ngIf="Receipts.length==0">
+        <td> No files available</td>
+        <td> No files available</td>
+        <td> No files available</td>
+        <td> No files available</td>
+        </tr>
+  </tbody>
+</table>
+</div>
+<br/><br/><br/>
+<ion-footer style="padding-top: 6%;">
+
+</ion-footer>
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-content>
+<!-- navigation Bar  -->
+
+  <!-- end of navigation Bar -->
+ 
+  <div align="center" style="padding-top: 10%;" >
+    <div class="checkout" style="width: 40%;" >
+      <h3 class="checkout__subtitle" >Profile details</h3> 
+      <div class="checkout__delivery-address"  style="text-align: left;">  
+        <div class="form-group checkout__address-form-group" >
+          <div class="form-group__label">
+            <label class="checkout__address-form-label label label--required" for="Name">Group Number: </label>
+            <label id="Name" style="color: #007B7C;">{{Student.GroupNo}}</label>
+          </div>           
+       </div>     
+          <div class="form-group checkout__address-form-group" >
+                <div class="form-group__label">
+                  <label class="checkout__address-form-label label label--required" for="Name">Name: </label>
+                  <label id="Name" style="color: #007B7C;">{{Student.Name}}</label>
+                </div>           
+             </div>  
+             <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="Surname">Surname: </label>
+                <label id="Surname" style="color: #007B7C;">{{Student.Surname}}</label>
+              </div>           
+           </div>  
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="Email">Email address: </label>
+              <label id="Email" style="color: #007B7C;">u{{Student.Student_No}}@tuks.co.za</label>
+            </div>           
+         </div>   
+         <div class="form-group checkout__address-form-group">
+          <div class="form-group__label">
+            <label class="checkout__address-form-label label label--required" for="Contact">Contact Number: </label>
+            <label id="Contact" style="color: #007B7C;">{{Student.Contact}}</label>
+          </div>           
+       </div> 
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="Plan">Student plan and program: </label>
+              <label id="Plan" style="color: #007B7C;">{{Student.StudyPlanProgram}}</label>
+            </div>           
+         </div>   
+        </div>
+    </div>
+  </div>
+  <!---second-->
+
+
+</ion-content>

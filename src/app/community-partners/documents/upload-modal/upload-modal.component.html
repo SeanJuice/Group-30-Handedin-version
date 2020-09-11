@@ -1,0 +1,82 @@
+<ion-content>
+  <div class="checkout" style=" color:black" >
+    
+  
+    <div class="checkout__delivery-address"  >
+
+         <h3 class="checkout__subtitle">Add Document</h3> 
+
+         <form [formGroup]="DocumentSev.form" #form="ngForm" (ngSubmit)="Confirmation()" >
+  
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="Options">Document Type*</label>
+                            
+                  <select value="Choose on" formControlName="DocumentType" name="email"  class="checkout__address-form-input input">
+                    <option value="LogForm">Log Form</option>
+                    <option value="ChildProtectionForm">Child Protection Form</option>
+                    <option value="Other">Other</option>
+                  </select>
+                
+              </div>         
+           </div> 
+
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"> Projects *</label>
+            
+                <select matNativeControl required formControlName="CommunityPartnerID" class="checkout__address-form-input input">
+                  <option value="" selected disabled hidden>Choose one !</option>
+                  <option  *ngFor="let stud of docs" [value]="stud.id" >{{stud.Name}}</option>
+        
+                </select>
+             
+              
+            </div>           
+         </div>
+
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Attach document *</label>
+              <div style="width: 30%;">
+                <input class="choose-file" type="file" id="choose-file"  (change)="selectFile($event)" required >
+                <label for="choose-file" class="upload-file"></label>
+
+              
+      
+              </div>
+              <div *ngIf="currentFileUpload" class="progress" style="width: 50%;">
+                <div class="progress-bar progress-bar-info progress-bar-striped"
+                  role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+                  aria-valuemin="0" aria-valuemax="100"
+                  [ngStyle]="{width:progress.percentage+'%'}" >
+                  {{progress.percentage}}%
+                </div>
+      
+              </div>
+            </div>           
+         </div>
+        <br/>
+     
+       
+         <button class="checkout__total-button button button--primary" style="background-color: #007B7C;" type="submit"  [disabled]="!selectedFiles">SUBMIT</button>
+   
+    </form>
+         <button class="checkout__total-button2 button button--primary" style="background-color: #007B7C;" (click)="dismiss()" >CANCEL</button>
+        <div class="form-group checkout__address-form-group" style="padding-top: 5%;">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"></label> 
+              </div>           
+           </div>  
+           
+      </div>
+    
+   
+  
+  
+  </div>
+
+</ion-content>
+ 
+
+

@@ -1,0 +1,60 @@
+<div class="checkout">
+
+
+    <div class="checkout__delivery-address">
+
+        <form [formGroup]="Toolsev.ConditonForm" (ngSubmit)="Confirmation(this.id)">
+        <h3 class="checkout__subtitle">Add Tool Condition</h3>
+
+        <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required " for="ToolName">Tool Current Condition*</label>
+                  <mat-radio-group
+                  aria-labelledby="example-radio-group-label"
+                  class="btn-group btn-group-toggle" formControlName="Condition">
+                  
+                  <label class="btn btn-primary"  data-toggle="buttons">
+                    <mat-radio-button value="Good" class="example-radio-button">Good condition</mat-radio-button>
+                  </label>
+
+                
+                  <label class="btn btn-secondary">
+                    <mat-radio-button  value="Moderate" class="example-radio-button">Moderate condition</mat-radio-button>
+                  </label>
+                  
+                  <label class="btn btn-danger">
+                    <mat-radio-button value="Damaged" class="example-radio-button"> Damaged condition</mat-radio-button>
+                  </label>
+               
+                </mat-radio-group>
+            </div>
+        </div>
+
+        <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="story">Comment*</label>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Leave a comment</mat-label>
+                    <textarea matInput placeholder="Ex. It makes me feel..." formControlName="Comment"></textarea>
+                  </mat-form-field>
+
+            </div>
+        </div>
+
+        <div class="form-group checkout__address-form-group" style="padding-top: 6%;">
+            <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"></label>
+
+            </div>
+        </div>
+        <button class="checkout__total-button button button--primary" style="background-color: #007B7C;">ADD TOOL</button>
+
+    </form>
+
+        <button class="checkout__total-button button button--primary" style="background-color: #007B7C;" (click)="dismiss()">CANCEL</button>
+    </div>
+
+
+
+
+</div>

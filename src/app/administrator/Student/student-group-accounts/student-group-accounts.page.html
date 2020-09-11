@@ -1,0 +1,57 @@
+
+
+<ion-content>
+ 
+
+
+<div align="center" style = "padding-top: 10%;">
+  <div style="padding-left: 70%;">
+    <button class="pulse" style="background-color: darkcyan; width: 250px;" (click)="openAdd()"> Allocate Amount</button>
+
+  </div>
+        <br/>
+        <br/>
+        <h1 style="color: honeydew; font-size: 200%"><strong>STUDENT GROUP ACCOUNTS</strong></h1>
+        <div class="container">
+                <!--Applications Table  search bar-->
+                <div class="searchbox" >
+                  <button class="btn-menu">
+                      <img src="https://img.icons8.com/cute-clipart/24/000000/top-menu.png">
+                  </button>
+                  <input id="search" type="text" placeholder="Search..." name="search" class="search">
+                <button  class="btn-search">
+                    <img src="https://img.icons8.com/cotton/24/000000/search--v2.png">
+                  </button>
+              </div>
+              <!--Applications Table -->
+
+              <table class="rwd-table">
+                <tr>
+                  <th>Student Group number</th>
+                  <th>Amount allocated </th>
+                  <th>Amount Remaining</th>
+                  <th >&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;Action</th>
+                </tr>
+                <tr *ngFor="let All of GroupsAllocations">
+                  <td data-th="Date">{{All.GroupNo}}</td>
+                  <td data-th="Location">{{All.Balance}}</td>
+                  <td data-th="Time">{{All.RemainingBalance}}</td>
+                
+                  <td data-th="Action"><button class="slide"(click)="open(All.GroupNo)"  >View Receipts</button> </td>
+                </tr>
+                <tr *ngIf="GroupsAllocations.length==0">
+                  <td data-th="Date">No Allocated Balances</td>
+                  <td data-th="Date">No Allocated Balances</td>
+                  <td data-th="Date">No Allocated Balances</td>
+                  <td data-th="Date">No Allocated Balances</td>
+                </tr>
+
+              
+              </table>
+        </div>
+</div>
+
+
+
+
+</ion-content>

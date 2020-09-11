@@ -1,0 +1,110 @@
+
+
+<ion-content>
+  
+ 
+ <h1 style="color: honeydew; font-size: 200%; padding-top: 7%;"   align="center"><strong> Profile Creation Reminder</strong></h1>
+  
+ <div align="center">
+ 
+ 
+   <div class="checkout" style="width: 50%; "  *ngIf="isAvailble==false" >
+        <div class="checkout__delivery-address"    align="center">
+          <h3 class="checkout__subtitle" style="color: #007B7C;">Please  Provide Reminder Details </h3> 
+          <br/><br/>
+          <form [formGroup]="RemidnerServ.form" (ngSubmit)="setReminder()">
+            <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Time:</label>
+                <input type="time" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder="Last Nam"  formControlName="Time" />
+
+              </div>   
+              <div  style="width:60%; padding-left: 10%;">
+                <div class="alert alert-danger" role="alert" *ngIf="f.Time.invalid" ><sup>*</sup>Please provide Time</div>
+
+              </div>           
+          </div> 
+                <br/>
+                <div class="form-group checkout__address-form-group">
+                  <div class="form-group__label">
+                    <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Date:</label>
+                    <input type="date" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder="Last Nam" formControlName="Date" />
+                  
+                  </div>
+                  <div  style="width:60%; padding-left: 10%;">
+                    <div class="alert alert-danger" role="alert" *ngIf="f.Date.touched && f.Date.invalid" ><sup>*</sup>Please provide Date</div>
+      
+                  </div>              
+              </div> 
+                    <br/>
+                  
+                    <div class="form-group checkout__address-form-group">
+                      <div class="form-group__label">
+                        <label class="checkout__address-form-label label label--required" for="cars">Choose occurrence :</label>
+                        <select id="cars" class="checkout__address-form-label label label--required" style="width:40%;" name="cars" formControlName="Occurrence">
+                          <option value="Once">Once</option>
+                          <option value="Daily">Daily</option>
+                          <option value="Weekly">Weekly</option>
+                        </select>
+                        
+                      </div> 
+                      <div  style="width:60%; padding-left: 10%;">
+                        <div class="alert alert-danger" role="alert" *ngIf="f.Occurrence.touched && f.Occurrence.invalid" ><sup>*</sup>Please provide Community Partner ID</div>
+          
+                      </div>             
+                  </div> 
+                  <div class="form-group checkout__address-form-group">
+                    <div class="form-group__label">
+                      <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Department Email:</label>
+                      <input type="email" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder="email" formControlName="Email" />
+            
+                      <br/>
+
+                    </div>
+                    <div class="alert alert-danger" *ngIf="f.Email.touched && f.Email.invalid">
+                      <p *ngIf="f.Email.errors?.required">Email is a required field!</p>
+                      <p *ngIf="f.Email.errors?.pattern">This is not a valid Email!!!</p>
+                    </div>           
+                
+                </div> 
+                    
+            <br/><br/><br/><br/>
+          
+            <button  style="background-color: darkcyan; width: 250px;" type="submit" [disabled]="RemidnerServ.form.invalid">Set reminder</button>
+      
+            
+                    
+            </form>
+      </div>
+     </div>
+     <div class="checkout" style="width: 50%; "  *ngIf="isAvailble">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Fluid jumbotron</h1>
+          <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </div>
+      </div>
+     </div>
+   
+   </div>
+   
+   <div align="center" style="padding-top: 5%; ">
+ 
+ 
+   </div>
+   
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <!-- END  -->
+ 
+ 
+ </ion-content>
+ 

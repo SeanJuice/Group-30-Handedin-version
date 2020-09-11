@@ -1,0 +1,90 @@
+<ion-content>
+        <div align="center" style="padding-top: 10%;" >
+          <div class="checkout" style="width: 50%;padding-bottom: 5%;" >
+            <h2 class="checkout__subtitle">Book a Trip here</h2> 
+            <form [formGroup]="BookServ.form" (ngSubmit)="BookTrip()" style="align-items: center;" > 
+              <div class="checkout__address-form">
+              <div class="form-group">
+                <label class="checkout__address-form-label label label--required" for="GN">Group number * </label>
+                <input type="email" class="checkout__address-form-input input" id="GN" placeholder="Group Number" value="30" disabled  />
+              </div>
+              <div class="form-group">
+                <label class="checkout__address-form-label label label--required" for="TL">Trip location * </label>
+                <input type="text" class="checkout__address-form-input input" id="TL" placeholder="Trip Location" formControlName="Location" (keydown.enter)="$event.preventDefault()" placeholder="Search Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search/>
+                <div  style="width:60%; padding-left: 10%;">
+                  <div class="alert alert-danger" role="alert" *ngIf="f.Location.touched && f.Location.invalid" ><sup>*</sup>Please provide user location</div>
+                  <div class="alert alert-danger" role="alert" *ngIf="f.Location.errors?.pattern"><sup>*</sup>Please enter correct location</div>
+                </div>  
+              <div class="form-group">
+                <button type="button" class="btn btn-secondary" style="background-color: #007b7c;"   (click)="LocationService()">Search Location using Maps
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                    <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                  </svg>
+                </button>
+              </div>
+
+              <agm-map *ngIf='isShown'  [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+                <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+                  (dragEnd)="markerDragEnd($event)"></agm-marker>
+              </agm-map>
+              
+            
+              </div>
+              <div class="form-group form-check">
+                <label class="checkout__address-form-label label label--required" for="TD">Trip Date* </label>
+                <input type="date" class="checkout__address-form-input input" id="TD" placeholder="Trip Date" formControlName="Date"/>
+                <div  style="width:60%; padding-left: 10%;">
+                  <div class="alert alert-danger" role="alert" *ngIf="f.Date.touched && f.Date.invalid" ><sup>*</sup>Please provide  Date</div>
+                  <div class="alert alert-danger" role="alert" *ngIf="f.Date.errors?.pattern"><sup>*</sup>Please enter correct Date</div>
+                </div>  
+              </div>
+              <div class="form-group form-check">
+                <label class="checkout__address-form-label label label--required" for="TT">Trip Time*</label>
+                <input type="time" class="checkout__address-form-input input" id="TT" placeholder="Trip Time" formControlName="Time"/>
+                <div  style="width:60%; padding-left: 10%;">
+                  <div class="alert alert-danger" role="alert" *ngIf="f.Time.touched && f.Date.invalid" ><sup>*</sup>Please provide  Time</div>
+                  <div class="alert alert-danger" role="alert" *ngIf="f.Time.errors?.pattern"><sup>*</sup> Time is required</div>
+                </div>  
+              </div>
+              <div class="form-group form-check">
+                <label class="checkout__address-form-label label label--required" for="TT">Project Name*</label>
+                <input type="text" class="checkout__address-form-input input" id="TT" placeholder="Project Name" formControlName="ProjectName"/>
+                <div  style="width:60%; padding-left: 10%;">
+                  <div class="alert alert-danger" role="alert" *ngIf="f.ProjectName.touched && f.ProjectName.invalid" ><sup>*</sup>Please provide  ProjectName</div>
+                  <div class="alert alert-danger" role="alert" *ngIf="f.ProjectName.errors?.pattern"><sup>*</sup> ProjectName is required</div>
+                </div>
+              </div>
+      
+              <div class="form-group" >
+                <label class="checkout__address-form-label label label--required" for="TT">Description*</label>
+                <textarea class="checkout__address-form-input input" id="exampleFormControlTextarea1" rows="3" formControlName="Description"></textarea>
+                <div  style="width:60%; padding-left: 10%;">
+                  <div class="alert alert-danger" role="alert" *ngIf="f.Description.touched && f.Description.invalid" ><sup>*</sup>Please provide  Time</div>
+                  <div class="alert alert-danger" role="alert" *ngIf="f.Description.errors?.pattern"><sup>*</sup> Time is required</div>
+                </div>
+              </div>
+
+
+              <button class="checkout__total-button button button--primary" style="background-color: #007B7C;" *ngIf="ShowButton" type="submit" >BOOK</button>
+            </div>
+            </form>
+
+            <div class="form-group checkout__address-form-group" align="center" *ngIf="ShowButton">
+              <div class="form-group__label" >
+       
+                <button *ngIf="BookedButton" style="background-color: grey;">
+                  Save Changes
+                </button>
+                <button *ngIf="BookedButton"  style="background-color: grey;" (click)="CancelTRipConfirmation()">
+                  Delete
+                
+                </button>
+        
+              </div>           
+           </div> 
+  
+          </div>
+        </div>
+
+</ion-content>

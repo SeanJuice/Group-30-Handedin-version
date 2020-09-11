@@ -1,0 +1,103 @@
+<ion-content>
+  <div class="checkout">
+    
+  
+    <div class="checkout__delivery-address"  >
+
+         <h3 class="checkout__subtitle">Student details</h3> 
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="Group Number">Group Number: *</label>
+                 <label id="Group Number">30</label>
+              </div>           
+           </div> 
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="Name">Name: *</label>
+               <label id="Name">Lerato Pule</label>
+            </div>           
+         </div>   
+         <div class="form-group checkout__address-form-group">
+          <div class="form-group__label">
+            <label class="checkout__address-form-label label label--required" for="Email">Email: *</label>
+             <label id="Email">LeratoPule@gmail.com</label>
+          </div>           
+       </div>  
+       <div class="form-group checkout__address-form-group">
+        <div class="form-group__label">
+          <label class="checkout__address-form-label label label--required" for="Contact">Contact Number: *</label>
+           <label id="Contact">07343462221</label>
+        </div>           
+     </div>  
+     <div class="form-group checkout__address-form-group">
+      <div class="form-group__label">
+        <label class="checkout__address-form-label label label--required" for="Project">Project name: *</label>
+         <label id="Project">Primary school</label>
+      </div>           
+   </div> 
+   <div class="form-group checkout__address-form-group">
+    <div class="form-group__label">
+      <label class="checkout__address-form-label label label--required" for="Amount">Amount Allocation: *</label>
+       <label id="Amount">R200</label>
+    </div>           
+ </div>
+ <div class="form-group checkout__address-form-group">
+  <div class="form-group__label">
+    <button class="checkout__total-button button button--primary" style="background-color: #007B7C;" (click)="ShowFiles()">View Uploaded documents</button>
+  </div>           
+</div>
+<br/>
+<table *ngIf="Allinfo">
+    
+    
+  <thead>
+    <tr>
+      <th scope="col">Document Name</th>
+      <th scope="col">Date of Upload</th>
+        <th scope="col">Document</th>
+       <th scope="col">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <div></div>
+    <tr>
+      <td data-label="DN">Chuld protection form</td>
+      <td data-label="DOU">2/09/2020</td>
+      <td data-label="D">Childprotection.pdf</td>
+      <td data-label="Plan">
+        <button class="offset" style="height: 5.5px; background-color:#007B7C ;" >Download</button>
+      </td>
+    </tr>
+    <tr>
+      <td data-label="DN">Student money form</td>
+      <td data-label="DOU">2/09/2020</td>
+      <td data-label="D">Form.pdf</td>
+      <td data-label="Plan">
+        <button class="offset"  style="height: 5.5px; color:#007B7C ;" >Download</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+         <div class="form-group checkout__address-form-group" style="padding-top: 10%;">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"></label>
+                <button class="checkout__total-button button button--primary" style="background-color: #007B7C; color: goldenrod;" >CANCEL</button>
+              </div>           
+           </div>  
+          
+   
+
+         
+      </div>
+    
+
+    
+  
+  
+  </div>
+
+</ion-content>
+

@@ -1,0 +1,25 @@
+
+<ion-content>
+  
+    <!-- end of navigation Bar -->
+    <div  align="center" style="padding-top: 10%;">
+      <h2 align="center"><strong>The Status of your Application</strong></h2>
+      <!-- Status  card P1 -->
+      <table class="rwd-table" align="center">
+        <tr>
+          <th>Application Type</th>
+          <th>Application Date</th>
+          <th>Application Status</th>
+          
+        </tr>
+        <tr *ngFor="let Applicantt of Applicant">
+          <td data-th="Type">{{Applicantt.Applicationtype}}</td>
+          <td data-th="Date">{{Applicantt.ApplicationDate | date}}</td>
+          <td data-th="Status">{{Applicantt.ApplicaitonStatus}}</td>
+          
+        </tr>
+       
+       
+      </table>
+    </div>
+</ion-content>

@@ -1,0 +1,52 @@
+
+
+<ion-content>
+     <!-- navigation Bar  -->
+
+  <div align="center" style = "position:absolute; left:20%; top:10%;">
+  <br/>
+  <br/>
+  <h1 style="color: honeydew; font-size: 200%;"><strong> EXISITING DRIVERS</strong></h1>
+    <div class="container">
+          <div class="searchbox" >
+        <button class="btn-menu"> 
+                <img src="https://img.icons8.com/cute-clipart/24/000000/top-menu.png">
+            </button>
+            <input id="search" type="text" placeholder="Search..." name="search" class="search">
+          <button  class="btn-search">
+              <img src="https://img.icons8.com/cotton/24/000000/search--v2.png">
+            </button>
+    </div>
+  <!--Exisiting drivers table -->
+  
+  <table class="rwd-table">
+    <tr>
+      <th>First Name</th>
+      <th>Second Name</th>
+      <th>Student Number</th>
+
+      <th >&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;Action</th>
+    </tr>
+    <tr *ngFor="let driver of ExisitingDrivers">
+      <td data-th="Name">{{driver.Name}}</td>
+      <td data-th="Surname">{{driver.Surname}}</td>
+      <td data-th="Student Number">{{driver.StudentNumber}}</td>
+       <td data-th="Action"> <button class="slide" (click)="open(driver.id)">View Driver details</button>
+       </td>
+    </tr>
+
+   
+  </table>
+  </div>
+  
+  
+  
+  <!---modal data-->
+  <!-- Button trigger modal -->
+  
+  
+  <!-- Modal -->
+  
+  </div>
+  </ion-content>
+  

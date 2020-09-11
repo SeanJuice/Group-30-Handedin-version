@@ -1,0 +1,73 @@
+<ion-content>
+  <div class="checkout">
+    
+  
+    <div class="checkout__delivery-address"  >
+
+         <h3 class="checkout__subtitle">Add Document</h3> 
+
+         <form #form="ngForm" (ngSubmit)="Confirmation(emaill.value)" >
+  
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="Options">Document Type*</label>
+                            
+                  <select name="email" #emaill="ngModel" [(ngModel)]="email" class="checkout__address-form-input input">
+                    <option value="ChildProtection">ChildProtection</option>
+                    <option value="ID">Identity Document</option>
+                    <option value="License">License</option>
+                    <option value="Other">Other Document</option>
+                  </select>
+                  <div  style="width:60%; padding-left: 10%;">
+                  <div class="alert alert-danger" role="alert" *ngIf="emaill.touched &&emaill.invalid" ><sup>*</sup>Please provide Document Type</div>
+                  
+                </div> 
+                
+              </div>         
+           </div> 
+
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Attach document *</label>
+              <div style="width: 30%;">
+                <input class="choose-file" type="file" id="choose-file"  (change)="selectFile($event)" required >
+                <label for="choose-file" class="upload-file"></label>
+
+              
+      
+              </div>
+              <div *ngIf="currentFileUpload" class="progress" style="width: 50%;">
+                <div class="progress-bar progress-bar-info progress-bar-striped"
+                  role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+                  aria-valuemin="0" aria-valuemax="100"
+                  [ngStyle]="{width:progress.percentage+'%'}" >
+                  {{progress.percentage}}%
+                </div>
+      
+              </div>
+            </div>           
+         </div>
+        <br/>
+     
+       
+         <button class="checkout__total-button button button--primary" style="background-color: #007B7C;" type="submit"  [disabled]="!selectedFiles">SUBMIT</button>
+   
+    </form>
+         <button class="checkout__total-button2 button button--primary" style="background-color: #007B7C;" >CANCEL</button>
+        <div class="form-group checkout__address-form-group" style="padding-top: 5%;">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"></label> 
+              </div>           
+           </div>  
+           
+      </div>
+    
+   
+  
+  
+  </div>
+
+</ion-content>
+ 
+
+

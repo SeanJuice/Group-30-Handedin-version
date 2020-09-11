@@ -1,0 +1,50 @@
+
+
+<ion-content>
+
+<div align="center" style = "padding-top: 10%;">
+        <br/>
+        <br/>
+        <h1 style="color: honeydew; font-size: 200%"><strong> COMMUNITY PARTNERS </strong></h1>
+        <div class="container">
+              <div class="searchbox" >
+                    <button class="btn-menu">
+                        <img src="https://img.icons8.com/cute-clipart/24/000000/top-menu.png">
+                    </button>
+                    <input id="search" type="text" placeholder="Search..." name="search" class="search" [(ngModel)]="searchText" #searchbar>
+                  <button  class="btn-search">
+                      <img src="https://img.icons8.com/cotton/24/000000/search--v2.png">
+                    </button>
+            </div>
+              <!--Applications Table -->
+
+              <table class="rwd-table">
+                <tr>
+                  <th>Community Partner Name</th>
+                  <th>Contact Person</th>
+                  <th>Physical Address</th>
+                  <th>Postal Address</th>
+         
+                  <th >&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;Action</th>
+                </tr>
+                <tr *ngFor="let CP of ExisitingCP | filter: searchText">
+                  <td data-th="Date">{{CP.Name}}</td>
+                  <td data-th="Location">{{CP.ContactPerson}}</td>
+                  <td data-th="Time">{{CP.PhysicalAddress}}</td>
+                  <td data-th="Time">{{CP.Email}}</td>
+                  <td data-th="Action"><button class="slide" (click)="open()">View Profile</button> </td>
+                </tr>
+                <tr *ngIf="ExisitingCP.length==0">
+                  <td>No possible project</td>
+                  <td>No possible project</td>
+                  <td>No possible project</td>
+                  <td>No possible project</td>
+                  <td>No possible project</td>
+                  
+                </tr>
+
+              
+              </table>
+        </div>
+</div>
+</ion-content>

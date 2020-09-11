@@ -1,0 +1,61 @@
+<ion-content>
+  <div class="checkout">
+    
+  
+    <div class="checkout__delivery-address"  >
+      <form  [formGroup]="BudgetService.form" (ngSubmit)="Conifrmation()">  
+         <h3 class="checkout__subtitle">Add Receipt </h3> 
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1" > Receipt Description *</label>
+                <textarea id="story" name="story" style="color: rgb(77, 75, 75);" rows="3" cols="33"  formControlName="Description">
+                      </textarea>
+              </div>           
+           </div>  
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Date of Purchase *</label>
+                 <input type="date" class="checkout__address-form-input input"  id="exampleInputEmail1" formControlName="Date" placeholder="date"  required/>
+              </div>           
+           </div> 
+           <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Balance*</label>
+                 <input type="number" class="checkout__address-form-input input" formControlName="Balance" id="exampleInputEmail1" placeholder="Balance" required />
+              </div>           
+           </div>
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Attach documents*</label>
+              <div style="width: 30%;">
+                <input class="choose-file" type="file" (change)="selectFile($event)" id="choose-file" required >
+                <label for="choose-file" class="upload-file"></label>
+              </div>
+           
+            </div>           
+         </div>
+        
+          
+         <button class="checkout__total-button button button--primary" style="background-color: #007B7C;" type="submit" >SUBMIT</button>
+   
+
+         <button class="checkout__total-button2 button button--primary" style="background-color: #007B7C;" >CANCEL</button>
+        <div class="form-group checkout__address-form-group" style="padding-top: 5%;">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"></label>
+                
+              </div>           
+           </div>  
+    </form>
+           
+      </div>
+    
+   
+  
+  
+  </div>
+
+</ion-content>
+ 
+
+

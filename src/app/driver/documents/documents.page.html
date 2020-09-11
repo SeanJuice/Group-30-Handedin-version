@@ -1,0 +1,50 @@
+
+
+<!-- cONTENT GOES HERE -->
+<ion-content>
+  
+    <!-- end of navigation Bar -->
+
+    <div class="container"   align="center" style="padding-top: 10%; padding-left: 15%;">
+      <h1 style="color: honeydew; font-size: 200%" ><strong>DRIVER DOCUMENTS</strong></h1>
+      <div style="padding-left: 65%;" >
+        <button class="pulse" style="padding-left: 15%; padding-right: 15%;background-color: #007B7C;" (click)="openUploadModal()">UPLOAD</button>
+      </div>
+      
+    
+       <!-- Table-->
+      <table>
+     
+        <thead>
+          <tr>
+            <th scope="col"> 	Date of upload</th>
+            <th scope="col"> 	Document type</th>
+              <th scope="col"> Document</th>
+             <th scope="col">actions </th>
+           
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let file of fileUploads"> 
+            <td data-label="physical address"  >{{file.Date | date}}</td>
+            <td data-label="Description">{{file.type}}</td>
+            
+           <td data-label="Category" ><a href="{{file.Url}}" >{{file.Name}}</a></td>
+           <td data-label="Plan"><button class="fill" (click)="DeleteDocument(file.id,file.Url)">Remove</button></td>
+          </tr>
+          <tr *ngIf="fileUploads.length==0">
+            <td >No Files available</td>
+            <td >No Files available</td>
+            <td >No Files available</td>
+            <td >No Files available</td>
+          </tr>
+          
+           
+        </tbody>
+      </table>
+    </div>
+    
+    
+
+</ion-content>

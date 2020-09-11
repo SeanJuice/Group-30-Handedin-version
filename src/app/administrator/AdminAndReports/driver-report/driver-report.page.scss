@@ -1,0 +1,1881 @@
+
+ion-menu-button {
+    color: var(--ion-color-primary);
+  }
+  
+  ///@extend////Navigation 
+  ion-menu-button {
+    color: var(--ion-color-primary);
+  }
+  
+  ///@extend////Navigation 
+  
+  /*GENERIC STYLES*/
+  body { background: #f2f2f2;color: #222;-webkit-font-smoothing: antialiased;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 1.05em;font-weight: 400;height: auto !important;height: 100%;line-height: 1.6rem;min-height: 100%;}
+  /*NAV*/
+      header {
+          background: linear-gradient(to left,rgba(240, 237, 107, 0.96) 0,rgba(0, 123, 124)  100%);
+          border-bottom: 1px solid rgba(54, 54, 54, 0.1);
+          box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+          display: block;
+          position: fixed;
+          width: 100%;
+          z-index: 1000;
+      }
+      
+      header > nav > ul {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+      }
+      
+          header > nav > ul > li {
+              flex: 0 1 auto;
+              margin: 0;
+              padding: 0;
+              position: relative;
+              transition: all linear 0.1s;	
+          }
+          
+              header > nav > ul > li:hover {
+                  background: rgb(0, 123, 124);
+              }
+              
+              header > nav > ul > li a + div {
+                  background: linear-gradient(to bottom,rgba(0, 123, 124) 0,rgba(0, 123, 124) 100%);;
+                  border-radius: 0 0 2px 2px;
+                  box-shadow: 0 3px 1px rgba(0,0,0,.05);
+                  display: none;
+                  font-size: 1rem;
+                  position: absolute;
+                  width: 195px;
+              }
+              
+                  header > nav > ul > li:hover a + div {
+                      display: block;
+                  }
+                  
+                  header > nav > ul > li a + div > ul {
+                      list-style-type: none;	
+                  }
+                  
+                      header > nav > ul > li a + div > ul > li {
+                          margin: 0;
+                          padding: 0;
+                      }
+                      
+                          header > nav > ul > li a + div > ul > li > a {
+                              color: rgba(255,255,255,.9);
+                              display: block;	
+                              font-size: .50rem;
+                              letter-spacing: 1.5px;
+                              padding: .25rem 1.5rem;
+                              text-decoration: none;
+                              text-transform: uppercase;
+                          }
+                          
+                              header > nav > ul > li a + div > ul > li:hover > a {
+                                  background-color: rgba(0,0,0,.15);	
+                              }
+      
+              header > nav > ul > li > a {
+                  align-items: flex-start;
+                  color: #fff;
+                  display: flex;
+                  font-size: 1.5rem;
+                  font-weight: 400;
+                  letter-spacing: 1px;
+                  max-width: 130px;
+                  padding: 1rem 1.5rem;
+                  text-decoration: none;
+                  text-shadow: 0 1px 1px rgba(0,0,0,.1);
+                  transition: all linear 0.1s;
+              }
+              
+                  header > nav > ul > li > a > div > span {
+                      color: rgba(255,255,255,.75);
+                      display: block;
+                      font-family: Georgia, "Times New Roman", Times, serif;
+                      font-size: .4rem;	
+                      font-style: italic;
+                      line-height: 1rem;
+                      max-width: 260px;
+                  }
+  
+  @media (min-width: 990px) {
+    header > nav > ul > li > a {
+      max-width: 600px;
+      font-size: 80%;   ///font change for the navigation
+      line-height: 1rem;
+    }
+    
+    header > nav > ul > li > a > div > span {
+        margin: 4px 0 0;  
+    }
+  }
+  ///////////
+  
+  #container {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #8c8c8c;
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  .demo-card-square.mdl-card {
+    width: 320px;
+    height: 320px;
+    float: left;
+    margin: 1rem;
+    position: relative;
+  }
+  //nevigation
+  //=== Reveal drop-down
+  .sub-menu {
+    opacity: 0;
+    transform: translate3d(0, -2rem, 0) scale(0.8);
+    visibility: hidden;
+    
+    [aria-expanded=true] + & {
+      opacity: 1;
+      transform: none;
+      visibility: visible;
+    }
+  }
+  
+  //=== Page styling, ignore
+  
+  $white: #f3f1fe;
+  $purple: #8b5ab7;
+  $purple-blue: #007B7C;
+  $pink: #fc9bb6;
+  $blue: #97bcff;
+  $cyan: #50cba1;
+  $yellow: #ffbb61; // This color fails contrast requirements: there is no way to have yellow text on a white background and pass contrast requirements. But the design of this pen isn't the point and won't be of use to anyone, unless you really like the Easter aesthetic. I've had a long week. Let me have this one color.
+  
+  $shadow: 0 0.25em 2em rgba($purple-blue, 0.4);
+  $border-color: mix($white, #d4d4db);
+    
+  @mixin pattern-zigzag($size : 20px, $color1 : #000, $color2: #fff) {
+    $deg  : 45deg;
+    $change: 90;
+    $deg2 : $deg + $change;
+    $deg3 : $deg2 + $change;
+    $deg4 : $deg3 + $change;
+    
+    background-color: $color2;
+    background-image: 
+      linear-gradient($deg2, $color1 $size/3, transparent $size/3), 
+      linear-gradient($deg3, $color1 $size/3, transparent $size/3),
+      linear-gradient($deg4, $color1 $size/3, transparent $size/3),
+      linear-gradient($deg, $color1 $size/3, transparent $size/3);
+    background-position: -$size/2 0, -$size/2 0, 0 0, 0 0;
+    background-size: $size $size;
+  } 
+    
+  @mixin shape-triangle($size, $direction : top, $color : inherit) {  
+    $opposite: bottom;  
+      
+    @if($direction == 'bottom') { $opposite: 'top'; } 
+    @if($direction == 'left') { $opposite: 'right'; } 
+    @if($direction == 'right') { $opposite: 'left'; } 
+      
+    border: $size solid transparent;  
+    border-#{$direction}-color: $color; 
+    border-#{$opposite}-width: 0; 
+  } 
+  
+  body { background: $white; }
+  
+  .site-navigation {
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: $shadow;
+    color: $purple;
+    font: 700 1.375rem / 1 'Noto Sans', sans-serif;
+    max-width: 996px;
+    margin: 2em auto;
+    text-align: center;
+    
+    ul, li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  
+  .nav {  
+    > li { 
+      border-bottom: 2px solid $border-color;
+      position: relative; 
+    }
+    
+    @media (min-width: 768px) {
+      display: flex;
+      justify-content: space-around;
+      
+      > li {
+        border: 0;
+        flex: 1 1 auto;
+      
+        // Don't do this to your selectors
+        &:not(:last-child)::before {
+          background: $border-color;
+          content: '';
+          display: block;
+          transform: skew(0deg);
+          width: 4px;
+          position: absolute;
+          top: 0; bottom: 0; right: 2px;
+          z-index: 10;
+        }
+        
+      }
+    }
+    
+    a {
+      color: inherit; 
+      text-decoration: none;
+      transition: 0.2s;
+      display: block;
+      overflow: hidden;
+      padding: 1.25em;
+      position: relative;
+      
+      &::before {
+        @include pattern-zigzag(0.4em, #fff, $purple-blue);
+        
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%; right: 1.25em; left: 1.25em;
+        margin-right: 8px; margin-top: 0.75em;
+        height: 0.4em;
+        transform: translateY(3em);
+        transition: 0.3s ease-out;
+      }
+      
+      &:hover,
+      &:focus {
+        color: $yellow;
+        
+        &::before {
+          transform: none;
+        }
+      }
+      
+      &:focus { outline: 2px dotted $yellow; }
+      &:active { color: $cyan; }
+    }  
+  }
+  
+  // Indicator
+  .menu-item-has-children > a {
+    &::after {
+      @include shape-triangle(0.25em, top, $yellow);
+      
+      content: '';
+      display: inline-block;
+      transition: 0.2s;
+      margin-top: -0.125em;
+      margin-left: 0.5em;
+      position: relative;
+      vertical-align: middle;
+    }
+    
+    &[aria-expanded=true]::after {
+      transform: rotate(180deg);
+    }
+  }
+  
+  li.active a::after {
+    @include shape-triangle(0.25em, bottom, $cyan);
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    margin-left: -0.125em;
+  }
+  
+  .sub-menu {
+    background: #fff;
+    box-shadow: 0 0.25em 2em rgba(#8067fd, 0.4);
+    position: absolute;
+    top: 100%; left: 50%;
+    transform-origin: top center;
+    transition: 0.3s ease-out;
+    width: 11rem;
+    z-index: 2;
+    
+    &#{&} { margin-left: -5.5rem; }
+    
+    li { border: 1px solid $border-color; }
+    a { transform: translate3d(0, 1em, 0); }
+    
+    @for $i from 1 through 5 {
+      li:nth-child(#{$i}) a {
+        transition-delay: $i * 0.1s;
+      }
+    }
+    
+    [aria-expanded=true] + & a {
+      transform: none;
+    }
+  }
+    
+    //////////////////////////////////////////////////////////////////////// 
+    
+    
+    $breakpoint-alpha: 480px; // adjust to your needs
+    
+    .rwd-table {
+      margin: 1em 0;
+      min-width: 1000px; // adjust to your needs
+      
+      tr {
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      th {
+        display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!   
+        font-size: medium;
+      }
+      
+      td {
+        display: block; 
+        
+        &:first-child {
+          padding-top: .5em;
+        }
+        &:last-child {
+          padding-bottom: .5em;
+        }
+    
+        &:before {
+          content: attr(data-th)": "; // who knew you could do this? The internet, that's who.
+          font-weight: bold;
+    
+          // optional stuff to make it look nicer
+          width: 6.5em; // magic number :( adjust according to your own content
+          display: inline-block;
+          // end options
+          
+          @media (min-width: $breakpoint-alpha) {
+            display: none;
+          }
+        }
+      }
+      
+      th, td {
+        text-align: left;
+        
+        @media (min-width: $breakpoint-alpha) {
+          display: table-cell;
+          padding: .25em .5em;
+          
+          &:first-child {
+            padding-left: 0;
+          }
+          
+          &:last-child {
+            padding-right: 0;
+          }
+        }
+    
+      }
+      
+      
+    }
+    
+    
+    // presentational styling
+    
+    @import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700';
+    
+    body {
+      padding: 0 6em;
+      font-family: Montserrat, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      color: #444;
+      background: #eee;
+    }
+    
+    h1 {
+      font-weight: normal;
+      letter-spacing: -1px;
+      color: #34495E;
+    }
+    
+    .rwd-table {
+      background: #ffffff;
+      color: #007B7C;
+      border-radius: .4em;
+      overflow: hidden;
+      tr {
+        border-color: lighten(#34495E, 10%);
+      }
+      th, td {
+        margin: .5em 1em;
+        @media (min-width: $breakpoint-alpha) { 
+          padding: 2em !important; 
+        }
+      }
+      th, td:before {
+        color: #007B7C;
+      }
+    
+      
+    }
+     ///// Alert funtion
+     .alertCustomCss{
+      background-color: white;
+      max-height:1000px;  
+      height:1000px;
+      color: blue;
+      button{
+          color: blue;
+      }
+    }
+    
+    
+    //Take button
+    
+    @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,700,900');
+    
+    $anim-text-offset: 1em;
+    
+    body{
+      font-family: 'Work Sans', sans-serif;
+      background: #111;
+      text-align: center;
+    }
+    .wrapper{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .button{
+      touch-callout: none;
+      user-select: none;
+      display: inline-block;
+      border: .2em solid;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      opacity: 0.6;
+      color: #34495E;
+      &__text{
+        display: block;
+        padding:1em 2em;
+        text-transform: uppercase;
+        font-weight: bold;
+        &:before{
+          content: attr(title);
+        }
+        &--bis{
+          display: block;
+          position: absolute;
+          top: 0; left:0; right: 0; bottom: 0;
+          transform: translateX(-1 * $anim-text-offset);
+          opacity: 0;
+        }
+      }
+      &__mask{
+        display: block;
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: yellow;
+        transform: translateX(-100%) rotate(45deg);
+        transition: all 0.3s;
+      }  
+    }
+    
+    .button:hover{
+      opacity: 1;
+      .button__text{
+        animation: fx-text .3s ease-out;
+        color:black;
+        &--bis{
+          animation: fx-text-bis .3s ease-out;
+        }
+      }    
+      .button__mask{
+        animation: fx-mask .3s ease-out;
+        color:yellow;
+      }    
+    }
+    
+    .button:active{
+      opacity: 1;
+      background: white;
+      color: inherit;
+    }
+    
+    
+    
+    @keyframes fx-mask {
+      0%{
+        transform: translateX(-100%) rotate(45deg);
+      }
+      100%{
+        transform: translateX(100%) rotate(45deg);
+      }
+    }
+    
+    @keyframes fx-text {
+      0%{
+        transform: translateX(0);
+        opacity: 1;
+      }
+      100%{
+        transform: translateX($anim-text-offset);
+        opacity: 0;
+      }
+    }
+    @keyframes fx-text-bis {
+      0%{
+        transform: translateX(-1 * $anim-text-offset);
+        opacity: 0;
+      }
+      100%{
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    ////////Search bar 
+    @import url('https://fonts.googleapis.com/css?family=Sarabun');
+    
+    *,
+    *::after,
+    *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+    }
+    
+    
+    
+    
+    
+    
+    h1 {
+      margin: 2rem;  
+    }
+    
+    .searchbar {
+        color:crimson;
+      font-size: 2rem;
+      width: 50rem;
+      height: 0.5rem;
+      border: none;
+      outline: none;
+      border-radius: 10rem;
+      box-shadow: 0 1rem 2rem rgba(black, .1);
+      padding: 2rem;
+      // position: relative;
+      transition: all .2s;
+      transition-delay: .1s;
+      
+    }
+    
+    
+    
+    .button {
+      height: 2rem;
+      position: absolute;
+      top: 9rem;
+      right: 10rem;
+      transition: all .2s;
+      transition-delay: .1s;
+    }
+    
+    .button:hover {
+      cursor: pointer;
+    }
+    
+    
+    
+    .searchbar::placeholder {
+      opacity: 1;
+    }
+    
+    //BUTTONS  COLORFULL
+    //@extend//@extend
+    
+    .fill:hover,
+    .fill:focus {
+      box-shadow: inset 0 0 0 2em var(--hover);
+    }
+    
+    // Animate the size, outside
+    .pulse:hover, 
+    .pulse:focus {
+      animation: pulse 1s;
+      box-shadow: 0 0 0 2em rgba(#fff,0);
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 var(--hover); }
+    }
+    
+    // Stack multiple shadows, one from the left, the other from the right
+    .close:hover,
+    .close:focus {
+      box-shadow: 
+        inset -3.5em 0 0 0 var(--hover),
+        inset 3.5em 0 0 0 var(--hover);  
+    }
+    
+    // Size can also be negative; see how it's smaller than the element
+    .raise:hover,
+    .raise:focus {
+      box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+      transform: translateY(-0.25em);
+    }
+    
+    // Animating from the bottom
+    .up:hover,
+    .up:focus {
+      box-shadow: inset 0 -3.25em 0 0 var(--hover);
+    }
+    
+    // And from the left
+    .slide:hover,
+    .slide:focus {
+      box-shadow: inset 6.5em 0 0 0 var(--hover);
+    }
+    
+    // Multiple shadows, one on the outside, another on the inside
+    .offset {  
+      box-shadow: 
+        0.3em 0.3em 0 0 var(--color),
+        inset 0.3em 0.3em 0 0 var(--color);
+      
+      &:hover,
+      &:focus {
+        box-shadow: 
+          0 0 0 0 var(--hover),
+          inset 6em 3.5em 0 0 var(--hover);
+      }
+    }
+    
+    //=== Set button colors
+    // If you wonder why use Sass vars or CSS custom properties...
+      // Make a map with the class names and matching colors
+    $colors: (
+      fill: #a972cb,
+      pulse: #ef6eae, 
+      close: #ff7f82, 
+      raise: #ffa260, 
+      up: #e4cb58, 
+      slide: #8fc866, 
+      offset: #19bc8b
+    );
+    
+    // Sass variables compile to a static string; CSS variables are dynamic and inherited
+      // Loop through the map and set CSS custom properties using Sass variables
+    @each $button, $color in $colors {
+      .#{$button} {
+        --color: #{$color};
+        --hover: #{adjust-hue($color, 45deg)};
+      }
+    }
+    
+    // Now every button will have different colors as set above. We get to use the same structure, only changing the custom properties.
+    button {  
+      color: var(--color);
+      transition: 0.25s;
+      
+      &:hover,
+      &:focus { 
+        border-color: var(--hover);
+        color: #fff;
+      }
+    }
+    
+    //=== Pen styling, ignore
+    body {
+      color: #fff;
+      background: hsl(227, 10%, 10%);
+      font: 300 1em 'Fira Sans', sans-serif;
+      
+      // Center everything ever
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+    }
+    
+    // Basic button styles
+    button {
+      background: none;
+      border: 2px solid;
+      font: inherit;
+      line-height: 1;
+      margin: 0.5em;
+      padding: 1em 2em;
+    }
+    
+    h1 { font-weight: 400; }
+    
+    code { 
+      color: #e4cb58;
+      font: inherit;
+    }
+    
+    //modal
+    @mixin absCenter {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    body {
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      height: 100vh;
+      background-image: radial-gradient(#a8bfac, #5d8ba0);
+    }
+    
+    
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0,0,0,.7);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 1s;
+      
+        &__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 70%;
+        height: 50vh;
+        background-color: #f7f7f7;
+        border-radius: 6px;
+        cursor: default;
+        transform: translate(-50%, -50%) scale(0);
+        transition: all .3s .2s;
+      }
+      
+      &:target {
+        visibility: visible;
+        opacity: 1;
+      }
+      
+      &:target &__content {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      
+      &__close-button {
+        font-size: 4em;
+        line-height: 50%;
+        text-decoration: none;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: #333;
+      }
+    }
+    
+    
+    .btn:link,
+    .btn:visited {
+      margin-top: 40px;
+      display: inline-block;
+      padding: 13px 40px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 100px;
+      transition: all .2s;
+      background-color: #fff;
+      color: #000;
+      font-family: monospace;
+      font-size: 1.8em;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn:active {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+      ///@extend
+      ///Background 
+    ion-content {
+        --background: #adb5bd url("../../../folder/Untitleddesign.png") no-repeat center center / cover;
+      }
+      ///@extend
+  
+      ///////////////////////////
+  
+      $light-green:  #e6f4de;
+  $green:        #6ca950;
+  $light-pink:   #ffd9d1;
+  $pink:         #dd9498;
+  $light-orange: #fcf4cd;
+  $orange:       #f1b93b;
+  $blaze-orange: #fb6a00;
+  $red-orange:   #ff401a;
+  $red:          #e22921;
+  $blue-light:   #36a9e1;
+  $blue:         #3723f7;
+  $white:        #fff;
+  $white-dim:    #f8f8f8;
+  $silver:       #ececec;
+  $grey-light:   #ddd;
+  $grey:         #c6c6c6;
+  $grey-dark:    #999;
+  $grey-dim:     #767676;
+  $grey-dim-dark: #f5f5f5;
+  $off-black:    #3c3c3c;
+  $black:        #007B7C;
+  
+  $add-to-basket:             $blaze-orange;
+  $base-copy-color:           $off-black;
+  $error:                     $red-orange;
+  $grey-background:           $silver;
+  $grey-background-light:     $white-dim;
+  $grey-keyline:              $grey-light;
+  $promotion:                 $blue-light;
+  $sale:                      $red;
+  $success:                   $blue;
+  
+  $disabled-colour:           #dddddd;
+  
+  $dark-grey:                 #696969;
+  $error:                     #ff401a;
+  $error-background:          #ffd9d1;
+  $message:                   #3a8c1a;
+  $message-background:        #e5f3df;
+  $warning:                   #f1a328;
+  $warning-background:        #faf3ce;
+  $message-promotion:         #f0f7ff;
+  
+  *,
+  *:before,
+  *:after {
+      box-sizing: border-box;
+  }
+  
+  
+  @mixin vendor-prefix($name, $argument) {
+      // Gonzales PE has a bug causing the style guide to not be generated
+      // if these styles are included in the guide, so ignore
+      //
+      // styleguide:ignore:start
+      -moz-#{$name}: #{$argument};
+      -ms-#{$name}: #{$argument};
+      -o-#{$name}: #{$argument};
+      -webkit-#{$name}: #{$argument};
+      #{$name}: #{$argument};
+      // styleguide:ignore:end
+  }
+  
+  
+  
+  .checkbox {
+      position: relative;
+      margin-bottom: 10px;
+      
+      &:first-child {
+          margin-top: 26px;
+      }
+      
+      &__input {
+          display: none;
+          position: absolute;
+          
+          &:checked {
+              outline: none;
+          }
+      }
+      
+      &__label {
+          display: inline-block;
+          position: relative;
+          padding: 0 0 0 28px;
+          vertical-align: middle;
+          line-height: 21px;
+              
+          &:before {
+              display: inline-block;
+              position: absolute;
+              left: 0;
+              border: 1px solid $grey;
+              background-color: $white;
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              content: '';
+          }
+          
+          &:after {
+              @include vendor-prefix(transform, scale(0, 0));
+              display: inline-block;
+              position: absolute;
+              top: 2px;
+              left: 2px;
+              transition: transform .2s ease;
+              background-color: $black;
+              width: 16px;
+              height: 16px;
+              content: '';
+              border-radius: 50%;
+              
+          }
+          
+          .checkbox__input:checked + &:after {
+              @include vendor-prefix(transform, scale(1, 1));
+          }
+          
+          .checkbox__input:disabled + & {
+              color: $grey;
+          }
+      }
+      
+      &--error {
+          .checkbox__label:before {
+              border-color: $red-orange;
+          }
+      }
+  }
+  
+  
+  @mixin clearfix {
+  
+      &:before,
+      &:after {
+          content: " "; /* 1 */
+          display: table; /* 2 */
+      }
+  
+      &:after {
+          clear: both;
+      }
+  
+  }
+  
+  @mixin grid-wrapper {
+      @include clearfix;
+      margin: 0 auto;
+      max-width: 1200px;
+  
+      @media (min-width: 1600px) {
+          max-width: 1400px;
+      }
+  }
+  
+  $grid-gutter: 1.25vw;
+  
+  .alert {
+  
+      .icon {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding: 12px 14px;
+          width: 1em;
+          height: 1em;
+          vertical-align: top;
+          color: $message;
+      }
+  
+      &--locale-select {
+          padding: 0;
+      }
+  
+  }
+  
+  .alert__group {
+      position: relative;
+      transition: height .5s ease-out;
+      margin: 10px auto;
+      background-color: $message-background;
+      width: 100%;
+      color: $off-black;
+  
+      &--warning {
+          background-color: $warning-background;
+  
+          .alert__item {
+              border-color: rgba($warning, .3);
+          }
+  
+          .icon {
+              color: $warning;
+          }
+  
+          .alert__close {
+              color: $warning;
+          }
+  
+      }
+  
+      &--error {
+          background-color: $error-background;
+  
+          .alert__item {
+              border-color: rgba($error, .3);
+          }
+  
+          .icon {
+              color: $error;
+          }
+  
+          .alert__close {
+              color: $error;
+          }
+  
+      }
+  
+      &--locale-select {
+          margin: 0 auto;
+          font-style: italic;
+      }
+    
+    &--delivery {
+      background: #ffff99;
+      margin: 25px 0;
+      width: auto;
+      
+      .alert__item{
+        border-top: 0;
+        padding: 4px 0;
+      }
+      
+    }
+  
+  }
+  .alert--hide {
+      margin: 0;
+      padding: 0;
+      height: 0;
+      overflow: hidden;
+  }
+  
+  .alert__list {
+      display: block;
+      margin: 0;
+      padding: 0 43px 0 49px;
+      width: 100%;
+      list-style: none;
+      box-sizing: border-box;
+  }
+  
+  .alert__item {
+      display: block;
+      border-top: 1px solid rgba($message, .3);
+      padding: 13px 0;
+      width: 100%;
+  }
+  
+  .alert__item:first-child {
+      border-top-width: 0;
+  }
+  
+  .alert__close {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      outline: none;
+      border-width: 0;
+      background-color: transparent;
+      padding: 15px 20px;
+      color: $message;
+      font-weight: 800;
+  }
+  
+  
+  .input {
+      @include vendor-prefix(appearance, none);
+      transition: border .3s;
+      border: 1px solid $grey-light;
+      border-radius: 0;
+      background-color: $white-dim;
+      padding: 9px 10px;
+      width: 100%;
+      min-height: 40px;
+      vertical-align: middle;
+      line-height: normal;
+      font-weight: 400;
+  
+      &:focus {
+          outline: none;
+          border-color: $black;
+      }
+  
+      &--error {
+          border-color: $red-orange;
+  
+          &:focus {
+              border-color: $red-orange;
+          }
+      }
+  
+      &--inline {
+          padding-right: 60px;
+      }
+  
+      &__inline-wrapper {
+          position: relative;
+      }
+  
+      &__inline-control {
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          margin: 9px 0;
+          border-left: 1px solid $grey-dark;
+          cursor: pointer;
+          padding: 0 10px;
+          width: 60px;
+          vertical-align: middle;
+          line-height: 21px;
+          color: $grey-dark;
+          font-weight: 400;
+      }
+  
+  }
+  
+  @mixin button {
+      display: inline-block;
+      transition: all .3s ease;
+      outline: none;
+      border-width: 1px;
+      border-style: solid;
+      padding: 13px 32px;
+      min-width: 260px;
+      min-height: 40px;
+      vertical-align: middle;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 1px;
+      line-height: 12px;
+      color: $white;
+      font-size: 14px;
+      font-weight: 600;
+  }
+  
+  @mixin button--primary {
+      border-color: $blaze-orange;
+      background: $blaze-orange;
+  
+      &:hover,
+      &:focus {
+          border-color: $red-orange;
+          background: $red-orange;
+      }
+  
+  }
+  
+  
+  @mixin button--secondary {
+      border-color: $grey-light;
+      background: $white-dim;
+      color: $off-black;
+      font-size: 12px;
+  
+      &:hover,
+      &:focus {
+          background: $white;
+      }
+  
+  }
+  
+  @mixin button--secondary-grey {
+      background: $white-dim;
+  
+      &:hover,
+      &:focus {
+          border-color: $black;
+          background: $black;
+          color: $white;
+      }
+  
+  }
+  
+  @mixin button--secondary-white {
+      background: $white;
+  
+      &:hover,
+      &:focus {
+          border-color: $black;
+          background: $black;
+          color: $white;
+      }
+  
+  }
+  
+  @mixin button--secondary-black {
+      border-color: $black;
+      background: $black;
+      color: $white;
+  
+      &:hover,
+      &:focus {
+          border-color: $black;
+          background: $white;
+          color: $black;
+      }
+  
+  }
+  
+  .button {
+      @include button;
+  
+      &--primary {
+          @include button--primary;
+      }
+  
+      &--secondary {
+          @include button--secondary;
+      }
+  
+      &--secondary-grey {
+          @include button--secondary-grey;
+      }
+  
+      &--secondary-white {
+          @include button--secondary-white;
+      }
+  
+      &--secondary-black {
+          @include button--secondary-black;
+      }
+  
+      &--disabled {
+          position: relative;
+          cursor: default;
+  
+          &.button--primary:hover {
+              border-color: $blaze-orange;
+              background: $blaze-orange;
+          }
+  
+          &.button--secondary:hover {
+              border-color: $grey-light;
+              background: $white-dim;
+              color: $grey;
+          }
+  
+          &.button--secondary-grey:hover {
+              background: $white-dim;
+          }
+  
+          &.button--secondary-white:hover {
+              background: $white;
+          }
+  
+          &.button--secondary-black:hover {
+              border-color: $black;
+              background: $black;
+              color: $white;
+          }
+  
+          &:after {
+              position: absolute;
+              top: -1px;
+              right: -1px;
+              bottom: -1px;
+              left: -1px;
+              opacity: .5;
+              z-index: 1;
+              background: $white;
+              content: '';
+          }
+  
+      }
+  
+  }
+  
+  
+  .button--disabled.button--secondary {
+      color: $grey;
+  }
+  
+  $b: black;
+  $y: grey;
+  
+  @mixin ribbon( $ribbon-color:black, $size-left:.5em, $size-right:.5em) {
+    position:relative;
+    &:before,
+    &:after { content:""; position:absolute; }
+    &:before { border-top:$size-left solid $ribbon-color;
+      bottom:-12px;
+      border-left:$size-left solid transparent;
+      left:3px;
+      -ms-transform: rotate(-24deg); /* IE 9 */
+      -webkit-transform: rotate(-24deg); /* Chrome, Safari, Opera */
+      transform: rotate(-24deg);
+      z-index: -1;
+    }
+    &:after {
+      border-top:$size-right solid $ribbon-color;
+      bottom:-$size-right;
+      border-right:$size-right solid transparent;
+      right:0;
+    }
+  }
+  
+  .step { display: inline-block; padding: 7px 12px; background:$black; color: white; position: absolute; top:0; left: -50px; }
+  
+  
+  body{
+    margin: 20px;
+    font-family: 'Gibson', 'Helvetica', 'Arial', sans-serif;
+  
+  }
+  .checkout {
+    border: 1px solid lightgrey;
+    padding: 35px;
+    background-color:white;
+  }
+  
+  
+  .checkout__step{ 
+    @include ribbon($y, 1em, 0); 
+    &--payment{
+      margin-top: 40px;
+    }
+  }
+  
+  
+  .checkout__title {
+    margin:0;
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    left: -42px;
+    font-weight: normal;
+  }
+  
+  .checkout__subtitle {
+      font-weight: normal;
+    &--no-margin{
+      margin:0;
+      margin-top:50px;
+    }
+  }
+  
+  .checkout__delivery-address {
+    border-bottom: 1px solid lightgrey;
+    color: grey;
+  }
+  
+  .checkout__delivery-service {
+    padding-bottom: 30px;
+    border-bottom: 1px solid lightgrey;
+  
+  }
+  
+  .checkout__delivery-info {
+    margin: 0;
+    line-height: 21px;
+    font-size: 14px;
+    
+    &--highlight {
+      font-weight: bold;
+    }
+    
+  }
+  
+  .checkout__delivery-link {
+    display: inline-block;
+    color: black;
+    margin: 20px 0 50px;
+    font-size: 14px;
+    
+    &--more{
+      margin: 0;
+    }
+    &--address-form {
+      margin-left: 125px;
+    }
+  }
+  
+  .checkout__delivery-service {
+    margin-top: 45px;
+    font-size: 14px;
+  }
+  
+  .checkout__delivery-time {
+    padding: 20px;
+    font-weight: normal;
+  }
+  
+  .checkout__delivery-checkbox {
+    padding-bottom: 10px;
+  }
+  
+  .checkout__delivery-input{
+    margin: 0;
+    margin-top: 10px;
+    margin-left: 30px;
+    width: auto;
+    display:block;
+    min-height: 20px;
+    font-size: 14px;
+  }
+  
+  .checkout__delivery--promo {
+    margin-top: 40px;  
+  }
+  
+  .checkout__delivery-more{
+    font-size: 14px;
+    font-weight: normal;
+    
+    &--light{
+      color: $grey-dark;
+      margin-left: 5px;
+    }
+    &--updates{
+      color: $grey-dark;
+      font-weight: normal;
+      margin-top: 5px;
+      display: inline-block;
+    }
+    &--choice{
+      display:block;
+      margin-top:5px;
+    }
+    &--billing{
+       color: $grey-dark;
+      display:block;
+      margin-bottom: 20px;
+    } 
+  }
+  
+  .checkout__payment{
+    clear: both;
+    display: block;
+    overflow: auto;
+    border-bottom: 1px solid $grey-light;
+    margin-top: 20px;
+  }
+  .checkout__payment-options{
+      display: block;
+      overflow: auto;
+      list-style: none;
+      padding: 0;
+     
+  }
+  
+  .checkout__payment-choice {
+      border: 1px solid lightgrey;
+      box-sizing: border-box;
+      padding: 40px 5px;
+      width: 49%;
+      margin-right: 1%;
+      text-align: center;
+      display: block;
+      float: left;
+      color: #696969;
+    &:last-child {
+      margin-right:0;
+      margin-left: 1%;
+    }
+  }
+  
+  #mainView {
+      clear: both;
+      padding: 1em 0;
+    font-weight: normal;
+  }
+  .active {
+      background-color: $black;
+      color: $white;
+    border: 1px solid black;
+  }
+  .tab-1{
+     background: url('https://s9.postimg.org/k1vnmaqgv/b36a_GQV2_O.jpg') no-repeat center center;
+    background-size: contain;
+    text-indent: -9999px;
+  }
+  .checkout__total {
+    @include clearfix;
+  }
+  .checkout__total-title{
+    float: left;
+    &--price{
+    float: right;
+    }
+  }
+  .checkout__total-header{
+    @include clearfix;
+  }
+  .checkout__total-text{
+    float: left;
+    font-weight: normal;
+    font-size: 14px;
+  }
+  .checkout__total-button{
+    float: right;
+  }
+  
+  .checkout__billing-subtitle {
+    margin:5px 0 30px;
+    font-weight: normal;
+  }
+  
+  .label--required {
+    font-size: 12px;
+    display:block;
+    padding: 10px 0 5px;
+  }
+  
+  .checkout__paypal {
+    margin: 20px 0;
+  }
+  
+  .checkout__address-form-label {
+    display: inline-block;
+    min-width: 120px;
+    
+    
+  }
+  .checkout__address-form-label{
+    color: rgb(63, 63, 63);
+  }
+  
+  .checkout__address-form-input {
+    width: 300px;
+  }
+  
+  .checkout__address-form-group {
+    margin-bottom: 20px;
+    &:first-child {
+      margin-top: 30px;
+    }
+  }
+  
+  ///Driver download button
+  ////
+  
+  /* Hide original appearance */
+  .choose-file {
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      width: 0.1px;
+      z-index: -1;
+    }
+    
+    /* Style both input field and label */
+    .choose-file + .upload-file {
+      background-color: #007B7C;
+      box-sizing: border-box;
+      color: #fff;
+      display: block;
+      font-family: Sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      padding: 1rem 0;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    
+    .choose-file:focus + .upload-file,
+    .choose-file + .upload-file:hover {
+      background-color: #007B7C;
+    }
+    
+    
+    label.upload-file::before {
+      content: "Choose file";
+    }
+    
+    /* This appears after a file is chosen. */
+    .choose-file:valid + .upload-file::before {
+      content: "1 file chosen";
+    }
+  //////////////////////////////////////////////////////////////
+  
+    //BUTTONS  COLORFULL
+  //@extend//@extend
+  
+  .fill:hover,
+  .fill:focus {
+    box-shadow: inset 0 0 0 2em var(--hover);
+  }
+  
+  // Animate the size, outside
+  .pulse:hover, 
+  .pulse:focus {
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em rgba(#fff,0);
+  }
+  
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 var(--hover); }
+  }
+  
+  // Stack multiple shadows, one from the left, the other from the right
+  .close:hover,
+  .close:focus {
+    box-shadow: 
+      inset -3.5em 0 0 0 var(--hover),
+      inset 3.5em 0 0 0 var(--hover);  
+  }
+  
+  // Size can also be negative; see how it's smaller than the element
+  .raise:hover,
+  .raise:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    transform: translateY(-0.25em);
+  }
+  
+  // Animating from the bottom
+  .up:hover,
+  .up:focus {
+    box-shadow: inset 0 -3.25em 0 0 var(--hover);
+  }
+  
+  // And from the left
+  .slide:hover,
+  .slide:focus {
+    box-shadow: inset 6.5em 0 0 0 var(--hover);
+  }
+  
+  // Multiple shadows, one on the outside, another on the inside
+  .offset {  
+    box-shadow: 
+      0.3em 0.3em 0 0 var(--color),
+      inset 0.3em 0.3em 0 0 var(--color);
+    
+    &:hover,
+    &:focus {
+      box-shadow: 
+        0 0 0 0 var(--hover),
+        inset 6em 3.5em 0 0 var(--hover);
+    }
+  }
+  
+  //=== Set button colors
+  // If you wonder why use Sass vars or CSS custom properties...
+    // Make a map with the class names and matching colors
+  $colors: (
+    fill: #a972cb,
+    pulse: #ef6eae, 
+    close: #ff7f82, 
+    raise: #ffa260, 
+    up: #e4cb58, 
+    slide: #8fc866, 
+    offset: #19bc8b
+  );
+  
+  // Sass variables compile to a static string; CSS variables are dynamic and inherited
+    // Loop through the map and set CSS custom properties using Sass variables
+  @each $button, $color in $colors {
+    .#{$button} {
+      --color: #{$color};
+      --hover: #{adjust-hue($color, 45deg)};
+    }
+  }
+  
+  // Now every button will have different colors as set above. We get to use the same structure, only changing the custom properties.
+  button {  
+    color: var(--color);
+    transition: 0.25s;
+    
+    &:hover,
+    &:focus { 
+      border-color: var(--hover);
+      color: #fff;
+    }
+  }
+  
+  //=== Pen styling, ignore
+  body {
+    color: #fff;
+    background: hsl(227, 10%, 10%);
+    font: 300 1em 'Fira Sans', sans-serif;
+    
+    // Center everything ever
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+  }
+  
+  // Basic button styles
+  button {
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
+  }
+  
+  h1 { font-weight: 400; }
+  
+  code { 
+    color: #e4cb58;
+    font: inherit;
+  
+  }
+  //Table
+  $breakpoint-alpha: 480px; // adjust to your needs
+  
+  .rwd-table {
+    margin: 1em 0;
+    min-width: 1000px; // adjust to your needs
+    
+    tr {
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!   
+      font-size: medium;
+    }
+    
+    td {
+      display: block; 
+      
+      &:first-child {
+        padding-top: .5em;
+      }
+      &:last-child {
+        padding-bottom: .5em;
+      }
+  
+      &:before {
+        content: attr(data-th)": "; // who knew you could do this? The internet, that's who.
+        font-weight: bold;
+  
+        // optional stuff to make it look nicer
+        width: 6.5em; // magic number :( adjust according to your own content
+        display: inline-block;
+        // end options
+        
+        @media (min-width: $breakpoint-alpha) {
+          display: none;
+        }
+      }
+    }
+    
+    th, td {
+      text-align: left;
+      
+      @media (min-width: $breakpoint-alpha) {
+        display: table-cell;
+        padding: .25em .5em;
+        
+        &:first-child {
+          padding-left: 0;
+        }
+        
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+  
+    }
+    
+    
+  }
+  
+  
+  // presentational styling
+  
+  @import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700';
+  
+  body {
+    padding: 0 6em;
+    font-family: Montserrat, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    color: #444;
+    background: #eee;
+  }
+  
+  h1 {
+    font-weight: normal;
+    letter-spacing: -1px;
+    color: #34495E;
+  }
+  
+  .rwd-table {
+    background: #ffffff;
+    color: #007B7C;
+    border-radius: .4em;
+    overflow: hidden;
+    tr {
+      border-color: lighten(#34495E, 10%);
+    }
+    th, td {
+      margin: .6em 1em;
+      @media (min-width: $breakpoint-alpha) { 
+        padding: 1em !important; 
+      }
+    }
+    th, td:before {
+      color: #007B7C;
+    }
+  
+    
+  }
+  
+  //footer
+  .footer {
+  
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #007B7C;
+    color: white;
+    text-align: center;
+ }
+ /////social media icons
+ .mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}

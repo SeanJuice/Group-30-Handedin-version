@@ -1,0 +1,52 @@
+
+
+<ion-content>
+  
+  <div align="center" style = "padding-top: 10%;padding-bottom: 10%;">
+    <div style="padding-left: 70%;">
+      <button class="pulse" style="padding-left: 15%; padding-right: 15%;background-color: #007B7C;" (click)="openAdd()">Add Community Partner</button>
+    </div>
+          <h1 style="color: honeydew; font-size: 200%"><strong> COMMUNITY PARTNER APPLICATIONS </strong></h1>
+          <div class="container">
+                  <!--Applications Table  search bar-->
+                  <div class="searchbox" >
+                      <button class="btn-menu">
+                          <img src="https://img.icons8.com/cute-clipart/24/000000/top-menu.png">
+                      </button>
+                      <input id="search" type="text" placeholder="Search..." name="search" class="search"  [(ngModel)]="searchText" #searchbar>
+                    <button  class="btn-search">
+                        <img src="https://img.icons8.com/cotton/24/000000/search--v2.png">
+                      </button>
+                </div>
+                <!--Applications Table -->
+
+                <table class="rwd-table">
+                  <tr>
+                    <th>Community Partner Name</th>
+                    <th>Contact Person</th>
+                    <th>Contact number</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th >&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;Action</th>
+                  </tr>
+                  <tr *ngFor="let CP of ApplicantCP | filter: searchText">
+                    <td data-th="Date">{{CP.Name}}</td>
+                    <td data-th="CP">{{CP.ContactPerson}}</td>
+                    <td data-th="Time">{{CP.ContactNumber}}</td>
+                    <td data-th="Time">""</td>
+                    <td data-th="Description">{{CP.Date | date}}</td>
+                    <td data-th="Action"><button class="slide" (click)="open(CP.id)">View Application</button> </td>
+                  </tr>
+                  <tr *ngIf="ApplicantCP.length==0">
+                    <td data-th="Date">No application Available</td>
+                    <td data-th="Date">No application Available</td>
+                    <td data-th="Date">No application Available</td>
+                    <td data-th="Date">No application Available</td>
+                    <td data-th="Date">No application Available</td>
+                    <td data-th="Date">No application Available</td>
+                  </tr>
+                
+                </table>
+          </div>
+  </div>
+</ion-content>

@@ -1,0 +1,42 @@
+
+
+
+  <div role="main" style="width: 50%; margin: auto; padding-top: 5%;">
+    
+    <h1 data-shadow='dang!'>Newsfeed!</h1>
+  
+
+  
+    <div *ngFor="let post of Posts">
+      <section class="panel important">
+        <h2>Newsfeed Post </h2>
+        <ul>
+          <li>  <img  *ngIf="filetypeChecker(post.fileType) == false" src={{post.Url}} alt="Avatar" style="width:60%">
+            <video hide *ngIf="filetypeChecker(post.fileType)" width="60%" height="240" controls>
+              <source src={{post.Url}} type="video/mp4">
+            </video>
+          </li>
+          <li>.</li>
+          <li class="card border-info " >
+            <div class="card-header">
+                {{post.Date | date}}
+            </div>
+            <div class="card-body" style="font-size:medium;color: #007B7C;">
+                <strong>
+                  <h2> {{post.Description}} </h2>
+                </strong>
+              
+            </div>
+         
+          </li>
+        </ul>
+  
+      </section>
+    </div>
+  
+   
+   
+  </div>
+  
+  
+  

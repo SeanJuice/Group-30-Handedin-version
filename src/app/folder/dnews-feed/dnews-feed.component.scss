@@ -1,0 +1,368 @@
+ion-menu-button {
+    color: var(--ion-color-primary);
+  }
+  
+  ///@extend////Navigation 
+  
+  /*GENERIC STYLES*/
+  body { background: #f2f2f2;color: #222;-webkit-font-smoothing: antialiased;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 1.05em;font-weight: 400;height: auto !important;height: 100%;line-height: 1.6rem;min-height: 100%;}
+  /*NAV*/
+      header {
+          background: linear-gradient(to left,rgba(240, 237, 107, 0.96) 0,rgba(0, 123, 124)  100%);
+          border-bottom: 1px solid rgba(54, 54, 54, 0.1);
+          box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+          display: block;
+          position: fixed;
+          width: 100%;
+          z-index: 1000;
+      }
+      
+      header > nav > ul {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+      }
+      
+          header > nav > ul > li {
+              flex: 0 1 auto;
+              margin: 0;
+              padding: 0;
+              position: relative;
+              transition: all linear 0.1s;	
+          }
+          
+              header > nav > ul > li:hover {
+                  background: rgb(0, 123, 124);
+              }
+              
+              header > nav > ul > li a + div {
+                  background: linear-gradient(to bottom,rgba(0, 123, 124) 0,rgba(0, 123, 124) 100%);;
+                  border-radius: 0 0 2px 2px;
+                  box-shadow: 0 3px 1px rgba(0,0,0,.05);
+                  display: none;
+                  font-size: 1rem;
+                  position: absolute;
+                  width: 198px;
+              }
+              
+                  header > nav > ul > li:hover a + div {
+                      display: block;
+                  }
+                  
+                  header > nav > ul > li a + div > ul {
+                      list-style-type: none;	
+                  }
+                  
+                      header > nav > ul > li a + div > ul > li {
+                          margin: 0;
+                          padding: 0;
+                      }
+                      
+                          header > nav > ul > li a + div > ul > li > a {
+                              color: rgba(255,255,255,.9);
+                              display: block;	
+                              font-size: .75rem;
+                              letter-spacing: 1.5px;
+                              padding: .25rem 1.5rem;
+                              text-decoration: none;
+                              text-transform: uppercase;
+                          }
+                          
+                              header > nav > ul > li a + div > ul > li:hover > a {
+                                  background-color: rgba(0,0,0,.15);	
+                              }
+      
+              header > nav > ul > li > a {
+                  align-items: flex-start;
+                  color: #fff;
+                  display: flex;
+                  font-size: 1.8rem;
+                  font-weight: 400;
+                  letter-spacing: 1px;
+                  max-width: 150px;
+                  padding: 1rem 1.5rem;
+                  text-decoration: none;
+                  text-shadow: 0 1px 1px rgba(0,0,0,.1);
+                  transition: all linear 0.1s;
+              }
+              
+                  header > nav > ul > li > a > div > span {
+                      color: rgba(255,255,255,.75);
+                      display: block;
+                      font-family: Georgia, "Times New Roman", Times, serif;
+                      font-size: .5rem;	
+                      font-style: italic;
+                      line-height: 1rem;
+                      max-width: 260px;
+                  }
+  
+  @media (min-width: 990px) {
+    header > nav > ul > li > a {
+      max-width: 600px;
+      font-size: 90%;   ///font change for the navigation
+      line-height: 2rem;
+    }
+    
+    header > nav > ul > li > a > div > span {
+        margin: 4px 0 0;  
+    }
+  }
+  ///////////
+  
+  #container {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #8c8c8c;
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  .demo-card-square.mdl-card {
+    width: 320px;
+    height: 320px;
+    float: left;
+    margin: 1rem;
+    position: relative;
+  }
+  //nevigation
+  //=== Reveal drop-down
+  .sub-menu {
+    opacity: 0;
+    transform: translate3d(0, -2rem, 0) scale(0.8);
+    visibility: hidden;
+    
+    [aria-expanded=true] + & {
+      opacity: 1;
+      transform: none;
+      visibility: visible;
+    }
+  }
+  
+  //=== Page styling, ignore
+  
+  $white: #f3f1fe;
+  $purple: #8b5ab7;
+  $purple-blue: #007B7C;
+  $pink: #fc9bb6;
+  $blue: #97bcff;
+  $cyan: #50cba1;
+  $yellow: #ffbb61; // This color fails contrast requirements: there is no way to have yellow text on a white background and pass contrast requirements. But the design of this pen isn't the point and won't be of use to anyone, unless you really like the Easter aesthetic. I've had a long week. Let me have this one color.
+  
+  $shadow: 0 0.25em 2em rgba($purple-blue, 0.4);
+  $border-color: mix($white, #d4d4db);
+    
+  @mixin pattern-zigzag($size : 20px, $color1 : #000, $color2: #fff) {
+    $deg  : 45deg;
+    $change: 90;
+    $deg2 : $deg + $change;
+    $deg3 : $deg2 + $change;
+    $deg4 : $deg3 + $change;
+    
+    background-color: $color2;
+    background-image: 
+      linear-gradient($deg2, $color1 $size/3, transparent $size/3), 
+      linear-gradient($deg3, $color1 $size/3, transparent $size/3),
+      linear-gradient($deg4, $color1 $size/3, transparent $size/3),
+      linear-gradient($deg, $color1 $size/3, transparent $size/3);
+    background-position: -$size/2 0, -$size/2 0, 0 0, 0 0;
+    background-size: $size $size;
+  } 
+    
+  @mixin shape-triangle($size, $direction : top, $color : inherit) {  
+    $opposite: bottom;  
+      
+    @if($direction == 'bottom') { $opposite: 'top'; } 
+    @if($direction == 'left') { $opposite: 'right'; } 
+    @if($direction == 'right') { $opposite: 'left'; } 
+      
+    border: $size solid transparent;  
+    border-#{$direction}-color: $color; 
+    border-#{$opposite}-width: 0; 
+  } 
+  
+  body { background: $white; }
+  
+  .site-navigation {
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: $shadow;
+    color: $purple;
+    font: 700 1.375rem / 1 'Noto Sans', sans-serif;
+    max-width: 996px;
+    margin: 2em auto;
+    text-align: center;
+    
+    ul, li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  
+  .nav {  
+    > li { 
+      border-bottom: 2px solid $border-color;
+      position: relative; 
+    }
+    
+    @media (min-width: 768px) {
+      display: flex;
+      justify-content: space-around;
+      
+      > li {
+        border: 0;
+        flex: 1 1 auto;
+      
+        // Don't do this to your selectors
+        &:not(:last-child)::before {
+          background: $border-color;
+          content: '';
+          display: block;
+          transform: skew(0deg);
+          width: 4px;
+          position: absolute;
+          top: 0; bottom: 0; right: 2px;
+          z-index: 10;
+        }
+        
+      }
+    }
+    
+    a {
+      color: inherit; 
+      text-decoration: none;
+      transition: 0.2s;
+      display: block;
+      overflow: hidden;
+      padding: 1.25em;
+      position: relative;
+      
+      &::before {
+        @include pattern-zigzag(0.4em, #fff, $purple-blue);
+        
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%; right: 1.25em; left: 1.25em;
+        margin-right: 8px; margin-top: 0.75em;
+        height: 0.4em;
+        transform: translateY(3em);
+        transition: 0.3s ease-out;
+      }
+      
+      &:hover,
+      &:focus {
+        color: $yellow;
+        
+        &::before {
+          transform: none;
+        }
+      }
+      
+      &:focus { outline: 2px dotted $yellow; }
+      &:active { color: $cyan; }
+    }  
+  }
+  
+  // Indicator
+  .menu-item-has-children > a {
+    &::after {
+      @include shape-triangle(0.25em, top, $yellow);
+      
+      content: '';
+      display: inline-block;
+      transition: 0.2s;
+      margin-top: -0.125em;
+      margin-left: 0.5em;
+      position: relative;
+      vertical-align: middle;
+    }
+    
+    &[aria-expanded=true]::after {
+      transform: rotate(180deg);
+    }
+  }
+  
+  li.active a::after {
+    @include shape-triangle(0.25em, bottom, $cyan);
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    margin-left: -0.125em;
+  }
+  
+  .sub-menu {
+    background: #fff;
+    box-shadow: 0 0.25em 2em rgba(#8067fd, 0.4);
+    position: absolute;
+    top: 100%; left: 50%;
+    transform-origin: top center;
+    transition: 0.3s ease-out;
+    width: 11rem;
+    z-index: 2;
+    
+    &#{&} { margin-left: -5.5rem; }
+    
+    li { border: 1px solid $border-color; }
+    a { transform: translate3d(0, 1em, 0); }
+    
+    @for $i from 1 through 5 {
+      li:nth-child(#{$i}) a {
+        transition-delay: $i * 0.1s;
+      }
+    }
+    
+    [aria-expanded=true] + & a {
+      transform: none;
+    }
+  }
+  
+  ////////////////////////////////////////////////////////////////////////  
+  ion-content {
+    --background: #adb5bd url("../../community-partners/c-news-feed/backdrop.jpg") no-repeat center center / cover;
+  }
+  //////////////////////////////////////////////////////////////////////
+  //TEXT
+  $font: 'Poppins', sans-serif;
+
+::selection { background-color: #C3CFE2; }
+
+body {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	background: linear-gradient(to right, #FDFBFB, #EBEDEE 70%);
+}
+
+.text {
+	text-transform: uppercase;
+	background: linear-gradient(to right, #E3E269 0%, white 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font: {
+		size: 8vw;
+		family: $font;
+	};
+}

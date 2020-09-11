@@ -1,0 +1,200 @@
+<br>
+<ion-content padding style="background-color: #007B7C;">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+
+
+<div class="wrapper fadeInDown" style="border: medium; background-color: #007B7C;">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    
+   
+
+    <!-- Icon -->
+    <div class="fadeIn first" align="center">
+      
+      <img src="https://drive.google.com/uc?export=download&id=19KQD94mApiT7z9RCKjwzKrQcfCynDYEI" alt="Avatar" style="width:200px;border-radius: 50%;">
+      <h2 class="active"> Community Application Form</h2>
+    </div>
+
+    <!-- Login Form -->
+
+    <div class="checkout" style="width: 90%; margin: auto; padding-bottom: 5%;">
+     
+      <form #form="ngForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      
+      
+      <div class="checkout__delivery-address" >
+        
+        <div class="checkout__address-form">    
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0" >
+                  <button data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: #007B7C;">
+                    Personal Details
+                  </button>
+                  
+                </h5>
+                <div class="step checkout__step" >&nbsp;	&nbsp;1.</div>
+              </div>
+          
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                
+          
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="username">Name *</label>
+                      <input type="text" id="name" [(ngModel)]='cp.name' class="checkout__address-form-input input" name="name" placeholder="Name" >
+          
+                    </div>
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="username">Contact Person *</label>
+                      <input type="text" id="contactPerson" [(ngModel)]='cp.contactPerson' class="checkout__address-form-input input" name="contactPerson" placeholder="Contact Person">
+          
+                    </div>
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="username">Contact Number *</label>
+                      <input type="text" id="contactNumber" [(ngModel)]='cp.contactNumber' class="checkout__address-form-input input" name="contactNumber" placeholder="Contact Number">
+          
+                    </div>
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="SN">Email *</label>
+                      <input type="text" id="email" [(ngModel)]='user.Email' class="checkout__address-form-input input" name="email" placeholder="Email">
+          
+                    </div> 
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="SN">Physical Address *</label>
+                      <input type="text" id="physicalAddress" [(ngModel)]='cp.physicalAddress' class="checkout__address-form-input input" name="physicalAddress" placeholder="Physical Address">
+          
+                    </div> 
+                    
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"> Postal Address *</label>
+                      <input type="text" id="SN" [(ngModel)]="cp.postalAddress" class="checkout__address-form-input input" name="physicalAddress" placeholder="Postal Address">
+          
+                    </div> 
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="date"> Username *</label>
+                      <input type="text" id="username" [(ngModel)]="user.Username" class="checkout__address-form-input input" name="username" placeholder="Username">
+          
+                    </div> 
+
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="date"> Password *</label>
+                      <input type="password" id="password" [(ngModel)]="user.Password" class="checkout__address-form-input input" name="password" placeholder="Password">
+          
+                    </div> 
+
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="date"> Confirm Password *</label>
+                      <input type="password" id="password" [(ngModel)]="user.Password" class="checkout__address-form-input input" name="password" placeholder="Confirm Password">
+          
+                    </div> 
+                        
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: #007B7C;" >
+                    Add Project Details
+                  </button>
+                </h5>
+                <div class="step checkout__step checkout__step--payment">&nbsp;	&nbsp;2.</div>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="checkout__payment-tabs" ng-app="TabsApp"  >
+                    
+                   
+                    <h2 class="checkout__title"> Add Project Details </h2>
+                    <div class="checkout__delivery-address"  >
+
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Project Name *</label>
+                 <input type="text" [(ngModel)]="project.Name" name="projectName" class="checkout__address-form-input input" id="projectName" placeholder="Project Name" required />
+              </div>           
+           </div>  
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Contact person *</label>
+                 <input type="text" [(ngModel)]="project.ContactPerson" name="contactPerson1" class="checkout__address-form-input input" id="contactPerson1" placeholder="Contact person"required  />
+              </div>           
+           </div> 
+           <div class="form-group checkout__address-form-group">
+            <label class="checkout__address-form-label label label--required" for="CAT">Category*(choose)</label>
+                      
+            <select id="cars" class="  form-control " style="width:35%;" name="Category"    [(ngModel)]="project.Category" required>
+              <option value="" selected disabled hidden>Choose here</option>
+                    <option value="Construction">Construction project</option>
+                    <option value="Painting">Painting Project</option>
+                    <option value="School">School Project</option>
+                    <option value="Animal">Animal Project</option>
+            </select>
+           </div>
+
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Physical Address *</label>
+               <input type="text" [(ngModel)]="project.PhysicalAddress" name="physicalAddress1" class="checkout__address-form-input input" id="physicalAddress1" placeholder="Physical Address " required />
+            </div>           
+         </div>
+
+           <div class="form-group checkout__address-form-group" style="color:black">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Description*</label>
+              <textarea id="description" name="description"
+              rows="5" cols="33" [(ngModel)]="project.Description"  >
+                    type here.....
+                    </textarea>
+    
+            </div>           
+         </div>
+         
+         <div class="form-group checkout__address-form-group" style="padding-top: 10%;">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"></label>
+                
+              </div>           
+           </div>  
+
+      </div>
+          
+                    
+                
+                  </div>
+                 
+          
+          
+                </div>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+
+      </div>
+   
+      <div class="form-group">
+        <button class="checkout__total-button button button--primary" style="background-color:#007B7C"  (click)="this.Show =true" type="submit" >SUBMIT </button>
+        <ion-back-button class="checkout__total-button2 button button--primary" (click)="this.Show =false" text="Back" ></ion-back-button>
+     
+      </div>
+    </form>
+    </div>
+   
+
+    <!-- Remind Passowrd -->
+  
+
+  </div>
+</div>
+
+
+
+</ion-content>
+

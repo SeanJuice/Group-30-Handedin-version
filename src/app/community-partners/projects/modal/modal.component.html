@@ -1,0 +1,56 @@
+<ion-content>
+  <div class="checkout" style="height: 100%; color:black">
+    
+  
+    <div class="checkout__delivery-address"  >
+      <form [formGroup]="projectService.form" (ngSubmit)="onSubmit()" >
+         <h3 class="checkout__subtitle"> Project  details </h3> 
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="ProjectName">Project Name *</label>
+                 <input type="text" class="checkout__address-form-input input" id="ProjectName"  placeholder="Project Name"  formControlName="Name" required />
+              </div>       
+              <div  style="width:60%; padding-left: 10%;">
+                <div class="alert alert-danger" role="alert" *ngIf="f.Name.touched && f.Name.invalid" ><sup>*</sup>Please provide project name</div>
+                <div class="alert alert-danger" role="alert" *ngIf="f.Name.errors?.pattern"><sup>*</sup>Please enter correct project name</div>
+              </div>     
+           </div>  
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="ContactPerson">Contact Person *</label>
+                <input type="text" class="checkout__address-form-input input" id="ContactPerson"  placeholder="Contact Person"  formControlName="ContactPerson" required />
+              </div>           
+           </div> 
+           <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="Category">Category *</label>
+                <input type="text" class="checkout__address-form-input input" id="Category"  placeholder="Category"  formControlName="Category" required />
+              </div>           
+           </div>
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="Description">Description*</label>
+              <textarea id="Description" formControlName="Description"
+              rows="5" cols="33">
+                    
+                    </textarea>
+    
+            </div>          
+         </div>
+        
+         <div class="form-group checkout__address-form-group" style="padding-top: 10%;">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"></label>
+                
+              </div>           
+           </div>  
+           
+           <button class="checkout__total-button button button--primary" style="background-color: #007B7C;" > Save Changes</button>
+   
+          </form>
+           <button class="checkout__total-button button button--primary" style="background-color: #007B7C;" (click)="dismiss()"  >CANCEL</button>   
+</div>
+</div>
+</ion-content>
+
+

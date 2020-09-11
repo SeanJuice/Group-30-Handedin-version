@@ -1,0 +1,152 @@
+
+
+<ion-content>
+
+    <!---CARDS-->
+    
+    <div style="padding-top: 10%;"  *ngIf="Categories">
+      <div style="padding-bottom:3%">
+        <div class="wrap">
+          <h4>Possible Projects</h4>
+         
+        </div>
+      </div>
+     
+      <!---card 1-->
+    <div class="blog-card">
+      <div class="meta">
+        <div class="photo" style="background-image: url(https://res.cloudinary.com/dldmcaqyo/image/upload/v1595443771/construction_sxsgc5.jpg)"></div>
+        <ul class="details">
+          <li class="author"><a>Contraction</a></li>
+       
+        
+        </ul>
+      </div>
+      <div class="description">
+        <h1>CONSTRUCTION PROJECTS</h1>
+        <h2>Any project th involving the construction</h2>
+        <br/><br/>
+        <p class="read-more">
+          <a (click)="ShowTables(0,'Construction')"><strong>VIEW CONSTRUCTION PROJECTS</strong></a>
+        </p>
+      </div>
+    </div>
+   
+       <!---card 2-->
+       <div class="blog-card alt">
+        <div class="meta">
+          <div class="photo" style="background-image: url(https://res.cloudinary.com/dldmcaqyo/image/upload/v1595443771/painting_rtygbu.jpg)"></div>
+          <ul class="details">
+   
+            <li class="tags">
+              <ul>
+                <li class="author"><a >Schools</a></li>
+                <li class="author"><a >libraries</a></li>
+                <li class="author"><a >buildings and more.. </a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="description">
+          <h1>PAINTING PROJECTS</h1>
+          <h2>Projects that deal with painting different places</h2>
+          <br/><br/>
+          <p class="read-more">
+            <a (click)="ShowTables(1,'Painting')">VIEW PAINTING PROJECTS</a>
+          </p>
+        </div>
+      </div>
+         <!---card 3-->
+    <div class="blog-card">
+      <div class="meta">
+        <div class="photo" style="background-image: url(https://res.cloudinary.com/dldmcaqyo/image/upload/v1595443771/school_ongvnm.jpg)"></div>
+        <ul class="details">
+          <li class="author"><a href="#">School</a></li>
+       
+        
+        </ul>
+      </div>
+      <div class="description">
+        <h1>SCHOOL PROJECTS</h1>
+        <h2>Projects that deal with the engagement of schools </h2>
+        <br/><br/>
+        <p class="read-more">
+          <a (click)="ShowTables(2,'School')"><strong>VIEW SCHOOL PROJECTS</strong></a>
+        </p>
+      </div>
+    </div>
+     <!---card 4-->
+     <div class="blog-card alt">
+      <div class="meta">
+        <div class="photo" style="background-image: url(https://res.cloudinary.com/dldmcaqyo/image/upload/v1595443771/animlas_hnp86r.jpg)"></div>
+        <ul class="details">
+          <li class="author"><a href="#">Jane Doe</a></li>
+          <li class="date">July. 15, 2015</li>
+          <li class="tags">
+            <ul>
+              <li><a href="#">Learn</a></li>
+              <li><a href="#">Code</a></li>
+              <li><a href="#">JavaScript</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="description">
+        <h1>ANIMAL PROJECTS</h1>
+        <h2>Java is not the same as JavaScript</h2>
+        <br/><br/>
+        <p class="read-more">
+          <a (click)="ShowTables(3,'Animal')">VIEW  ANIMAL PROJECTS</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table showing if you have clicked the  button -->
+  <div align="center" style = "padding-top: 10%;" *ngIf="tableShow">
+    <div style="padding-left: 70%;">
+      <button class="slide" style="padding-left: 15%; padding-right: 15%;background-color: #007B7C;" (click)="openAdd()">Add Project</button>
+    </div>
+    <h1 style="color: honeydew; font-size: 200%"><strong>PENDING PROJECTS</strong></h1>
+          <div class="container">
+            <div class="searchbox" >
+          <button class="btn-menu"> 
+                  <img src="https://img.icons8.com/cute-clipart/24/000000/top-menu.png">
+              </button>
+              <input id="search" type="text" placeholder="Search..." name="search" class="search" [(ngModel)]="searchText" #searchbar>
+            <button  class="btn-search">
+                <img src="https://img.icons8.com/cotton/24/000000/search--v2.png">
+              </button>
+          </div>
+          <!--Applications Table -->
+
+          <table class="rwd-table">
+            <tr>
+              <th>Name</th>
+              <th>Contact Person</th>
+              <th>Physical Address</th>
+              <th> Description</th>
+              <th >&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;Action</th>
+            </tr>
+            <tr *ngFor="let proj of Projects  | filter: searchText">
+              <td data-th="NAME">{{proj.Name}}</td>
+              <td data-th="CONTACT P">{{proj.ContactPerson}}</td>
+              <td data-th="aDDRESS">{{proj.PhysicalAddress}}</td>
+              <td data-th="Description">{{proj.Description}}</td>
+              <td data-th="Action"><button class="slide" (click)="open(proj.id)">View Project</button> </td>
+            </tr>
+            <tr *ngIf="Projects.length==0">
+              <td>No possible project</td>
+              <td>No possible project</td>
+              <td>No possible project</td>
+              <td>No possible project</td>
+              <td>No possible project</td>
+              
+            </tr>
+       
+          
+          </table>
+    </div>
+</div>
+    
+</ion-content>

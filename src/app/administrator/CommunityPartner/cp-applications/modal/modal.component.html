@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="warning">This is the applicationn of  {{this.TheCP.Name}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+  <div class="checkout">
+    <div class="step checkout__step" >&nbsp;	&nbsp;.</div>
+    <h2 class="checkout__title"  >Community Partner Application</h2>
+    <div class="checkout__delivery-address"  >
+ 
+      <div class="checkout__address-form">      
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"> Name *</label>
+                 <input type="email" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder=" Name"  disabled value={{this.TheCP.Name}} />
+              </div>           
+           </div>  
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Contact Person *</label>
+                 <input type="text" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder="Contact Person" disabled  value={{this.TheCP.ContactPerson}}/>
+              </div>           
+           </div>  
+       
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Email *</label>
+                 <input type="text" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder=" Email" disabled value={{this.TheCP.ContactPerson}} />
+              </div>           
+           </div>  
+    
+              
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Physical Address *</label>
+                 <input type="text" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder="Physical Address " disabled value={{this.TheCP.PostalAddress}} />
+              </div>           
+           </div>
+         <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Postal Address*</label>
+                 <input type="text" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder="Postal Address" disabled value={{this.TheCP.PhysicalAddress}} />
+              </div>           
+           </div> 
+    
+         <h3 class="checkout__subtitle">Project  details</h3> 
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Project Name *</label>
+                 <input type="email" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder="Project Name" disabled />
+              </div>           
+           </div>  
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Contact person *</label>
+                 <input type="email" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder="Contact person" disabled />
+              </div>           
+           </div> 
+           <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Category*</label>
+                 <input type="email" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder="Category" required />
+              </div>           
+           </div>
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Description*</label>
+               <p>Construction Project Managers are responsible for planning and overseeing a specific project or a wide range of different construction projects from beginning to end.
+
+                They balance the budget, keep track of supplies, collaborate with subcontractors, and ensure all regulations are met and permits acquired. Construction Project Managers handle both administrative and hands-on work while managing construction projects</p>
+            </div>           
+         </div>
+         <div class="form-group checkout__address-form-group">
+          <div class="form-group__label">
+            <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Download Attached document*</label>
+             <button style="background-color: goldenrod;">
+               Attachment
+             </button>
+          </div>           
+       </div>
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"></label>
+                
+              </div>           
+           </div>  
+         
+      </div>
+    </div>
+   
+  
+    <div class="checkout__payment-tabs" ng-app="TabsApp" >
+      
+      <div class="step checkout__step checkout__step--payment">&nbsp;	&nbsp;.</div>
+      <div class="checkout__total">
+        <div class="checkout__total-header">
+          <h2>APPLICATION DECISION</h2>
+        </div>
+        <button class="checkout__total-button button button--primary" style="background-color: #007B7C;" (click)="AcceptCP()">ACCEPT APPLICATION</button>
+        <button class="checkout__total-button button button--primary" style="color: gold; background-color: red;"(click)="RejectDriver()">REJECT APPLICATION</button>
+        
+      </div>
+  
+    </div>
+   
+  
+  </div>
+</ion-card>
+</ion-content>

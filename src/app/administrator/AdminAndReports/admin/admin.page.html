@@ -1,0 +1,58 @@
+
+
+<ion-content>
+  <!-- navigation Bar  -->
+
+<div align="center" style = "padding-top: 10%;padding-bottom: 10%;">
+  <div style="padding-left: 70%;">
+    <button class="pulse" style="padding-left: 15%; padding-right: 15%;background-color: #007B7C;"(click)="openAdd()" >Add Administrator</button>
+  </div>
+        <h1 style="color: honeydew; font-size: 200%"><strong> ADMINISTRATORS ON THE SYSTEM </strong></h1>
+        <div class="container">
+                <!--Applications Table  search bar-->
+                <div class="searchbox" >
+                    <button class="btn-menu">
+                        <img src="https://img.icons8.com/cute-clipart/24/000000/top-menu.png">
+                    </button>
+                    <input id="search" type="text" placeholder="Search..." name="search" class="search" [(ngModel)]="searchText" #searchbar>
+                  <button  class="btn-search">
+                      <img src="https://img.icons8.com/cotton/24/000000/search--v2.png">
+                    </button>
+              </div>
+              <!--Applications Table -->
+
+              <table class="rwd-table" style="width: 70%;">
+                <tr>
+                  <th>Name</th>
+                  <th>Surname</th>
+                  <th>Contact number</th>
+                  <th>Email Address</th>
+                  <th>Cell phone number</th>
+                  <th>Physical Address</th>
+                  <th >&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;Action</th>
+                </tr>
+                <tr *ngFor="let Admins of Administrators | filter: searchText">
+                  <td data-th="Name">{{Admins.Name}}</td>
+                  <td data-th="Surname">{{Admins.Surname}}</td>
+                  <td data-th="Number">{{Admins.ContactNumber}}</td>
+                  <td data-th="Email">{{Admins.Email}}</td>
+                  <td data-th="cellNo">{{Admins.ContactNumber}}</td>
+                  <td data-th="Physical address">{{Admins.Address}}</td>
+                  <td data-th="Action"><button class="slide" (click)="View()">View</button> </td>
+                  <td data-th="Action"><button class="slide" (click)="EditModal(Admins.id)" >Edit</button> </td>
+                  <td data-th="Action"><button class="slide" (click)="RemoveConfirmation(Admins)" >Remove</button> </td>
+                </tr>
+                <tr *ngIf="Administrators.length==0">
+                  <td>No Administrators</td>
+                  <td>No Administrators</td>
+                  <td>No Administrators</td>
+                  <td>No Administrators</td>
+                  <td>No Administrators</td>
+                  <td>No Administrators</td>
+                  <td>No Administrators</td>
+                </tr>
+              
+              </table>
+        </div>
+</div>
+</ion-content>

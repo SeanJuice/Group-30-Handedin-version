@@ -1,0 +1,122 @@
+<ion-content>
+  <div class="checkout" style="padding-bottom: 10%;">
+    
+  
+   
+    <div class="checkout__delivery-address"  >
+          <form  [formGroup]="CPservice.form" (ngSubmit)="onSubmit()">
+
+
+         <h3 class="checkout__subtitle">Project  details</h3> 
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="PN">Project Name *</label>
+                 <input type="email" class="checkout__address-form-input input" id="PN" placeholder="Project Name" required  formControlName="Name"/>
+              </div>  
+              <div  style="width:60%; padding-left: 10%;">
+                <div class="alert alert-danger" role="alert" *ngIf="f.Name.touched && f.Name.invalid" ><sup>*</sup>Please provide Name</div>
+
+              </div>          
+           </div>  
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="CP">Contact person *</label>
+                 <input type="text" class="checkout__address-form-input input" id="CP" placeholder="Contact person"required  formControlName="ContactPerson" />
+              </div>   
+              <div  style="width:60%; padding-left: 10%;">
+                <div class="alert alert-danger" role="alert" *ngIf="f.ContactPerson.touched && f.ContactPerson.invalid" ><sup>*</sup>Please provide Contact Person</div>
+
+              </div>           
+           </div> 
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="CP">Physical Address *</label>
+               <input type="text" class="checkout__address-form-input input" id="CP" placeholder="Contact person"required  formControlName="PhysicalAddress" />
+            </div>   
+            <div  style="width:60%; padding-left: 10%;">
+              <div class="alert alert-danger" role="alert" *ngIf="f.PhysicalAddress.touched && f.PhysicalAddress.invalid" ><sup>*</sup>Please provide Physical Address</div>
+
+            </div>           
+         </div> 
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="CN">Contact Number *</label>
+               <input type="number" class="checkout__address-form-input input" id="CN" placeholder="Contact Number"required  formControlName="ContactNumber" />
+            </div>  
+            <div  style="width:60%; padding-left: 10%;">
+              <div class="alert alert-danger" role="alert" *ngIf="f.ContactNumber.touched && f.ContactNumber.invalid" ><sup>*</sup>Please provide Contact Number</div>
+
+            </div>         
+         </div> 
+           <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="CAT">Category*(choose)</label>
+                 
+                  <select  required formControlName="Category" class="checkout__address-form-input input">
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="Construction">Construction project</option>
+                    <option value="Painting">Painting Project</option>
+                    <option value="School">School Project</option>
+                    <option value="Animal">Animal Project</option>
+                  </select>
+             
+              </div> 
+              <div  style="width:60%; padding-left: 10%;">
+                <div class="alert alert-danger" role="alert" *ngIf="f.Category.touched && f.Category.invalid" ><sup>*</sup>Please provide Category</div>
+  
+              </div>             
+           </div>
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="DES">Description*</label>
+                
+                     <textarea matInput formControlName="Description" class="checkout__address-form-input input"></textarea>
+          
+                     <div  style="width:60%; padding-left: 10%;">
+                      <div class="alert alert-danger" role="alert" *ngIf="f.Description.touched && f.Description.invalid" ><sup>*</sup>Please provide Description</div>
+        
+                    </div>
+            </div>           
+         </div>
+         <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Community Partner*</label>
+            \
+                <select matNativeControl required formControlName="CommunityPratnerID" class="checkout__address-form-input input">
+                  <option value="" selected disabled hidden>Choose one !</option>
+                  <option  *ngFor="let stud of students" [value]="stud.id" >{{stud.Name}}</option>
+        
+                </select>
+             
+              
+            </div> 
+            <div  style="width:60%; padding-left: 10%;">
+              <div class="alert alert-danger" role="alert" *ngIf="f.CommunityPratnerID.touched && f.CommunityPratnerID.invalid" ><sup>*</sup>Please provide Community Partner ID</div>
+
+            </div>       
+         </div>
+         <div class="form-group__label" style="width: 50%;">
+          <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">add project  attachment*</label>
+          <input class="choose-file" type="file" id="choose-file" required>
+          <label for="choose-file" class="upload-file"></label>
+        </div> 
+         <button class="checkout__total-button button button--primary" style="background-color: #007B7C;" >Add</button>
+   
+      </form>
+         <button class="checkout__total-button2 button button--primary" style="background-color: #007B7C;width: 10px;"  (click)="dismiss()">CANCEL</button>
+         <div class="form-group checkout__address-form-group" style="padding-top: 10%;">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"></label>
+                
+              </div>           
+           </div>  
+         
+      </div>
+    
+   
+  
+  
+  </div>
+</ion-content>
+
+

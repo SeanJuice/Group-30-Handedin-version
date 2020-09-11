@@ -1,0 +1,160 @@
+<ion-content>
+
+    <!----START OF CONTENT-->
+
+    <div style="padding-top: 13%;" *ngIf="Categories">
+        <!---card 1-->
+        <div class="blog-card">
+            <div class="meta">
+                <div class="photo" style="background-image: url(https://res.cloudinary.com/dldmcaqyo/image/upload/v1595758381/Construction_e4rqvr.jpg)"></div>
+                <ul class="details">
+                    <li class="author"><a href="#">Contraction</a></li>
+
+
+                </ul>
+            </div>
+            <div class="description">
+                <h1>CONSTRUCTION TOOLS</h1>
+                <h2>tools to help when in the construction</h2>
+                <br/><br/>
+                <p class="read-more">
+                    <a (click)="ShowTables(0,'Construction')"><strong>VIEW CONSTRUCTION TOOLS</strong></a>
+                </p>
+            </div>
+        </div>
+
+        <!---card 2-->
+        <div class="blog-card alt">
+            <div class="meta">
+                <div class="photo" style="background-image: url(https://res.cloudinary.com/dldmcaqyo/image/upload/v1595758380/Painting_rbhmne.jpg)"></div>
+                <ul class="details">
+
+                    <li class="tags">
+                        <ul>
+                            <li class="author"><a>Schools</a></li>
+                            <li class="author"><a>libraries</a></li>
+                            <li class="author"><a>buildings and more.. </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="description">
+                <h1>PAINTING TOOLS</h1>
+                <h2>Tools involving painting and anything regards to that</h2>
+                <br/><br/>
+                <p class="read-more">
+                    <a (click)="ShowTables(1,'Painting')">VIEW PAINTING TOOLS</a>
+                </p>
+            </div>
+        </div>
+        <!---card 3-->
+        <div class="blog-card">
+            <div class="meta">
+                <div class="photo" style="background-image: url(https://res.cloudinary.com/dldmcaqyo/image/upload/v1595758381/Educational_nenejq.jpg)"></div>
+                <ul class="details">
+                    <li class="author"><a>School</a></li>
+
+
+                </ul>
+            </div>
+            <div class="description">
+                <h1>EDUCATIONAL TOOLS </h1>
+                <h2>tools that deal with the engagement of schools </h2>
+                <br/><br/>
+                <p class="read-more">
+                    <a  (click)="ShowTables(2,'Educational')"><strong>VIEW EDUCATIONAL TOOLS</strong></a>
+                </p>
+            </div>
+        </div>
+        <!---card 4-->
+        <div class="blog-card alt">
+            <div class="meta">
+                <div class="photo" style="background-image: url(https://res.cloudinary.com/dldmcaqyo/image/upload/v1595758381/Mix_i1giup.jpg)"></div>
+                <ul class="details">
+                    <li class="author"><a>OTHER tools</a></li>
+                    <li class="tags">
+                        <ul>
+                            <li><a>Computer tools</a></li>
+                            <li><a>Chairs</a></li>
+                            <li><a>and any other tools</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="description">
+                <h1>OTHER TOOLS</h1>
+                <h2>Tools that are not in the categories above</h2>
+                <br/><br/>
+                <p class="read-more">
+                    <a (click)="ShowTables(3,'Other')">VIEW  OTHER TOOLS</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!----TABLE -->
+    <div style="padding-top: 10%; padding-left: 80%;" *ngIf="tableShow">
+        <button class="pulse" style="background-color: darkcyan; width: 250px;" (click)="openAdd()"> Add tool</button>
+    </div>
+    <div align="center" *ngIf="tableShow">
+        <h1 style="color: honeydew; font-size: 200%"><strong>TOOL MANAGEMENT</strong></h1>
+        <div class="searchbox">
+            <button class="btn-menu">
+              <img src="https://img.icons8.com/cute-clipart/24/000000/top-menu.png">
+          </button>
+            <input id="search" type="text" placeholder="Search..." name="search" class="search" [(ngModel)]="searchText" #searchbar>
+            <button class="btn-search">
+            <img src="https://img.icons8.com/cotton/24/000000/search--v2.png">
+          </button>
+        </div>
+    </div>
+    <div align="center" *ngIf="tableShow">
+
+        <br/>
+        <table style="width: 80;">
+
+
+            <thead>
+                <tr>
+                    <th scope="col">Tool Name</th>
+                    <th scope="col">Condition</th>
+                    <th scope="col">Date Added</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <div></div>
+                <tr *ngFor="let tools of Tools | toolMFilter: searchText ">
+                    <td data-label="Name">{{tools.ToolName}}</td>
+                    <td data-label="Condition">{{tools.ConditionID}}</td>
+                    <td data-label="Date">{{tools.ToolDateAdded | date}}</td>
+                    <td data-label="status">{{tools.ToolStatusID}}</td>
+                    <td data-label="description">{{tools.ToolDescription}}</td>
+                    <td data-label="Plan">
+                        <button class="offset" style="height: 5.5px;">View</button>
+                        <button class="offset" style="height: 5.5px;" (click)="openUpdate(tools.id)">Maintain</button>
+                        <button class="offset" style="height: 5.5px;" (click)="openCondition(tools.id)"> Inspect condition</button>
+                    </td>
+                   <td *ngIf="tools == ''">
+
+                   </td> 
+                </tr>
+                <tr *ngIf="Tools.length==0">
+                    <th scope="col">No tools</th>
+                    <th scope="col">No tools</th>
+                    <th scope="col">No tools </th>
+                    <th scope="col">No tools</th>
+                    <th scope="col">No tools</th>
+                    <th scope="col">No tools</th>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br/><br/><br/>
+    <ion-footer>
+
+    </ion-footer>
+</ion-content>

@@ -1,0 +1,107 @@
+
+<ion-content>
+    <!-- navigation Bar  -->
+
+    <!-- end of navigation Bar -->\
+
+    <div align="center" style="padding-top: 5%; width: 60%; margin: auto;">
+
+        <div class="checkout">
+          <div class="step checkout__step"  >&nbsp;	&nbsp;1.</div>
+          <h2 class="checkout__title"  >Driver Information </h2>
+          <div class="checkout__delivery-address">
+
+            <div class="checkout__address-form">       
+                <div class="form-group">
+                  <label class="checkout__address-form-label label label--required" for="username">First Name *</label>
+                  <input type="text" id="username" [(ngModel)]='driver.Name' #Name="ngModel" class="checkout__address-form-input input form-control" name="name" placeholder="Name" value={{driver.Name}} required>
+                  <div class="alert alert-danger" *ngIf="Name.touched && Name.invalid" style="width: 50%; padding-left: 20%;">
+                    <p *ngIf="Name.errors?.required">Name is a required field!</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="checkout__address-form-label label label--required" for="username">Surname *</label>
+                  <input type="text" id="surname" [(ngModel)]='driver.Surname' #Surname="ngModel" class="checkout__address-form-input input form-control" name="surname" placeholder="Surname" value={{driver.Surname}} required>
+                  <div class="alert alert-danger" *ngIf="Surname.touched && Surname.invalid" style="width: 50%; padding-left: 20%;">
+                    <p *ngIf="Surname.errors?.required">Surname is a required field!</p>
+                  </div>
+                </div> 
+          
+                <div class="form-group">
+                  <label class="checkout__address-form-label label label--required" for="username">Student Number *</label>
+                  <input type="text" id="StudentNumber" [(ngModel)]='driver.StudentNumber' #StudentNo="ngModel" class="checkout__address-form-input input form-control" name="studentN" placeholder="Student Number(start with u)" pattern="[a-zA-Z]+[0-9]+"   value={{driver.StudentNumber}} required>
+                  <div class="alert alert-danger" *ngIf="StudentNo.touched && StudentNo.invalid" style="width: 50%; padding-left: 20%;">
+                    <p *ngIf="StudentNo.errors?.required">Student Number is a required field!</p>
+                    <p *ngIf="StudentNo.errors?.pattern">Student Number is a invalid (start with u or p)</p>
+                   
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="checkout__address-form-label label label--required" for="SN">Contact Number *</label>
+                  <input type="number" id="SN" [(ngModel)]='driver.contactNumber'  #ContactNo="ngModel" class="checkout__address-form-input input form-control" name="Contact" placeholder="Contact Number " value={{driver.StudentNumber}} required>
+                  <div class="alert alert-danger" *ngIf="ContactNo.touched && ContactNo.invalid" style="width: 50%; padding-left: 20%;">
+                    <p *ngIf="Surname.errors?.required">Contact No is a required field!</p>
+                  </div>
+                </div> 
+        
+
+              <h3 class="checkout__subtitle">License details</h3> 
+                
+                <div class="form-group">
+                  <label class="checkout__address-form-label label label--required" for="date">License Expiry Date *</label>
+                  <input type="date" id="date" [(ngModel)]="license.ExpiryDate"  #ExpiryDaate="ngModel" class="checkout__address-form-input input form-control" name="ExpiryDaate" placeholder="License Expiry Date " value={{license.ExpiryDate}} required>
+                  <div *ngIf="ExpiryDaate.touched && ExpiryDaate.invalid" class="alert alert-danger" style="width: 50%; padding-left: 20%;">
+                    <div *ngIf="ExpiryDaate.errors.required">Expiry Date is required</div>
+                    </div>
+                </div> 
+              <div class="form-group checkout__address-form-group">
+                    <div class="form-group__label">
+                      <label class="checkout__address-form-label label label--required" for="LicenseCodeID">License Code *</label>
+                      <select id="cars" class="  form-control " style="width:35%;" name="license"    [(ngModel)]="license.LicenseCodeID" #licenseID="ngModel"  value={{license.LicenseCodeID}} required>
+                        <option value="Choose here" selected disabled >Choose here</option>
+                        <option title="motorcycles" value="C1">Code 1</option>
+                        <option  title=" vehicles (except motorcycles) with tare weight of 3,500 kilograms or less; minibuses, buses and goods vehicles with GVM of 
+                        3,500 kg or less; and articulated vehicles with GCM of 3,500 kg or less" value="C2">Code 2</option>
+                        <option title=" all vehicles (except motorcycles)." value="C3">Code 3</option>
+                      </select>
+                      <div *ngIf="licenseID.touched && licenseID.invalid" class="alert alert-danger" style="width: 50%; padding-left: 20%;">
+                        <div *ngIf="licenseID.errors.required">license ID Date is required</div>
+                        </div>
+
+                    </div>           
+                </div> 
+
+                <div class="form-group">
+                  <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">transport restriction*</label>
+                  
+                  <input type="text" id="date"[(ngModel)]="license.LicenseRestriction" class="checkout__address-form-input input" name="Restrict" placeholder="transport restriction"  #Restrict="ngModel"  value={{license.LicenseRestriction}} required>
+                  <div *ngIf="Restrict.touched && Restrict.invalid" class="alert alert-danger" style="width: 50%; padding-left: 20%;">
+                    <div *ngIf="Restrict.errors.required">transport restriction  is required</div>
+                    </div>
+                </div> 
+              <div class="form-group checkout__address-form-group">
+                    <div class="form-group__label">
+                      <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"></label>
+                      
+                    </div>           
+                </div>  
+              
+            </div>
+          </div>
+          
+          <div class="checkout__total">
+            <div class="checkout__total-header">
+            </div>
+            <button class="checkout__total-button2 button button--primary" style="background-color: #007B7C;" (click)="onSubmit()">SAVE CHANGES</button>
+            <button class="checkout__total-button button button--primary" style="background-color: #007B7C;">CANCEL APPLICATION</button>
+          </div>
+          <div class="checkout__payment-tabs" ng-app="TabsApp" ></div>
+          <!-- here -->
+        </div>
+
+</div>
+    
+
+</ion-content>
+
+

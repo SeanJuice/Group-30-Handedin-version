@@ -1,0 +1,92 @@
+
+<ion-content>
+  <!-- navigation Bar  -->
+  
+    <!-- end of navigation Bar -->
+      
+      <!---second-->
+      <div  style="padding-top: 10%;"  align="center" >
+    <div class="checkout" style="width: 70%;">
+      
+    
+      <div class="checkout__delivery-address" style="padding-right: 10%; color: #007B7C;"  >
+  
+           <h1 class="checkout__subtitle">Tool REquest information</h1> 
+  
+           <div class="alert alert-success" role="alert" *ngIf="ToolInfo.ToolStatusID=='Accepted'">
+              Tool Request Accepted
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="ToolInfo.ToolStatusID=='Rejected'">
+              Project Request taken
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="ToolInfo.ToolStatusID=='Pending'">
+            Project Request Pending
+        </div>
+          <div class="form-group checkout__address-form-group">
+                <div class="form-group__label">
+                   <div class="card w-75">
+                    <div class="card-body">
+                      <h3 class="display-4">Tool Name: </h3>
+                      <p class="card-text">{{ToolInfo.ToolName}}</p>
+                    </div>
+                  </div>
+                </div>           
+             </div>  
+             <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+  
+                <div class="card w-75">
+                  <div class="card-body">
+                    <h3 class="display-4">Tool Description*</h3>
+                    <p class="card-text">{{ToolInfo.ToolDescription}}</p>
+                  </div>
+                </div>
+  
+              </div>           
+           </div>
+          <div class="form-group checkout__address-form-group">
+                <div class="form-group__label">
+                  <div class="card w-75">
+                    <div class="card-body">
+                      <h3 class="display-4">Catergory of tool: </h3>
+                      <p class="card-text">{{ToolInfo.CatergoryID}} Tool</p>
+                    </div>
+                  </div>
+                </div>           
+             </div> 
+             <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <div class="card w-75">
+                  <div class="card-body">
+                    <h3 class="display-4">Return Date: </h3>
+                    <p class="card-text">{{ToolInfo.RequestInfo.ReturnDate }}.</p>
+                  </div>
+                </div>
+                
+              </div>           
+           </div> 
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <div class="card w-75" style="background-color: lightblue;">
+                <div class="card-body">
+                  <h3 class="display-4">Message: </h3>
+                  <p class="card-text">{{ToolInfo.RequestInfo.Message }}</p>
+                </div>
+              </div>
+            </div>           
+         </div> 
+  
+      </div>
+          
+        </div>
+    
+    </div>
+  
+  
+    <button style="background-color: #007B7C;" class="btn btn-orange"*ngIf="this.isExisiting" (click)="Confirmation(this.ToolInfo)" >Cancel Tool Request </button>
+  <div style="padding-top: 4%;">
+  
+  </div>
+    </ion-content>    
+  
+  

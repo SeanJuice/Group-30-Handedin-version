@@ -1,0 +1,86 @@
+
+
+<!-- cONTENT GOES HERE -->
+<ion-content>
+ 
+    <!-- end of navigation Bar -->
+
+    
+    <div align="center"style="padding-top: 10%; width: 60%; margin: auto;">
+      <div class="checkout">
+        <div class="step checkout__step">	&nbsp;	&nbsp;1.</div>
+        <h2 class="checkout__title">Infringement Details</h2>
+        <div class="checkout__delivery-address">
+          <div class="checkout__address-form">
+             <form  [formGroup]="infrigeServ.form" (ngSubmit)="SuccesssInfrigement()">    
+            <div class="form-group checkout__address-form-group">
+                  <div class="form-group__label">
+                    <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"  >Description *</label>
+                     <textarea type="email" class="form-control" rows="3" id="exampleInputEmail1" placeholder="Enter text here..." required formControlName="description" >
+                      "Enter text here..."</textarea>
+                  </div>  
+                  <div  style="width:60%; padding-left: 10%;">
+                     <div class="alert alert-danger" role="alert" *ngIf="f.description.touched && f.description.invalid" ><sup>*</sup>Please provide user Description</div>
+                     <div class="alert alert-danger" role="alert" *ngIf="f.description.errors?.pattern"><sup>*</sup>Please enter correct Description</div>
+                   </div>            
+               </div>  
+            <div class="form-group checkout__address-form-group">
+                  <div class="form-group__label">
+                    <label class="checkout__address-form-label label label--required" for="exampleInputEmail1" >Date *</label>
+                     <input type="date" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder="" required formControlName="date"/>
+                  </div>  
+                  <div  style="width:60%; padding-left: 10%;">
+                     <div class="alert alert-danger" role="alert" *ngIf="f.date.touched && f.date.invalid" ><sup>*</sup>Please provide user date</div>
+                     <div class="alert alert-danger" role="alert" *ngIf="f.date.errors?.pattern"><sup>*</sup>Please enter correct date</div>
+                   </div>          
+               </div>  
+           
+            <div class="form-group checkout__address-form-group">
+                  <div class="form-group__label">
+                    <label class="checkout__address-form-label label label--required"  style="color: grey;"for="exampleInputEmail1" >Time *</label>
+                     <input type="time" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder="" required formControlName="time"/>
+                  </div>  
+                  <div  style="width:60%; padding-left: 10%;">
+                     <div class="alert alert-danger" role="alert" *ngIf="f.time.touched && f.time.invalid" ><sup>*</sup>Please provide user time</div>
+                     <div class="alert alert-danger" role="alert" *ngIf="f.time.errors?.pattern"><sup>*</sup>Please enter correct time</div>
+                   </div>            
+               </div>        
+            <div class="form-group checkout__address-form-group">
+                  <div class="form-group__label">
+                    <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Location *</label>
+                     <input type="text" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder="e.g Soshanguve,2324" required formControlName="location" />
+                  </div> 
+                  <div  style="width:60%; padding-left: 10%;">
+                     <div class="alert alert-danger" role="alert" *ngIf="f.location.touched && f.location.invalid" ><sup>*</sup>Please provide  location</div>
+                     <div class="alert alert-danger" role="alert" *ngIf="f.location.errors?.pattern"><sup>*</sup>Please enter correct location</div>
+                   </div>  
+                            
+               </div>  
+            <div class="form-group checkout__address-form-group">
+                  <div class="form-group__label">
+                    <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Infringement type *</label>
+                     <input type="text" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder="e.g Accident" required formControlName="InfringementType"/>
+                  </div>     
+                  <div  style="width:60%; padding-left: 10%;">
+                     <div class="alert alert-danger" role="alert" *ngIf="f.InfringementType.touched && f.InfringementType.invalid" ><sup>*</sup>Please provide Infringement type</div>
+                     <div class="alert alert-danger" role="alert" *ngIf="f.InfringementType.errors?.pattern"><sup>*</sup>Please enter Infringement type</div>
+                   </div>        
+               </div>     
+            <div class="form-group checkout__address-form-group">
+                  <div class="form-group__label">
+                    <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"></label>
+                    <button class="button button--secondary-black" type="submit"[disabled]="infrigeServ.form.invalid">SUBMIT INFRINGEMENT</button>
+                  </div>           
+               </div>  
+            </form>  
+          </div>
+        </div>
+       
+        
+      
+      </div>
+    </div>
+    
+    
+
+</ion-content>

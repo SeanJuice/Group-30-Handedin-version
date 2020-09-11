@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="warning">This is the applicationn of  XXxX</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+  <div class="checkout">
+    <div class="step checkout__step" >&nbsp;	&nbsp;1.</div>
+    <h2 class="checkout__title"  >Driver Details</h2>
+    <div class="checkout__delivery-address"  >
+ 
+      <div class="checkout__address-form">      
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="Name">First Name *</label>
+                <label type="email"  id="Name"  ><strong>{{driver.Name}}</strong></label>
+              </div>           
+           </div>  
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="Surname">Last Name *</label>
+                <label type="email"  id="Surname"  ><strong>{{driver.Surname}}</strong></label>
+              </div>           
+           </div>  
+       
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="StudentNo">Student Number *</label>
+                <label type="email"  id="StudentNo"  ><strong>{{driver.StudentNumber  }}</strong></label>
+              </div>           
+           </div>  
+    
+              
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Username *</label>
+                 <input type="text" class="checkout__address-form-input input" id="exampleInputEmail1" placeholder="Username" disabled />
+              </div>           
+           </div>
+
+         <h3 class="checkout__subtitle">License details</h3> 
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">License code *</label>
+                 <label type="email"  id="exampleInputEmail1"  ><strong>{{license.LicenseCodeID}}</strong></label>
+              </div>           
+           </div>  
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">License Expiry Data *</label>
+                <label type="email"  id="exampleInputEmail1"  ><strong>{{license.ExpiryDate}}</strong></label>
+              </div>           
+           </div> 
+           <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">transport restriction*</label>
+                <label type="email"  id="exampleInputEmail1"  ><strong>{{license.LicenseRestriction}}</strong></label>
+              </div>           
+           </div>
+        
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"></label>
+                
+              </div>           
+           </div>  
+         
+      </div>
+    </div>
+   
+  
+    <div class="checkout__payment-tabs" ng-app="TabsApp" >
+      
+      <div class="step checkout__step checkout__step--payment">&nbsp;	&nbsp;2</div>
+      <h2 class="checkout__title">Documents  and  infringements</h2>
+      <div class="checkout__payment" id="tabs" ng-controller="TabsCtrl">
+        <h3 class="checkout__subtitle">License</h3> 
+          <button class="fill">Download License</button>
+         
+          <br>
+          <h3 class="checkout__subtitle">Timetable</h3> 
+          <button class="fill">Download Timetable</button>
+          <br>
+          <h3 class="checkout__subtitle">Identity Document</h3> 
+          <button class="fill">Download ID</button>
+        
+       
+      </div>
+
+     
+        <h3 class="checkout__subtitle">Driver Infringements </h3> 
+        <table >
+          <thead>
+            <tr>
+              <th scope="col">Description </th>
+              <th scope="col">Date </th>
+                <th scope="col">Time</th>
+               <th scope="col">Location</th>
+               <th scope="col">Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <div></div>
+            <tr *ngFor="let infringe of Infringements">
+              <td data-label="DN">{{infringe.description}}</td>
+              <td data-label="DOU">{{infringe.date}}</td>
+              <td data-label="D">{{infringe.time}}</td>
+              <td data-label="Plan">
+                {{infringe.location}}
+              </td>
+              <td data-label="Plan">
+                Accident
+             </td>
+            </tr>
+          </tbody>
+        </table>
+ 
+     
+      <div class="checkout__total">
+        <div class="checkout__total-header">
+          <h2>ACTION</h2>
+        </div>
+        
+        <button class="checkout__total-button button button--primary" style="background-color: #007B7C;" (click)="RemoveDriver()">REMOVE DRIVER</button>
+       
+        
+      </div>
+  
+    </div>
+   
+  
+  </div>
+</ion-card>
+</ion-content>

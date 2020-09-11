@@ -1,0 +1,60 @@
+<ion-content>
+  <div class="checkout">
+    
+  
+    <div class="checkout__delivery-address"  >
+   <form #form ="ngForm" (ngSubmit)= "Conifrmation(usertype.value)">  
+         <h3 class="checkout__subtitle">Add Document</h3>  
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="Options">Document Type*</label>
+                
+                 <select name="Options" #usertype="ngModel" [(ngModel)] ="usertypes" id="Options" class="checkout__address-form-input input" >
+                  <option value="childprotection">child protection form</option>
+                  <option value="FinancialDocuments">Financial document</option>
+                  <option value="Timesheet">Time sheet</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>           
+           </div> 
+           <div *ngIf="CurrentFileUpload" class="progress" style="width: 50%;">
+            <div class="progress-bar progress-bar-info progress-bar-striped"
+              role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+              aria-valuemin="0" aria-valuemax="100"
+              [ngStyle]="{width:progress.percentage+'%'}" >
+              {{progress.percentage}}%
+            </div>
+  
+          </div>
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Attach document *</label>
+              <div style="width: 30%;">
+                <input class="choose-file" type="file" (change)="selectFile($event)"   id="choose-file" required >
+                <label for="choose-file" class="upload-file"> </label>
+              </div>
+           
+            </div>           
+         </div>
+        <br/>
+         <button class="checkout__total-button button button--primary" style="background-color: #007B7C;" type="submit">SUBMIT</button>
+   
+
+         <button class="checkout__total-button2 button button--primary" style="background-color: #007B7C;" >CANCEL</button>
+        <div class="form-group checkout__address-form-group" style="padding-top: 5%;">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"></label> 
+              </div>           
+           </div>  
+          </form>
+      </div>
+    
+   
+  
+  
+  </div>
+
+</ion-content>
+ 
+
+

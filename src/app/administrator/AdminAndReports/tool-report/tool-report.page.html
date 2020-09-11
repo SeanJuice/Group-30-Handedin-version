@@ -1,0 +1,106 @@
+
+
+<ion-content>
+  <!-- navigation Bar  -->
+
+
+<!---PROPOSAL IMPORT-->
+<div align="center" style="padding-top: 10%;">
+  <h1 style="color: honeydew; font-size: 200%;"   align="center"><strong>Tool Report</strong></h1>
+ <div class="checkout" style="width: 50%; " >
+   <div class="checkout__delivery-address"    align="center">
+     <br/><br/>
+     <input type="radio" id="Weekly" name="gender" value="Weekly">
+      <label for="Weekly"> Weekly</label><br/>
+      <input type="radio" id="Monthly" name="gender" value="Monthly">
+      <label for="Monthly"> Monthly</label><br>
+      <button style="background-color: gold;" *ngIf="isShow" (click)="Download()" >Download</button>
+       <button style="background-color: #007B7C;" (click)="GenerateChart()" >Generate report</button>
+ </div>
+   </div>
+ </div>
+
+ <div style="padding-top: 10%;   " align="center"  >
+  <div id='content'>
+    <div class="card"*ngIf="isShow" id='content' >
+     
+      <h1 class="display-3">Tool Report</h1>
+      <div class="card-body" align="center">
+        <h5 class="card-title">Special title treatment</h5>
+        <div style="width: 40%;">
+          <canvas id="canvass" > {{Linechart}}</canvas>
+        </div>
+        
+        <h1 class="display-3" class="card-text">With supporting details of tools in their categories</h1>
+        <table class="rwd-table">
+          <h2 class="display-3">Good Condition Tools</h2>
+          <tr>
+            <th>Number of uses</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Condition</th>
+        </tr>
+        <tr *ngFor="let tool of GoodTools" >
+            <td >{{tool.NumberOfUses}}</td>
+            <td >{{tool.Category}}</td>
+            <td >{{tool.Name}}</td>
+            <td >{{tool.Condition}}</td>
+            
+        </tr>
+        </table>
+  
+        <div>
+          
+        </div>
+        <table class="rwd-table">
+          <h2 class="display-3">Moderate Condition Tools</h2>
+          <tr>
+            
+            <th>Number of uses</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Condition</th>
+        </tr>
+        <tr *ngFor="let tool of ModerateTools" >
+            <td >{{tool.NumberOfUses}}</td>
+            <td >{{tool.Category}}</td>
+            <td >{{tool.Name}}</td>
+            <td >{{tool.Condition}}</td>
+            
+        </tr>
+        </table>
+        
+  
+        <table class="rwd-table">
+          <h2 class="display-3">Bad Condition Tools</h2>
+          <tr>
+            <th>Number of uses</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Condition</th>
+        </tr>
+        <tr *ngFor="let tool of BadTools" >
+            <td >{{tool.NumberOfUses}}</td>
+            <td >{{tool.Category}}</td>
+            <td >{{tool.Name}}</td>
+            <td >{{tool.Condition}}</td>
+            
+        </tr>
+        </table>
+        <div class="card-footer text-muted">
+          <strong></strong> Created on {{this.TodaysDate | date}}
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+ </div>
+ 
+
+ <div style="padding-top: 10%;">
+  
+</div>
+
+
+</ion-content>

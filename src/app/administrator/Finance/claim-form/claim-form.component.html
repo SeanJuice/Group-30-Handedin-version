@@ -1,0 +1,68 @@
+
+
+<ion-content>
+
+<!---START-->
+<h1 style="color: honeydew; font-size: 200%; padding-top: 5%; "   align="center"><strong> CLAIM FORM</strong></h1>
+ 
+<div align="center">
+
+
+  <div class="checkout" style="width: 50%; " >
+    <div class="checkout__delivery-address"    align="center">
+      <h3 class="checkout__subtitle" style="color: #007B7C;">Upload Claim form</h3> 
+      <br/><br/>
+      <input class="choose-file" style="padding-top: 5%;" type="file" id="choose-file" (change)="selectFile($event)" required>
+      <label for="choose-file" class="upload-file"></label>
+
+      <div *ngIf="currentFileUpload" class="progress">
+        <div class="progress-bar progress-bar-info progress-bar-striped"
+          role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+          aria-valuemin="0" aria-valuemax="100"
+          [ngStyle]="{width:progress.percentage+'%'}">
+          {{progress.percentage}}%</div>
+      </div>
+<br/><br/><br/><br/>
+
+        <button style="background-color: #007B7C;"  [disabled]="!selectedFiles" (click)="upload()">UPLOAD</button>
+  </div>
+    </div>
+  </div>
+  
+  <div align="center" style="padding-top: 5%;padding-bottom: 10%; ">
+
+
+     <!--Exisiting drivers table -->
+     <h3 class="checkout__subtitle" style="color: white;"><strong >Uploaded Claim forms</strong></h3> 
+  <table class="rwd-table" >
+  
+    <tr>
+      <th>File Name</th>
+      <th>Document sent</th>
+      <th >&nbsp;Action</th>
+    </tr>
+    <tr *ngFor="let claim of Claimforms">
+      <td data-th="Date"><a href="{{claim.Url}}" >{{claim.Name}}</a></td>
+      <td data-th="Date">{{claim.isSent}} </td>
+       <td data-th="Action"> <button class="slide" [disabled]="claim.isSent"(click)="onSendClaim(claim)">Send</button>
+       </td>
+       <td> <button class="slide" (click)="DeleteDocument(claim.id,claim.Url)" ><ion-icon name="trash" style="size: 20%;"></ion-icon></button></td>
+    </tr>
+   
+  </table>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+
+<!-- END  -->
+
+
+</ion-content>

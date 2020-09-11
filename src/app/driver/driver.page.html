@@ -1,0 +1,103 @@
+
+
+<!-- cONTENT GOES HERE -->
+<ion-content>
+  <header>
+    <!-- navigation Bar  -->
+    <nav role="navigation">
+      <ul>
+        <li>
+          <a  >
+            <div align="center" [routerLink]="['/driver/Home']">
+             HOME
+              <span><ion-icon name="home"></ion-icon></span>
+            </div>
+          </a>
+        </li>
+           <!--APPLICATION management Tab --->
+           <li>
+            <a class="menu-item">
+              <div *ngIf="ApplicantOrDriver">
+                APPLICATION 
+              
+              </div>
+              <div *ngIf="ApplicantOrDriver==false" [routerLink]='["/driver/application"]'>
+                MY PROFILE 
+              
+              </div>
+            </a><div *ngIf="ApplicantOrDriver">
+              <ul>
+                <li><a  [routerLink]="['/driver/application-status']">APPLICATION STATUS</a></li>
+                <li><a [routerLink]='["/driver/application"]' >MY APPLICATION</a></li>
+                
+              </ul>
+            </div>
+          </li>
+     <!--APPLICATION management Tab --->
+     <li *ngIf="ApplicantOrDriver==false">
+      <a class="menu-item">
+        <div>
+          TRIP SCHEDULE 
+        
+        </div>
+      </a><div>
+        <ul>
+          <li><a  [routerLink]="['/driver/schaduled-trips']">MY SCHEDULED TRIPS</a></li>
+          <li><a [routerLink]='["/driver/available-trips"]' >AVAILABLE TRIPS</a></li>
+        </ul>
+      </div>
+    </li>
+    <!--DRIVER  Here --->
+        <li  *ngIf="ApplicantOrDriver==false"> 
+          <a [routerLink]='["/driver/infringement"]'  class="menu-item">
+            <div>
+              INFRINGEMENT  
+              
+            </div>
+          </a>
+        </li>
+  
+        <!--NEWSFEED management Tab --->
+        <li>
+          <a   [routerLink]='["/driver/NewsFeed"]' class="menu-item">
+            <div>
+              NEWSFEED
+            
+            </div>
+          </a>
+        </li>
+           <!--NEWSFEED management Tab --->
+           <li>
+            <a  [routerLink]='["/driver/documents"]' class="menu-item">
+              <div>
+                DOCUMENTS
+              
+              </div>
+            </a>
+          </li>
+        <div style="padding-left: 25%;"*ngIf="ApplicantOrDriver">
+
+        </div>
+        <div style="padding-left: 40%;" *ngIf="ApplicantOrDriver==false">
+
+        </div>
+        <li >
+          <a (click)="LogOut()" >
+            <div style="background-color: #007B7C;">
+              <ion-button expand="block" fill="clear" shape="round" color="warning">
+               Log Out
+              </ion-button>
+              
+           
+         </div>
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+    <!-- end of     navigation Bar -->
+
+
+      <ion-router-outlet></ion-router-outlet>
+    </ion-content>

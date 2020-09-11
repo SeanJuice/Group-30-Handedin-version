@@ -1,0 +1,88 @@
+<ion-content style="background-color: white;">
+  <div class="checkout" style="height: 100%;  color:black " >
+    
+  
+    <div class="checkout__delivery-address"  >
+      <form [formGroup]="exStudentService.form" (ngSubmit)="onSubmit()">
+         <h3 class="checkout__subtitle">Add New Student</h3> 
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exStudentName"> Name *</label>
+                 <input type="text" class="checkout__address-form-input input" id="exStudentName" name="ExternalStudentName" formControlName="ExternalStudentName" placeholder=" Name"  required  />
+              </div> 
+              <div  style="width:60%; padding-left: 10%;">
+               <div class="alert alert-danger" role="alert" *ngIf="f.ExternalStudentName.touched && f.ExternalStudentName.invalid" ><sup>*</sup>Please provide student name</div>
+               <div class="alert alert-danger" role="alert" *ngIf="f.ExternalStudentName.errors?.pattern"><sup>*</sup>Please enter correct student name</div>
+             </div>          
+           </div>  
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exStudentSurname">Surname *</label>
+                 <input type="text" class="checkout__address-form-input input" id="ExternalStudentSurname" name="ExternalStudentSurname" formControlName="ExternalStudentSurname" placeholder="Surname"  required/>
+              </div>   
+              <div  style="width:60%; padding-left: 10%;">
+               <div class="alert alert-danger" role="alert" *ngIf="f.ExternalStudentSurname.touched && f.ExternalStudentSurname.invalid" ><sup>*</sup>Please provide student surname</div>
+               <div class="alert alert-danger" role="alert" *ngIf="f.ExternalStudentSurname.errors?.pattern"><sup>*</sup>Please enter correct student surname</div>
+             </div>          
+           </div> 
+           <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="training">Training *</label>
+                 <input type="text" class="checkout__address-form-input input" id="training" name="Training" formControlName="Training" placeholder="Training" required />
+              </div>
+              <div  style="width:60%; padding-left: 10%;">
+               <div class="alert alert-danger" role="alert" *ngIf="f.Training.touched && f.Training.invalid" ><sup>*</sup>Please provide training</div>
+               <div class="alert alert-danger" role="alert" *ngIf="f.Training.errors?.pattern"><sup>*</sup>Please enter correct training</div>
+             </div>            
+           </div>
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="address">Address*</label>
+               <input type="text" class="checkout__address-form-input input" id="address" name="Address" formControlName="Address" placeholder="Address" required />
+            </div>   
+            <div  style="width:60%; padding-left: 10%;">
+               <div class="alert alert-danger" role="alert" *ngIf="f.Address.touched && f.Address.invalid" ><sup>*</sup>Please provide address</div>
+               <div class="alert alert-danger" role="alert" *ngIf="f.Address.errors?.pattern"><sup>*</sup>Please enter correct address</div>
+             </div>        
+         </div>
+         <div class="form-group checkout__address-form-group">
+          <div class="form-group__label">
+            <label class="checkout__address-form-label label label--required" for="email">Email *</label>
+             <input type="email" class="checkout__address-form-input input" id="email" name="Email" formControlName="Email" placeholder="Email" required />
+          </div>   
+          <div  style="width:60%; padding-left: 10%;">
+            <div class="alert alert-danger" role="alert" *ngIf="f.Email.touched && f.Email.invalid" ><sup>*</sup>Please provide email</div>
+            <div class="alert alert-danger" role="alert" *ngIf="f.Email.errors?.pattern"><sup>*</sup>Please enter correct email</div>
+          </div>         
+       </div>
+
+       <div class="form-group checkout__address-form-group">
+         <div class="form-group__label">
+           <label class="checkout__address-form-label label label--required" for="contactNumber">Contact Number *</label>
+            <input type="tell" class="checkout__address-form-input input" id="contactNumber" name="ContactNumber" formControlName="ContactNumber" placeholder="Contact Number" required />
+         </div>   
+         <div  style="width:60%; padding-left: 10%;">
+            <div class="alert alert-danger" role="alert" *ngIf="f.ContactNumber.touched && f.ContactNumber.invalid" ><sup>*</sup>Please provide contact number</div>
+            <div class="alert alert-danger" role="alert" *ngIf="f.ContactNumber.errors?.pattern"><sup>*</sup>Please enter correct contact number</div>
+          </div>          
+      </div>
+        
+        <div class="form-group checkout__address-form-group" style="padding-top: 15%;">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"></label>
+                
+              </div>           
+           </div>  
+           <button class="checkout__total-button button button--primary" style="background-color: #007B7C;" [disabled]="exStudentService.form.invalid">SUBMIT</button>
+   
+           </form>
+           <button class="checkout__total-button button button--primary" style="background-color: #007B7C;" (click)="dismiss()" >CANCEL</button>
+      </div>
+    
+   
+  
+  
+  </div>
+</ion-content>
+
+

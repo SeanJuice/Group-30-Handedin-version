@@ -1,0 +1,165 @@
+
+
+<ion-content>
+
+<h1 style="color: honeydew; font-size: 200%; padding-top: 10%;"   align="center"><strong> IMPORTING EXTERNAL INFORMATION</strong></h1>
+<!---PROPOSAL IMPORT-->
+<div align="center"style="padding-top: 5%; " >
+  <div class="checkout" style="width: 70%; " >
+    <div class="checkout__delivery-address"    align="center">
+     <h3 class="checkout__subtitle" style="color: #007B7C;">IMPORT PROJECT PROPOSALS</h3> 
+     <br/><br/>
+     <div  class="upload-file" style="background-color: #007B7C;">
+      <button  style="width: 90%;">
+        <label>
+          <span class="mdi mdi-file-export"> </span>
+          <h5>CHOOSE FILE</h5>
+          <input hidden type="file"  class="choose-file" (change)="onFileChangeProposal($event)" multiple="false" >
+        </label>
+      </button>
+    </div>
+ </div>
+ <br/><br/><br/><br/>
+ <div  *ngIf="show2">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Student Year</th>
+        <th scope="col">Student Student Number</th>
+        <th scope="col">Proposal Date</th>
+        <th scope="col">Proposal Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of importProposal">
+        <td data-label="Name">{{student?.StudentYearID}}</td>
+        <td data-label="Surname">{{student?.StudentNo}}</td>
+        <td data-label="Initials">{{student?.ProposalDate}}</td>
+        <td data-label="Title">{{student?.ProposalTime}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
+      <button style="background-color: #007B7C;" (click)="UploadProposal()">UPLOAD</button>
+      <button style="background-color: gold;" (click)="toggledProposalData()">PREVIEW</button>
+   </div>
+ </div>
+
+
+
+<!---STUDENT GROUP-->
+ <div align="center" style="padding-top: 5%; ">
+    <div class="checkout" style="width: 70%; " >
+      <div class="checkout__delivery-address"    align="center">
+        <h3 class="checkout__subtitle" style="color: #007B7C;">IMPORT STUDENT GROUPS</h3> 
+        <br/><br/>
+          <div  class="upload-file" style="background-color: #007B7C;">
+            <button  style="width: 90%;">
+              <label>
+                <span class="mdi mdi-file-export"> </span>
+                <h5>CHOOSE FILE</h5>
+                <input hidden type="file"  class="choose-file" (change)="onFileChangeStudent($event)" multiple="false" >
+              </label>
+            </button>
+          </div>
+     
+     
+    <br/><br/><br/><br/>
+ 
+    <div  *ngIf="show">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Student Name</th>
+            <th scope="col">Student Surname</th>
+            <th scope="col">Student Initial</th>
+            <th scope="col">Student Title</th>
+              <th scope="col">Contact Number</th>
+             <th scope="col">Plan and Program</th>
+              <th scope="col">Academic Plan</th>
+               <th scope="col">Course code</th>
+               <th scope="col">Student level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of importContacts">
+            <td data-label="Name">{{student?.Name}}</td>
+            <td data-label="Surname">{{student?.Surname}}</td>
+            <td data-label="Initials">{{student?.Initials}}</td>
+            <td data-label="Title">{{student?.Title}}</td>
+            <td data-label="Number">{{student?.Contact}}</td>
+            <td data-label="Plan">{{student?.PlanProgram}}</td>
+            <td data-label="Plan">{{student?.StudyPlanProgram}}</td>
+             <td data-label="Plan">{{student?.CourseCode}}</td>
+               <td data-label="Plan">{{student?.Level}}</td>
+          </tr>
+  
+        </tbody>
+      </table>
+    
+    </div>
+          <button style="background-color: #007B7C;" (click)="shows()">UPLOAD</button>
+          <button style="background-color: gold;" (click)="toggled()">PREVIEW</button>
+    </div>
+
+   </div>
+ 
+ </div>
+
+
+ 
+ <!---PRESENTATION IMPORT-->
+<div align="center"style="padding-top: 5%; " >
+  <div class="checkout" style="width: 70%; " >
+    <div class="checkout__delivery-address"    align="center">
+      <h3 class="checkout__subtitle" style="color: #007B7C;">IMPORT PROJECT PRESENTATIONS</h3> 
+      <br/><br/>
+      <div  class="upload-file" style="background-color: #007B7C;">
+        <button  style="width: 90%;">
+          <label>
+            <span class="mdi mdi-file-export"> </span>
+            <h5>CHOOSE FILE</h5>
+            <input hidden type="file"  class="choose-file" (change)="onFileChangeProjectPresentation($event)" multiple="false" >
+          </label>
+        </button>
+      </div>
+      <br/><br/><br/><br/>
+      <div  *ngIf="show3">
+       <table>
+         <thead>
+           <tr>
+             <th scope="col">Student Year</th>
+             <th scope="col">Student Student Number</th>
+             <th scope="col">Presentation Date Date</th>
+             <th scope="col">Proposal Time</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr *ngFor="let student of importPresentation">
+             <td data-label="Name">{{student?.StudentYearID}}</td>
+             <td data-label="Surname">{{student?.StudentNo}}</td>
+             <td data-label="Initials">{{student?.PresentationDate}}</td>
+             <td data-label="Title">{{student?.PresentationTime}}</td>
+           </tr>
+     
+         </tbody>
+       </table>
+     
+     </div>
+           <button style="background-color: #007B7C;" (click)="UploadPresentation()">UPLOAD</button>
+           <button style="background-color: gold;" (click)="toggled3()">PREVIEW</button>
+   \
+  </div>
+    </div>
+  </div>
+ 
+ <br/> <br/> <br/>
+
+<!-- END  -->
+<div class="footer" >
+  <p>Footer</p>
+</div>
+
+</ion-content>

@@ -1,0 +1,119 @@
+
+<ion-content>
+<!-- navigation Bar  -->
+
+  <!-- end of navigation Bar -->
+    
+    <!---second-->
+    <div  style="padding-top: 10%;"  align="center" >
+  <div class="checkout" style="width: 70%;">
+    
+  
+    <div class="checkout__delivery-address" style="padding-right: 10%; color: #007B7C;"  >
+
+         <h1 class="checkout__subtitle">Project information</h1> 
+
+         <div class="alert alert-success" role="alert" *ngIf="ProjectInfo.Status=='Accepted'">
+            Project Accepted
+        </div>
+        <div class="alert alert-warning" role="alert" *ngIf="ProjectInfo.Status=='TemporarilyChosen'">
+            Project Temporarily taken
+        </div>
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                 <div class="card w-75">
+                  <div class="card-body">
+                    <h3 class="display-4">Project Name: </h3>
+                    <p class="card-text">{{ProjectInfo.Name}}</p>
+                  </div>
+                </div>
+              </div>           
+           </div>  
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+
+              <div class="card w-75">
+                <div class="card-body">
+                  <h3 class="display-4">Description*</h3>
+                  <p class="card-text">{{ProjectInfo.Description}}</p>
+                </div>
+              </div>
+
+            </div>           
+         </div>
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <div class="card w-75">
+                  <div class="card-body">
+                    <h3 class="display-4">Location: </h3>
+                    <p class="card-text">{{ProjectInfo.PhysicalAddress}}</p>
+                  </div>
+                </div>
+              </div>           
+           </div> 
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <div class="card w-75">
+                <div class="card-body">
+                  <h3 class="display-4">Contact Person: </h3>
+                  <p class="card-text">{{ProjectInfo.ContactPerson}}.</p>
+                </div>
+              </div>
+              
+            </div>           
+         </div> 
+         <div class="form-group checkout__address-form-group">
+          <div class="form-group__label">
+            <div class="card w-75">
+              <div class="card-body">
+                <h3 class="display-4">Email: </h3>
+                <p class="card-text">{{ProjectInfo.ContactPerson}}.</p>
+              </div>
+            </div>
+          </div>           
+       </div> 
+       <div class="form-group checkout__address-form-group">
+        <div class="form-group__label">
+          <div class="card w-75">
+            <div class="card-body">
+              <h3 class="display-4">Contact Numbers: </h3>
+              <p class="card-text">{{ProjectInfo.ContactNumber}}..</p>
+            </div>
+          </div>
+          
+        </div>           
+     </div> 
+        
+         <div class="form-group checkout__address-form-group" style="padding-bottom: 3%;">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="exampleInputEmail1"></label>
+                <div style="padding-left: 20%;">
+                  <button class="checkout__total-button2 button button--primary" style="background-color: #007B7C;" *ngIf="ProjectInfo.Status !='Accepted'" (click)="Accept(ProjectInfo.id)" >Accept Project</button>
+      
+                 </div>
+                <div>
+                  <button class="checkout__total-button button button--primary" style="background-color: #007B7C;" *ngIf="ProjectInfo.Status !='Accepted'" (click)="Reject(ProjectInfo.id)">Reject project</button>
+                 </div>
+             
+                 
+              </div>           
+           </div>  
+          
+
+    </div>
+
+           
+      </div>
+    
+   
+  
+  
+  </div>
+
+
+
+<div style="padding-top: 4%;">
+
+</div>
+  </ion-content>    
+

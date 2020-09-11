@@ -1,0 +1,164 @@
+
+
+<!-- cONTENT GOES HERE -->
+<ion-content>
+  <header>
+    <!-- navigation Bar  -->
+    <nav role="navigation">
+      <ul>
+        <li>
+          <a  >
+            <div align="center" [routerLink]="['/administrator/Home']">
+             HOME
+              <span><ion-icon name="home"></ion-icon></span>
+            </div>
+          </a>
+        </li>
+      <!--STUDENT Here --->
+        <li>
+          <a class="menu-item">
+            <div>
+              STUDENT
+            
+            </div>
+          </a><div>
+            <ul>
+              <li><a  [routerLink]='["/administrator/student-group"]' >STUDENT GROUPS</a></li>
+              <li><a [routerLink]='["/administrator/student-group-accounts"]' >STUDENT GROUP ACCOUNT</a></li>
+              <li><a [routerLink]='["/administrator/StudentGrades"]' >STUDENT  GRADES</a></li>
+  
+            </ul>
+          </div>
+        </li>
+      <!--COMMUNITY PARTNER Here --->
+        <li>
+          <a  class="menu-item">
+            <div>
+              COMMUNITY PARTNER
+              
+            </div>
+          </a><div>
+            <ul>
+              <li><a [routerLink]='["/administrator/cp-applications"]'>APPLICATIONS</a></li>
+              <li><a [routerLink]='["/administrator/existing-cp"]' >EXISTING COMMUNITY PARTNERS</a></li>
+              <li><a [routerLink]='["/administrator/possible-projects"]' >POSSIBLE PROJECTS</a></li>
+              <li><a [routerLink]='["/administrator/available-projects"]' >AVAILABLE PROJECTS</a></li>
+            </ul>
+          </div>
+        </li>
+    <!--DRIVER  Here --->
+        <li>
+          <a  class="menu-item">
+            <div>
+              DRIVER
+              
+            </div>
+          </a><div>
+            <ul>
+              <li><a routerLink="/administrator/driver-applications">Applications</a></li>
+              <li><a routerLink="/administrator/exisiting-drivers" >Existing Drivers </a></li>
+            </ul>
+          </div>
+        </li>
+  
+        <!-- Import Information Tab --->
+        <li>
+          <a  [routerLink]="['/administrator/ImportInformation']" class="menu-item">
+            <div>
+              IMPORT <br /> INFORMATION
+             
+            </div>
+          </a>
+        </li>
+  <!--Tool management Tab --->
+        <li>
+          <a class="menu-item">
+            <div>
+              TOOLS
+             
+            </div>
+          </a><div>
+            <ul>
+              <li><a  [routerLink]="['/administrator/ToolRequest']">TOOL REQUESTS</a></li>
+              <li><a [routerLink]='["/administrator/tool-management"]' >TOOL MANAGEMENT</a></li>
+            </ul>
+          </div>
+        </li>
+  <!--Finance management Tab --->
+        <li>
+          <a  class="menu-item">
+            <div>
+              FINANCE
+              
+            
+            </div>
+          </a><div>
+            <ul>
+              <li><a [routerLink]="['/administrator/SetProfileReminder']" >SET REMINDER</a></li>
+              <li><a  [routerLink]="['/administrator/ClaimForm']">CLAIM FORM</a></li>
+              <li><a [routerLink]="['/administrator/FinancialDocuments']"  >FINANCIAL DOCUMENTS </a></li>
+            </ul>
+          </div>
+        </li>
+        <!--NEWSFEED management Tab --->
+        <li>
+          <a    [routerLink]="['/administrator/news-feeds']" class="menu-item">
+            <div>
+              NEWSFEED
+            
+            </div>
+          </a>
+        </li>
+         <!--BACKUPSYSTEM management Tab --->
+         <li>
+          <a [routerLink]="['/administrator/Maintainance']"  class="menu-item">
+            <div>
+              BACKUP SYSTEM
+            
+            </div>
+          </a>
+        </li>
+           <!--Admin management Tab --->
+           <li>
+            <a  class="menu-item">
+              <div>
+               ADMINISTRATION  <br />
+               & REPORTS
+              
+              </div>
+            </a>
+            <div>
+              <ul>
+                <li><a  [routerLink]="['/administrator/admin']" >REGISTER ADMINISTRATOR</a></li>
+                <li><a  [routerLink]="['/administrator/access-roles']">ACCESS ROLE</a></li>
+                <li><a  [routerLink]="['/administrator/tool-report']">TOOL REPORT</a></li>
+                <li><a  [routerLink]="['/administrator/performance-report']">STUDENT PERFORMANCE REPORT</a></li>
+                <li><a  [routerLink]="['/administrator/driver-report']">DRIVER REPORT </a></li>
+                <li><a  [routerLink]="['/administrator/proposal-report']">PROPOSAL REPORT </a></li>
+                <li><a  [routerLink]="['/administrator/presentation-report']">PRESENTATION REPORT </a></li>
+   
+              </ul>
+            </div>
+          </li>
+        
+        
+        <li>
+          <a href="#" >
+            <div style="background-color: #007B7C;">
+              <ion-button expand="block" fill="clear" shape="round" color="warning">
+               Log Out
+              </ion-button> 
+         </div>
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+    <!-- end of    <app-home-page *ngIf="Page1"></app-home-page>  navigation Bar -->
+
+    <ion-router-outlet></ion-router-outlet>
+    
+    
+
+</ion-content>

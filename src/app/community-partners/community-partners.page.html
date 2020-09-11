@@ -1,0 +1,105 @@
+
+
+<!-- cONTENT GOES HERE -->
+<ion-content>
+  <header>
+    <!-- navigation Bar  -->
+    <nav role="navigation">
+      <ul>
+        <li>
+          <a  [routerLink]='["/community-partners/Home"]'   >
+            <div align="center">
+             HOME
+              <span><ion-icon name="home"></ion-icon></span>
+            </div>
+          </a>
+        </li>
+      <!--STUDENT Here --->
+        <li *ngIf="ApplicantOrDriver==false" >
+          <a  [routerLink]='["/community-partners/projects"]'  class="menu-item">
+            <div >
+              PROJECTS 
+            
+            </div>
+          </a>
+        </li>
+      <!--COMMUNITY PARTNER Here --->
+        <li *ngIf="ApplicantOrDriver==false" >
+          <a [routerLink]='["/community-partners/students"]' class="menu-item">
+            <div>
+              STUDENTS
+              
+            </div>
+          </a>
+        </li>
+    <!--DRIVER  Here --->
+        <li *ngIf="ApplicantOrDriver==false" >
+          <a [routerLink]='["/community-partners/external-students"]'  class="menu-item">
+            <div>
+              EXTERNAL <br /> STUDENTS
+              
+            </div>
+          </a>
+        </li>
+      <!--APPLICATION management Tab --->
+      <li *ngIf="ApplicantOrDriver" >
+        <a class="menu-item">
+          <div>
+            APPLICATION
+          
+          </div>
+        </a><div>
+          <ul>
+            <li><a  [routerLink]="['/community-partners/application-status']">APPLICATION STATUS</a></li>
+            <li><a [routerLink]='["/community-partners/application"]' >MY APPLICATION</a></li>
+          </ul>
+        </div>
+      </li>
+      <li *ngIf="ApplicantOrDriver==false" >
+        <a  [routerLink]='["/community-partners/application"]' class="menu-item">
+          <div>
+            MY PROFILE          
+          </div>
+        </a>
+      </li>
+        <!--NEWSFEED management Tab --->
+        <li>
+          <a  [routerLink]='["/community-partners/NewsFeed"]' class="menu-item">
+            <div>
+              NEWSFEED
+            
+            </div>
+          </a>
+        </li>
+           <!--NEWSFEED management Tab --->
+           <li *ngIf="ApplicantOrDriver==false" >
+            <a  [routerLink]='["/community-partners/documents"]' class="menu-item">
+              <div>
+                DOCUMENTS
+              
+              </div>
+            </a>
+          </li>
+        <div style="padding-left: 25%;">
+
+        </div>
+        <li >
+          <a href="#" >
+            <div style="background-color: #007B7C;">
+              <ion-button expand="block" fill="clear" shape="round" color="warning" (click)="LogOut()" >
+               Log Out
+              </ion-button>
+              
+           
+         </div>
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+    
+    
+    <ion-router-outlet></ion-router-outlet>
+
+</ion-content>

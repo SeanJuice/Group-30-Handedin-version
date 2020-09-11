@@ -1,0 +1,578 @@
+
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+
+///@extend////Navigation 
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+  
+@import  "../../../Shared/styels/Navbar.scss";
+
+//////////////////////////////////////////////////////////////////////// 
+
+
+$breakpoint-alpha: 480px; // adjust to your needs
+
+.rwd-table {
+  margin: 1em 0;
+  min-width: 1000px; // adjust to your needs
+  
+  tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!   
+    font-size: medium;
+  }
+  
+  td {
+    display: block; 
+    
+    &:first-child {
+      padding-top: .5em;
+    }
+    &:last-child {
+      padding-bottom: .5em;
+    }
+
+    &:before {
+      content: attr(data-th)": "; // who knew you could do this? The internet, that's who.
+      font-weight: bold;
+
+      // optional stuff to make it look nicer
+      width: 6.5em; // magic number :( adjust according to your own content
+      display: inline-block;
+      // end options
+      
+      @media (min-width: $breakpoint-alpha) {
+        display: none;
+      }
+    }
+  }
+  
+  th, td {
+    text-align: left;
+    
+    @media (min-width: $breakpoint-alpha) {
+      display: table-cell;
+      padding: .25em .5em;
+      
+      &:first-child {
+        padding-left: 0;
+      }
+      
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+  }
+  
+  
+}
+
+
+// presentational styling
+
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700';
+
+body {
+  padding: 0 6em;
+  font-family: Montserrat, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: #444;
+  background: #eee;
+}
+
+h1 {
+  font-weight: normal;
+  letter-spacing: -1px;
+  color: #34495E;
+}
+
+.rwd-table {
+  background: #ffffff;
+  color: #007B7C;
+  border-radius: .4em;
+  overflow: hidden;
+  tr {
+    border-color: lighten(#34495E, 10%);
+  }
+  th, td {
+    margin: .5em 1em;
+    @media (min-width: $breakpoint-alpha) { 
+      padding: 2em !important; 
+    }
+  }
+  th, td:before {
+    color: #007B7C;
+  }
+
+  
+}
+ ///// Alert function
+ .alertCustomCss{
+  background-color: white;
+  max-height:1000px;  
+  height:1000px;
+  color: blue;
+  button{
+      color: blue;
+  }
+}
+
+
+//Take button
+
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,700,900');
+
+$anim-text-offset: 1em;
+
+body{
+  font-family: 'Work Sans', sans-serif;
+  background: #111;
+  text-align: center;
+}
+.wrapper{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.button{
+  touch-callout: none;
+  user-select: none;
+  display: inline-block;
+  border: .2em solid;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  opacity: 0.6;
+  color: #34495E;
+  &__text{
+    display: block;
+    padding:1em 2em;
+    text-transform: uppercase;
+    font-weight: bold;
+    &:before{
+      content: attr(title);
+    }
+    &--bis{
+      display: block;
+      position: absolute;
+      top: 0; left:0; right: 0; bottom: 0;
+      transform: translateX(-1 * $anim-text-offset);
+      opacity: 0;
+    }
+  }
+  &__mask{
+    display: block;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: yellow;
+    transform: translateX(-100%) rotate(45deg);
+    transition: all 0.3s;
+  }  
+}
+
+.button:hover{
+  opacity: 1;
+  .button__text{
+    animation: fx-text .3s ease-out;
+    color:black;
+    &--bis{
+      animation: fx-text-bis .3s ease-out;
+    }
+  }    
+  .button__mask{
+    animation: fx-mask .3s ease-out;
+    color:yellow;
+  }    
+}
+
+.button:active{
+  opacity: 1;
+  background: white;
+  color: inherit;
+}
+
+
+
+@keyframes fx-mask {
+  0%{
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100%{
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+@keyframes fx-text {
+  0%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100%{
+    transform: translateX($anim-text-offset);
+    opacity: 0;
+  }
+}
+@keyframes fx-text-bis {
+  0%{
+    transform: translateX(-1 * $anim-text-offset);
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+////////Search bar 
+@import url('https://fonts.googleapis.com/css?family=Sarabun');
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+
+
+
+
+
+h1 {
+  margin: 2rem;  
+}
+
+.searchbar {
+    color:crimson;
+  font-size: 1rem;
+  width: 50rem;
+  height: 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 10rem;
+  box-shadow: 0 1rem 2rem rgba(black, .1);
+  padding: 2rem;
+  // position: relative;
+  transition: all .2s;
+  transition-delay: .1s;
+  
+}
+
+
+
+.button {
+  height: 2rem;
+  position: absolute;
+  top: 35%;
+  right:30%;
+  transition: all .2s;
+  transition-delay: .1s;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+
+
+.searchbar::placeholder {
+  opacity: 1;
+  font-size: medium;
+}
+
+//BUTTONS  COLORFULL
+//@extend//@extend
+
+.fill:hover,
+.fill:focus {
+  box-shadow: inset 0 0 0 2em var(--hover);
+}
+
+// Animate the size, outside
+.pulse:hover, 
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(#fff,0);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+}
+
+// Stack multiple shadows, one from the left, the other from the right
+.close:hover,
+.close:focus {
+  box-shadow: 
+    inset -3.5em 0 0 0 var(--hover),
+    inset 3.5em 0 0 0 var(--hover);  
+}
+
+// Size can also be negative; see how it's smaller than the element
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+// Animating from the bottom
+.up:hover,
+.up:focus {
+  box-shadow: inset 0 -3.25em 0 0 var(--hover);
+}
+
+// And from the left
+.slide:hover,
+.slide:focus {
+  box-shadow: inset 6.5em 0 0 0 var(--hover);
+}
+
+// Multiple shadows, one on the outside, another on the inside
+.offset {  
+  box-shadow: 
+    0.3em 0.3em 0 0 var(--color),
+    inset 0.3em 0.3em 0 0 var(--color);
+  
+  &:hover,
+  &:focus {
+    box-shadow: 
+      0 0 0 0 var(--hover),
+      inset 6em 3.5em 0 0 var(--hover);
+  }
+}
+
+//=== Set button colors
+// If you wonder why use Sass vars or CSS custom properties...
+  // Make a map with the class names and matching colors
+$colors: (
+  fill: #a972cb,
+  pulse: #ef6eae, 
+  close: #ff7f82, 
+  raise: #ffa260, 
+  up: #e4cb58, 
+  slide: #8fc866, 
+  offset: #19bc8b
+);
+
+// Sass variables compile to a static string; CSS variables are dynamic and inherited
+  // Loop through the map and set CSS custom properties using Sass variables
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+// Now every button will have different colors as set above. We get to use the same structure, only changing the custom properties.
+button {  
+  color: var(--color);
+  transition: 0.25s;
+  
+  &:hover,
+  &:focus { 
+    border-color: var(--hover);
+    color: #fff;
+  }
+}
+
+//=== Pen styling, ignore
+body {
+  color: #fff;
+  background: hsl(227, 10%, 10%);
+  font: 300 1em 'Fira Sans', sans-serif;
+  
+  // Center everything ever
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+}
+
+// Basic button styles
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+h1 { font-weight: 400; }
+
+code { 
+  color: #e4cb58;
+  font: inherit;
+}
+
+//modal
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  background-image: radial-gradient(#a8bfac, #5d8ba0);
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1s;
+  
+    &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    height: 50vh;
+    background-color: #f7f7f7;
+    border-radius: 6px;
+    cursor: default;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all .3s .2s;
+  }
+  
+  &:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  &:target &__content {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  &__close-button {
+    font-size: 4em;
+    line-height: 50%;
+    text-decoration: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #333;
+  }
+}
+
+
+.btn:link,
+.btn:visited {
+  margin-top: 40px;
+  display: inline-block;
+  padding: 13px 40px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: all .2s;
+  background-color: #fff;
+  color: #000;
+  font-family: monospace;
+  font-size: 1.8em;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+  ///@extend
+  ///Background 
+ion-content {
+    --background: #adb5bd url("../../../folder/Untitleddesign.png") no-repeat center center / cover;
+  }
+  ///@extend
+  
+//NEW SEARCH FOR THE TABLE
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Dosis&display=swap');
+
+button {
+	& img {
+		transition: transform .25s;
+	}
+	&:hover{
+		& > img {
+			  transform:scale(1.2);
+		}
+	}
+	&:focus {
+		outline: none;
+	}
+}
+
+input {
+	font-family: 'Lexend Deca', sans-serif;;
+	&::placeholder{
+		font-family: 'Lexend Deca', sans-serif;
+	}
+	&:focus{
+		outline: none;
+	}
+}
+
+.searchbox{
+		height: 60px;
+		width: 800px;
+    max-width: 100%;
+    background: white;
+    border-radius: 10px;
+    position: relative;
+    color:#007B7C;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 10%;
+		display: flex;
+	border: 5px;
+	border-color: coral;
+	
+	& > .btn-menu {
+		padding: 16px;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+	}
+	
+	& > .search{
+		border: 5px;
+		width: 100%;
+	}
+	
+	& > .btn-search {
+		padding: 16px;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+	}
+}
+///END OF SEARCH

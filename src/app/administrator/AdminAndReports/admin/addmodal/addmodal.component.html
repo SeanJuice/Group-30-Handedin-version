@@ -1,0 +1,137 @@
+<ion-content style="background-color: white;">
+  <div class="checkout" style="height: 110%;  ">
+    
+  
+    <div class="checkout__delivery-address"  >
+      <form [formGroup]="adminservice.form" (ngSubmit)="onSubmit()">
+        <h3 class="checkout__subtitle">Add New Administrator</h3> 
+        <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="Name" >Name: *</label>
+                 <input type="text" class="checkout__address-form-input input" id="Name" placeholder="Name" formControlName="Name" required />
+          
+              </div>   
+              <div  style="width:60%; padding-left: 10%;">
+                <div class="alert alert-danger" role="alert" *ngIf="f.Name.touched && f.Name.invalid" ><sup>*</sup>Please provide user email</div>
+                <div class="alert alert-danger" role="alert" *ngIf="f.Name.errors?.pattern"><sup>*</sup>Please enter correct email</div>
+              </div>     
+           </div>  
+
+           <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="surname">Surname: *</label>
+                 <input type="text" class="checkout__address-form-input input" id="surname" placeholder="Surname"  formControlName="Surname" required />
+              </div> 
+              <div  style="width:60%; padding-left: 10%;">
+                <div class="alert alert-danger" *ngIf="f.Surname.touched && f.Surname.invalid"><sup>*</sup>Please provide Surname</div>
+                 <div class="alert alert-danger" *ngIf="f.Surname.errors?.pattern" ><sup>*</sup>Please enter correct Surname</div>
+              </div>          
+           </div>
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="Email">Email Address: *</label>
+               <input type="email" class="checkout__address-form-input input" id="Email" placeholder="Email"  formControlName="Email" required />
+   
+            </div>
+            <div  style="width:60%; padding-left: 10%;">
+              <div class="alert alert-danger" *ngIf="f.Email.touched && f.email.invalid" ><sup>*</sup>Please provide email</div>
+              <div class="alert alert-danger" *ngIf="f.Email.errors?.pattern"><sup>*</sup>Please enter correct email</div>
+            </div>           
+         </div>
+         <div class="form-group checkout__address-form-group">
+          <div class="form-group__label">
+            <label class="checkout__address-form-label label label--required" for="Contact">Contact Number: *</label>
+             <input type="number" class="checkout__address-form-input input" id="Contact" placeholder="Contact Number" formControlName="ContactNumber" required />
+             
+          </div>  
+          <div  style="width:60%; padding-left: 10%;">
+            <div class="alert alert-danger" *ngIf="f.ContactNumber.touched && f.ContactNumber.invalid" ><sup>*</sup>Please provide Contact number</div>         
+          </div>
+         
+       </div>
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="Address">Address*</label>
+              <textarea id="Address" name="story"
+              rows="5" cols="33" formControlName="Address" >
+                    type you address  here.....
+                    </textarea>
+                   
+            </div> 
+            <div  style="width:60%; padding-left: 10%;">
+              <div class="alert alert-danger" *ngIf="f.Address.touched && f.Address.invalid" ><sup>*</sup>Please provide email</div>
+            </div>          
+         </div>
+         <div class="form-group checkout__address-form-group">
+          <div class="form-group__label">
+            <label class="checkout__address-form-label label label--required" for="ID">ID Number: *</label>
+             <input type="text" class="checkout__address-form-input input" id="ID" placeholder="ID Number" formControlName="IDNumber" required />
+        
+          </div>
+          <div  style="width:60%; padding-left: 10%;">
+            <div class="alert alert-danger" *ngIf="f.IDNumber.touched && f.IDNumber.invalid" ><sup>*</sup>Please provide ID</div>
+          </div>              
+       </div>
+       <div class="form-group checkout__address-form-group">
+        <div class="form-group__label">
+          <label class="checkout__address-form-label label label--required" for="cars">Job Title :</label>
+          <select id="cars" class="checkout__address-form-label label label--required" style="width:40%;" name="JobTitle" formControlName="JobTitle">
+            <option value="Administrator">Administrator</option>
+            <option value="Daily"  >???????</option>
+          </select>
+        </div>           
+     </div> 
+     <div class="form-group checkout__address-form-group">
+      <div class="form-group__label">
+        <label class="checkout__address-form-label label label--required" for="Username">Username: *</label>
+         <input type="text" class="checkout__address-form-input input" id="Username"  formControlName="Username" placeholder="Username" required />
+      </div>  
+      <div  style="width:60%; padding-left: 10%;">
+        <div class="alert alert-danger" *ngIf="f.Username.touched && f.Username.invalid"><sup>*</sup>Please provide Username</div>
+      </div>          
+      </div>
+      <div class="form-group checkout__address-form-group">
+        <div class="form-group__label">
+          <label class="checkout__address-form-label label label--required" for="passwordC"> Password:*</label>
+           <input type="password" class="checkout__address-form-input input" id="passwordC" formControlName="Password" placeholder="confirm password" required />
+        
+          </div>           
+      </div>
+      <div class="form-group checkout__address-form-group">
+        <div class="form-group__label">
+          <label class="checkout__address-form-label label label--required" for="passwordC">Confirm Password:*</label>
+           <input type="password" class="checkout__address-form-input input" id="passwordC" formControlName="confirm_password" placeholder="confirm password" required />
+           <div *ngIf="f.confirm_password.touched && f.confirm_password.invalid" class="alert alert-danger" style="width:60%; padding-left: 10%;">
+            <div *ngIf="f.confirm_password.errors.required">Password is required.</div>
+            <div *ngIf="f.confirm_password.errors.confirmedValidator">Password and Confirm Password must be match.</div>
+        </div>
+        
+          </div>           
+      </div>
+<br/>
+<br/> 
+         
+         <button class="checkout__total-button button button--primary" style="background-color: #007B7C;"  type="submit"  >Submit</button>
+   
+
+        
+
+          
+      </form>
+      <button class="checkout__total2-button button button--primary" style="background-color: #007B7C;"  (click)="dismiss()">Cancel</button>
+         
+      </div>
+    
+   
+  
+  
+  </div>
+<ion-footer style="width: 10%;">
+
+</ion-footer>
+
+</ion-content>
+ 
+
+
+

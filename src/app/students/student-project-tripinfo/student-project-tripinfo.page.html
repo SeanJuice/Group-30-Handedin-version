@@ -1,0 +1,55 @@
+<ion-content>
+<!-- navigation Bar  -->
+  <!-- end of navigation Bar -->
+
+ 
+    <!---second-->
+    <div align="center" style=" padding-top: 10%;" >
+      <div class="checkout" style="width: 40%;" >
+        <h2 class="checkout__subtitle" >Project  Trip</h2> 
+        
+        <div class="checkout__delivery-address"  *ngIf="Atrip==null">
+          <p class="lead">
+                 No Trip Booked!
+          </p>
+        </div>
+        <div class="checkout__delivery-address"  style="text-align: left;" *ngIf="Atrip!=null">      
+            <div class="form-group checkout__address-form-group" >
+                  <div class="form-group__label">
+                    <label class="checkout__address-form-label label label--required" for="Name">Trip date: </label>
+                    <label id="Name" style="color: #007B7C;">{{Atrip.Date}}</label>
+                  </div>           
+               </div>  
+               <div class="form-group checkout__address-form-group">
+                <div class="form-group__label">
+                  <label class="checkout__address-form-label label label--required" for="Surname">Trip location: </label>
+                  <label id="Surname" style="color: #007B7C;">{{Atrip.Location}}</label>
+                </div>           
+             </div>  
+             <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="Email">Trip time: </label>
+                <label id="Email" style="color: #007B7C;">{{Atrip.Time |date}}</label>
+              </div>           
+           </div>   
+           <div class="form-group checkout__address-form-group">
+            <div class="form-group__label">
+              <label class="checkout__address-form-label label label--required" for="Contact">Project Name: </label>
+              <label id="Contact" style="color: #007B7C;">{{Atrip.ProjectName}}</label>
+            </div>           
+         </div> 
+             <div class="form-group checkout__address-form-group">
+              <div class="form-group__label">
+                <label class="checkout__address-form-label label label--required" for="Plan">Driver assigned: </label>
+                <label id="Plan" style="color: #007B7C;"><button style="color: #007B7C;" (click)="open(Atrip.DriverID)">View Driver assigned</button></label><br/>
+
+              </div>
+              
+              <label id="Plan" style="color: #007B7C;"><button style="color: #007B7C;" (click)="openEdit(Atrip.DriverID)">Update</button> <button style="color: #007B7C;" (click)="RomoveBookConfirm()">Cancel</button></label><br/>
+              
+           </div>   
+          </div>
+
+      </div>
+    </div>
+</ion-content>

@@ -1,0 +1,82 @@
+
+
+<ion-content>
+
+<!---modal data-->
+
+<div align="center" style="padding-top: 10%;"  >
+    <h1 style="color: honeydew; font-size: 200%" ><strong>TOOL REQUESTS</strong></h1>
+      <div class="searchbox">
+        <button class="btn-menu">
+          <img src="https://img.icons8.com/cute-clipart/24/000000/top-menu.png">
+      </button>
+        <input id="search" type="text" placeholder="Search..." name="search" class="search" [(ngModel)]="searchText" #searchbar>
+        <button class="btn-search">
+        <img src="https://img.icons8.com/cotton/24/000000/search--v2.png">
+      </button>
+    </div>
+</div>
+<div align="center"  >
+ 
+<br/>
+  <table>
+  
+
+    <thead>
+      <tr>
+        <th scope="col">Tool Name</th>
+        <th scope="col">Request Date</th>
+        <th scope="col">Return Date</th>
+        <th scope="col">Student Name and Number</th>
+
+         <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <div></div>
+      <tr *ngFor="let tools of Tools | requestFilter: searchText ">
+            <td data-label="Name">{{tools.ToolName}}</td>
+            <td data-label="Condition">{{tools.RequestInfo.RequestDate}}</td>
+            <td data-label="Date">{{tools.RequestInfo.ReturnDate}}</td>
+            <td data-label="Title">
+              <button class="btn btn-primary" style="background-color: #008b8b;" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" (click)="ViewStudent(tools.RequestInfo.StudentId)">View Student Details</button>
+              <div class="row">
+                <div class="col">
+                  <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <div class="card card-body">
+                      <strong>Student Name: {{StudentInfo.Name}}</strong>
+                      <strong>Student Student No: {{StudentInfo.Name}}</strong>
+                      <strong>  Group No: {{StudentInfo.Name}}</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td data-label="Plan">
+              <button class="offset" style="height: 5.5px;" (click)="Confirmation(tools.id,false)">Accept Request</button>
+              <button class="offset" style="height: 5.5px;" (click)="Confirmation(tools.id,true)">Reject Request</button>
+        
+    
+            </td>
+      </tr>
+      <tr *ngIf="Tools.length==0">
+        <th scope="col">No requests</th>
+        <th scope="col">No requests</th>
+        <th scope="col">No requests </th>
+        <th scope="col">No requests</th>
+        <th scope="col">No requests</th>
+
+
+    </tr>
+  
+    </tbody>
+  </table>
+</div>
+<br/><br/><br/>
+<ion-footer>
+
+</ion-footer>
+
+
+</ion-content>

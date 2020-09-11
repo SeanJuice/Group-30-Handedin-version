@@ -1,0 +1,117 @@
+<!-- cONTENT GOES HERE -->
+<ion-content>
+  <header>
+    <!-- navigation Bar  -->
+    <nav role="navigation">
+      <ul>
+        <li>
+          <a  [routerLink]="['/students/Home']">
+            <div align="center">
+             HOME
+              <span><ion-icon name="home"></ion-icon></span>
+            </div>
+          </a>
+        </li>
+      <!--PROJECTS Here --->
+        <li>
+          <a [routerLink]="['/students/student-projects']" class="menu-item">
+            <div>
+             PROJECTS
+            
+            </div>
+          </a><div>
+          </div>
+        </li>
+
+      <!--BOOKINGS --->
+        <li>
+          <a  class="menu-item"  [routerLink]="['/students/book-trip']">
+            <div>
+              BOOKINGS
+              
+            </div>
+          </a>
+        </li>
+    <!--JCP TOOLS  Here --->
+        <li>
+          <a  [routerLink]="['/students/jcp-tools']"class="menu-item">
+            <div>
+              JCP TOOLS
+              
+            </div>
+          </a><div>
+            <ul>
+            </ul>
+          </div>
+        </li>
+  
+        <!-- STUDENT GROUP ACCOUNT --->
+        <li>
+          <a  [routerLink]="['/students/student-budget']" class="menu-item">
+            <div>
+              STUDENT GROUP <br /> BUDGET
+             
+            </div>
+          </a>
+        </li>
+  
+        <!--NEWSFEED management Tab --->
+        <li>
+          <a  [routerLink]="['/students/NewsFeed']"  class="menu-item">
+            <div>
+              NEWSFEED
+            
+            </div>
+          </a>
+        </li>
+           <!--NEWSFEED management Tab --->
+           <li>
+            <a  [routerLink]="['/students/student-profile']" class="menu-item">
+              <div>
+                    PROFILE
+              </div>
+            </a>
+            <div>
+              <ul>
+                <li><a  [routerLink]="['/students/student-profile']">PERSONAL INFORMATION</a></li>
+                <li><a  [routerLink]="['/students/student-projectinfo']">PROJECT INFORMATION</a></li>
+                <li><a  [routerLink]="['/students/student-project-tripinfo']">PROJECT TRIP INFORMATION</a></li>
+                <li><a  [routerLink]="['/students/tool-requestinfo']">TOOL REQUEST</a></li>
+              </ul>
+            </div>
+          </li>
+              <!--Documents management Tab --->
+              <li>
+                <a [routerLink]="['/students/student-documents']" class="menu-item">
+                  <div>
+                    DOCUMENTS 
+                  
+                  </div>
+                </a>
+              </li>
+        <div style="padding-left: 20%;">
+
+        </div>
+       
+        
+        <li>
+          <a (click)="LogOut()" (click)="LogOut()">
+            <div style="background-color: #007B7C;">
+              <button expand="block" fill="clear" shape="round" color="warning">
+               Log Out
+              </button>
+              
+           
+         </div>
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+  </header>
+    <!-- end of navigation Bar -->
+
+<ion-router-outlet></ion-router-outlet>
+</ion-content>
+
+

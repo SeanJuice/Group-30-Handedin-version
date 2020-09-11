@@ -1,0 +1,41 @@
+
+
+<!-- cONTENT GOES HERE -->
+<ion-content>
+  <header>
+    <!-- navigation Bar  -->
+ 
+  </header>
+    <!-- end of navigation Bar -->
+
+    <div align="center"style="padding-top: 10%; width: 60%; margin: auto;">
+      <h2 > <strong> Current Trips Scheduled</strong></h2>
+      <table class="rwd-table">
+        <tr>
+          <th>Date</th>
+          <th>Location</th>
+          <th>Time</th>
+          <th>Description</th>
+          <th >&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;Action</th>
+        </tr>
+        <tr *ngFor="let trip of Trips">
+          <td data-th="Date">{{trip.Date}}</td>
+          <td data-th="Location">{{trip.Location}}</td>
+          <td data-th="Time">{{trip.Time}}</td>
+          <td data-th="Description">{{trip.Description}}</td>
+          <td data-th="Action"><button class="fill" (click)="presentAlertPrompt()">Rechadule Trip</button></td>
+        </tr>
+        <tr *ngIf="Availability==false">
+          <td data-th="Date">No Avaialble Trips</td>
+          <td data-th="Location">No Avaialble Trips</td>
+          <td data-th="Time">No Avaialble Trips</td>
+          <td data-th="Description">No Avaialble Trips</td>
+          <td data-th="Action">No Avaialble Trips</td>
+        </tr>
+      
+      </table>
+    </div>
+    
+    
+
+</ion-content>

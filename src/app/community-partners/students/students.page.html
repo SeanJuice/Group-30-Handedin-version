@@ -1,0 +1,44 @@
+
+
+<!-- cONTENT GOES HERE -->
+<ion-content>
+ 
+ 
+    <div align="center" style="padding-top: 10%; margin-left: auto;  margin-right: auto;">
+      <h1 style="color: honeydew; font-size: 200%" ><strong> Students </strong></h1>
+      <div class="container"  >
+        <!--Applications Table  search bar-->
+        <div class="searchbox" >
+          <button class="btn-menu"> 
+                  <img src="https://img.icons8.com/cute-clipart/24/000000/top-menu.png">
+              </button>
+              <input id="search" type="text" placeholder="Search..." name="search" class="search" [(ngModel)]="searchText" #searchbar>
+            <button  class="btn-search">
+                <img src="https://img.icons8.com/cotton/24/000000/search--v2.png">
+              </button>
+          </div>
+      <!--Applications Table -->
+
+      <table class="rwd-table">
+        <tr>
+          <th>Group Number</th>
+          <th>Student Name </th>
+          <th>Student Number </th>
+          <th> Project Name </th>
+          <th >&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;	&nbsp;&nbsp;Action</th>
+        </tr>
+        <tr *ngFor="let x of students">
+          <td data-th="Group Number">{{ x.GroupNo }}</td>
+            <td data-th="Student Name">{{ x.Name}} {{x.Surname}}</td>
+            <td data-th="Student Number">{{x.Student_No}}</td>
+            <td data-th="Project Name"> {{x.ProjectName}}</td>
+            <td data-th="Action"><button class="slide" *ngIf="isCheckedin==false" (click)="CheckIn()"> Check-In </button> </td>
+            <td data-th="Action"><button class="slide" *ngIf="isCheckedin" (click)="CheckOut(x.id,x.HoursWorked)"> Check-Out </button> </td>
+        </tr>
+      </table>
+</div>
+    </div>
+    
+    
+
+</ion-content>

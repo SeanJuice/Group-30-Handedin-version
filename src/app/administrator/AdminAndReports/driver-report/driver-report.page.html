@@ -1,0 +1,73 @@
+
+
+<ion-content>
+
+
+<!---PROPOSAL IMPORT-->
+<div align="center" style="padding-top: 10%;">
+  <h1 style="color: honeydew; font-size: 200%;"   align="center"><strong>DRIVER Report</strong></h1>
+ <div class="checkout" style="width: 50%; " >
+   <div class="checkout__delivery-address"    align="center">
+     <br/>
+     <mat-radio-group aria-label="Select an option">
+      <mat-radio-button value="1">Weekly</mat-radio-button>
+      <mat-radio-button value="2">Monthly</mat-radio-button>
+    </mat-radio-group><br/><br/>
+    <button style="background-color: gold;" *ngIf="isGenerated" (click)="Download()" >Download</button>
+       <button style="background-color: #007B7C;"  (click)="PolaraArea()" >Generate Driver report</button>
+      
+ </div>
+   </div>
+ </div>
+
+ <div style="padding-top: 10%;   " align="center" id='content' #htmlData *ngIf="isGenerated" >
+
+<div id='content'>
+  <div class="card" id='content'>
+    
+    <h1 class="display-3">JCP Driver Report</h1>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <div style="width: 40%;">
+        <canvas id="canvass" > {{Linechart}}</canvas>
+      </div>
+      
+      <h1 class="display-3" class="card-text">With supporting details of each driver below.</h1>
+      <div *ngFor="let faker of ExisitingDrivers">
+        <table class="rwd-table">
+              <thead >
+              <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Trips Taken</th>
+                <th>Infringement
+                  (Yes or No)</th>
+            </tr>
+            <tr>
+              <td data-th="Name">{{faker.Name}}</td>
+              <td data-th="Surname">{{faker.Surname}}</td>
+              <td data-th="Contact" value="0">2</td>
+              <td data-th="Email"value="0">Yes</td>
+            </tr>
+          </thead>
+        </table>
+        <div class="card-footer text-muted">
+          <strong> Created on {{this.TodaysDate | date}} </strong> 
+        </div>
+      
+    </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  
+ </div>
+
+
+
+ <div style="padding-top: 10%;">
+  
+</div>
+</ion-content>

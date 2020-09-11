@@ -1,0 +1,77 @@
+
+
+<ion-content>
+  <!---PROPOSAL IMPORT-->
+  
+   <div align="center" style="padding-top: 10%;">
+    <h1 style="color: honeydew; font-size: 200%;"   align="center"><strong>PROPOSAL REPORT</strong></h1>
+   <div class="checkout" style="width: 50%; " >
+     <div class="checkout__delivery-address"    align="center">
+       <br/><br/>
+  
+  
+        <button style="background-color: gold;" class="btn btn-concrete" *ngIf="isShow" (click)="Download()" >Download</button>
+         <button style="background-color: #007B7C;" class="btn btn-orange" (click)="GenerateChart()" >Generate General Proposal   report</button>
+  
+   </div>
+     </div>
+   </div>
+  
+  
+   <div style="padding-top: 10%;   " align="center"  >
+    <div id='content'>
+      <div class="card"*ngIf="isShow && isSpecific" id='content' >
+       
+        <h1 class="display-3"></h1>
+        <div class="card-body" align="center">
+          <h5 class="card-title">Proposed vs those who did not</h5>
+          <div style="width: 40%;">
+            <canvas id="canvass" > {{Linechart}}</canvas>
+          </div>
+          
+          <h1 class="display-3" class="card-text">Report of Student Groups who have presented and  those who have not</h1>
+          <table class="rwd-table">
+            <h2 class="display-3">Those are about to Propose</h2>
+            <tr>
+              <th>Group No</th>
+              <th>Student Year</th>>
+          </tr>
+          <tr *ngFor="let Good  of AbouTPresent" >
+            <td >{{Good.StudentNo}}</td>
+              <td >{{Good.StudentYearID}}</td>
+          </tr>
+          </table>
+    
+          <div>
+            
+          </div>
+          <table class="rwd-table">
+            <h2 class="display-3">Those who Proposed Project</h2>
+            <tr>
+              <th>Group No</th>
+              <th>Student Year</th>
+          </tr>
+          <tr *ngFor="let Good of AlreadyPresented" >
+              <td >{{Good.StudentNo}}</td>
+              <td >{{Good.StudentYearID}}</td>
+          </tr>
+          </table>
+          <div>
+            
+          </div>
+  
+          <div class="card-footer text-muted">
+            <strong></strong> Created on {{this.TodaysDate | date}}
+          </div>
+        </div>
+    
+      </div>
+  
+    </div>
+  
+   </div>
+  
+  
+  
+  </ion-content>
+  

@@ -1,0 +1,64 @@
+
+<ion-content>
+<!-- navigation Bar  -->
+
+         <div style="padding-top: 10%; padding-left: 75%;">
+          <button class="offset" style="color: aliceblue;" (click)="openModal()">
+            Upload document
+          </button>
+
+         </div>
+   
+    <div align="center" >
+      <h1 style="color: honeydew; font-size: 200%" ><strong>DOCUMENTS</strong></h1>
+     
+      <div class="searchbox" >
+        <button class="btn-menu">
+            <img src="https://img.icons8.com/cute-clipart/24/000000/top-menu.png">
+        </button>
+        <input id="search" type="text" placeholder="Search..." name="search" class="search" [(ngModel)]="searchText" #searchbar >
+      <button  class="btn-search">
+          <img src="https://img.icons8.com/cotton/24/000000/search--v2.png">
+        </button>
+    </div>
+    </div>
+    <div align="center">
+    
+    <br/>
+    <table  style="width: 75%;">
+    
+    
+      <thead>
+        <tr>
+
+          <th scope="col">Date of Upload</th>
+            <th scope="col">Document Type</th>
+            <th scope="col">Document</th>
+           <th scope="col">Action</th>
+    
+        </tr>
+      </thead>
+      <tbody>
+        <div></div>
+        <tr *ngFor = "let file of Documents | filter: searchText" >
+          <td data-label="DOU">{{file.date | date}}</td>
+          <td data-label="DT">{{file.type}}</td>
+          <td data-label="D"><a href="{{file.Url}}" > {{file.Name}}</a> </td>
+          <td data-label="Plan">
+            <button class="offset" style="height: 5.5px;" (click)="Conifrmation(file.id,file.Url)" >Remove</button>
+          </td>
+        </tr>
+        <tr *ngIf="Documents.length==0">
+        <td> No files available</td>
+        <td> No files available</td>
+        <td> No files available</td>
+        <td> No files available</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <br/><br/><br/>
+    <ion-footer>
+    
+    </ion-footer>
+</ion-content>

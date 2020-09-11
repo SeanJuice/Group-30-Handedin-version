@@ -1,0 +1,15 @@
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+
+///@extend////Navigation 
+
+@import  "../Shared/styels/Navbar.scss";
+
+
+////////////////////////////////////////////////////////////////////////  
+///Background 
+ion-content {
+  --background: #ccc url("../folder/Untitleddesign.png") no-repeat center center / cover;
+}
+///@extend

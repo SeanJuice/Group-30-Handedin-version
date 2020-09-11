@@ -1,0 +1,156 @@
+<header>
+  <!-- navigation Bar  <ion-icon name="home"></ion-icon>-->
+  <nav role="navigation">
+    <ul>
+      <li>
+        <a href="administrator">
+          <div align="center">
+           HOME
+            <span>there's no place like Home</span>
+          </div>
+        </a>
+      </li>
+    <!--STUDENT Here --->
+      <li>
+        <a class="menu-item">
+          <div>
+            STUDENT
+          
+          </div>
+        </a><div>
+          <ul>
+            <li><a  (click)="Show()">GRADES</a></li>
+            <li><a (click)="Show()" >Existing Drivers </a></li>
+
+          </ul>
+        </div>
+      </li>
+    <!--COMMUNITY PARTNER Here --->
+      <li>
+        <a (click)="Show()" class="menu-item">
+          <div>
+            COMMUNITY PARTNER 
+          </div>
+        </a><div>
+          <ul>
+            <li><a  (click)="Show()">APPLICATIONS</a></li>
+            <li><a (click)="Show()" >EXISITING COMMMUNITY PARTNERS </a></li>
+            <li><a (click)="Show()" >POSSIBLE PROJECTS </a></li>
+          </ul>
+        </div>
+      </li>
+  <!--DRIVER  Here --->
+      <li>
+        <a (click)="Show()" class="menu-item">
+          <div>
+            DRIVER
+            
+          </div>
+        </a><div>
+          <ul>
+            <li><a href="./Applications">Applications</a></li>
+            <li><a routerLinkActive="active" routerDirection="forward" >Existing Drivers </a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Import Information Tab --->
+      <li>
+        <a (click)="Show()" class="menu-item">
+          <div>
+            IMPORT INFORMATION
+           
+          </div>
+        </a><div>
+          <ul>
+            <li><a  (click)="Show()">My Schadule Trips</a></li>
+            <li><a (click)="Show()" >Available trips </a></li>
+          </ul>
+        </div>
+      </li>
+<!--Tool management Tab --->
+      <li>
+        <a (click)="Show()" class="menu-item">
+          <div>
+            TOOLS
+           
+          </div>
+        </a><div>
+          <ul>
+            <li><a  (click)="Show()">TOOL REQUESTS</a></li>
+            <li><a (click)="Show()" >Available trips </a></li>
+          </ul>
+        </div>
+      </li>
+<!--Finance management Tab --->
+      <li>
+        <a (click)="Show()" class="menu-item">
+          <div>
+            FINANCE
+            
+          
+          </div>
+        </a><div>
+          <ul>
+            <li><a  (click)="Show()">SET REMINDER</a></li>
+            <li><a (click)="Show()" >Available trips </a></li>
+          </ul>
+        </div>
+      </li>
+      <!--NEWSFEED management Tab --->
+      <li>
+        <a (click)="Show()" class="menu-item">
+          <div>
+            NEWSFEED
+          
+          </div>
+        </a><div>
+          <ul>
+            <li><a  (click)="Show()">My Schadule Trips</a></li>
+            <li><a (click)="Show()" >Available trips </a></li>
+          </ul>
+        </div>
+      </li>
+       <!--BACKUPSYSTEM management Tab --->
+       <li>
+        <a (click)="Show()" class="menu-item">
+          <div>
+            BACKUP SYSTEM
+          
+          </div>
+        </a><div>
+          <ul>
+            <li><a  (click)="Show()">My Schadule Trips</a></li>
+            <li><a (click)="Show()" >Available trips </a></li>
+          </ul>
+        </div>
+      </li>
+
+
+      <li style="padding-right: 100px;">
+        <a  >
+          <div style="background-color: #007B7C;">
+       </div>
+        </a>
+      </li>
+      <li style="padding-right: 100px;">
+        <a  >
+          <div style="background-color: #007B7C;">
+       </div>
+        </a>
+      </li>
+      
+      <li style="padding-right: 100px;">
+        <a href="#" >
+          <div style="background-color: #007B7C;">
+            <button class="btn btn-success">
+              LOGOUT
+            </button>
+          
+       </div>
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+</header>

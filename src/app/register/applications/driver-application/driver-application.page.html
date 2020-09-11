@@ -1,0 +1,212 @@
+<br>
+<ion-content padding style="background-color: #007B7C;">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+
+
+<div class="wrapper fadeInDown" style="border: medium; background-color: #007B7C;">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    
+   
+
+    <!-- Icon -->
+    <div class="fadeIn first" align="center">
+      
+      <img src="https://drive.google.com/uc?export=download&id=19KQD94mApiT7z9RCKjwzKrQcfCynDYEI" alt="Avatar" style="width:200px;border-radius: 50%;">
+      <h2 class="active">Driver Application Form</h2>
+    </div>
+
+    <!-- Login Form -->
+
+    <div class="checkout" style="width: 90%; margin: auto; padding-bottom: 5%;">
+     
+      <form #form="ngForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      
+      
+      <div class="checkout__delivery-address" >
+        
+        <div class="checkout__address-form">    
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0" >
+                  <button data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: #007B7C;">
+                    Required your personal details
+                  </button>
+                  
+                </h5>
+                <div class="step checkout__step" >&nbsp;	&nbsp;1.</div>
+              </div>
+          
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                
+          
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="username">First Name *</label>
+                      <input type="text" id="username" [(ngModel)]='driver.Name' #Name="ngModel" class="checkout__address-form-input input form-control" name="name" placeholder="Name" required>
+                      <div class="alert alert-danger" *ngIf="Name.touched && Name.invalid" style="width: 50%; padding-left: 20%;">
+                        <p *ngIf="Name.errors?.required">Name is a required field!</p>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="username">Surname *</label>
+                      <input type="text" id="surname" [(ngModel)]='driver.Surname' #Surname="ngModel" class="checkout__address-form-input input form-control" name="surname" placeholder="Surname" required>
+                      <div class="alert alert-danger" *ngIf="Surname.touched && Surname.invalid" style="width: 50%; padding-left: 20%;">
+                        <p *ngIf="Surname.errors?.required">Surname is a required field!</p>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="username">Student Number *</label>
+                      <input type="text" id="StudentNumber" [(ngModel)]='driver.StudentNumber' #StudentNo="ngModel" class="checkout__address-form-input input form-control" name="studentN" placeholder="Student Number(start with u)" pattern="[a-zA-Z]+[0-9]+" required>
+                      <div class="alert alert-danger" *ngIf="StudentNo.touched && StudentNo.invalid" style="width: 50%; padding-left: 20%;">
+                        <p *ngIf="StudentNo.errors?.required">Student Number is a required field!</p>
+                        <p *ngIf="StudentNo.errors?.pattern">Student Number is a invalid (start with u or p)</p>
+                       
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="SN">Contact Number *</label>
+                      <input type="number" id="SN" [(ngModel)]='driver.contactNumber'  #ContactNo="ngModel" class="checkout__address-form-input input form-control" name="Contact" placeholder="Contact Number " required>
+                      <div class="alert alert-danger" *ngIf="ContactNo.touched && ContactNo.invalid" style="width: 50%; padding-left: 20%;">
+                        <p *ngIf="Surname.errors?.required">Contact No is a required field!</p>
+                      </div>
+                    </div> 
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="SN">Student Email *</label>
+                      <input type="text" id="SN" [(ngModel)]='user.Email' #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="checkout__address-form-input input form-control" name="email" placeholder="Student Email(login email)" required>
+                      <div class="alert alert-danger" *ngIf="email.touched && email.invalid" style="width: 50%; padding-left: 20%;">
+                        <p *ngIf="email.errors?.required">Email is a required field!</p>
+                        <p *ngIf="email.errors?.pattern">This is not a valid Email!!!</p>
+                      </div>
+                    </div> 
+                    
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Password*</label>
+                      <input type="password" id="SN" [(ngModel)]="user.Password"  #modelPassword="ngModel"  class="checkout__address-form-input input form-control" name="password" placeholder="Password" required minlength="6" required>
+                      <div *ngIf="modelPassword.touched && modelPassword.invalid" class="alert alert-danger" style="width: 50%; padding-left: 20%;">
+                        <div *ngIf="modelPassword.errors.required">Password is required</div>
+                        <div *ngIf="modelPassword.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
+                    </div> 
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">Confirm Password*</label>
+                      <input type="password" id="SN" [(ngModel)]="Password"  #modelConfirmPassword="ngModel"  class="checkout__address-form-input input form-control"  name="Confirm Password" placeholder="Confirm Password" required>
+                      <div *ngIf="(modelConfirmPassword.dirty || modelConfirmPassword.touched) && modelConfirmPassword.invalid">
+                        <p class="warning-text" *ngIf="modelConfirmPassword.hasError('notEqual') && modelPassword.valid">
+                          Passwords Don't Match
+                        </p>
+                    </div>
+                    </div> 
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="date">License Expiry Date *</label>
+                      <input type="date" id="date" [(ngModel)]="license.ExpiryDate"  #ExpiryDaate="ngModel" class="checkout__address-form-input input form-control" name="ExpiryDaate" placeholder="License Expiry Date " required>
+                      <div *ngIf="ExpiryDaate.touched && ExpiryDaate.invalid" class="alert alert-danger" style="width: 50%; padding-left: 20%;">
+                        <div *ngIf="ExpiryDaate.errors.required">Expiry Date is required</div>
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="cars">License Code *</label>
+                      
+                      <select id="cars" class="  form-control " style="width:35%;" name="license"    [(ngModel)]="license.LicenseCodeID" #licenseID="ngModel" required>
+                        <option value="Choose here" selected disabled >Choose here</option>
+                        <option title="motorcycles" value="C1">Code 1</option>
+                        <option  title=" vehicles (except motorcycles) with tare weight of 3,500 kilograms or less; minibuses, buses and goods vehicles with GVM of 
+                        3,500 kg or less; and articulated vehicles with GCM of 3,500 kg or less" value="C2">Code 2</option>
+                        <option title=" all vehicles (except motorcycles)." value="C3">Code 3</option>
+                      </select>
+                      <div *ngIf="licenseID.touched && licenseID.invalid" class="alert alert-danger" style="width: 50%; padding-left: 20%;">
+                        <div *ngIf="licenseID.errors.required">license ID Date is required</div>
+                        </div>
+          
+                    </div> 
+                    <div class="form-group">
+                      <label class="checkout__address-form-label label label--required" for="exampleInputEmail1">transport restriction*</label>
+                      
+                      <input type="text" id="date"[(ngModel)]="license.LicenseRestriction" class="checkout__address-form-input input" name="Restrict" placeholder="transport restriction"  #Restrict="ngModel" required>
+                      <div *ngIf="Restrict.touched && Restrict.invalid" class="alert alert-danger" style="width: 50%; padding-left: 20%;">
+                        <div *ngIf="Restrict.errors.required">transport restriction  is required</div>
+                        </div>
+                    </div> 
+           
+           
+                  
+                  
+                  
+                  
+                  
+                  
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: #007B7C;" >
+                    upload required documents
+                  </button>
+                </h5>
+                <div class="step checkout__step checkout__step--payment">&nbsp;	&nbsp;2.</div>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="checkout__payment-tabs" ng-app="TabsApp"  >
+                    
+                   
+                    <h2 class="checkout__title">Upload the following Documents </h2>
+                    <div class="checkout__payment" id="tabs" ng-controller="TabsCtrl">
+                      <div id="mainView" class="tab- checkout__payment-choice checkout__payment-choice--card">
+                        <h3 class="checkout__subtitle">Copy of License</h3> 
+                        <label class="btn btn-primary" style="background-color: #007B7C;">  <input type="file"
+                          (change)="selectFile($event)">
+                        </label>
+                        <br>
+                        <h3 class="checkout__subtitle">Timetable</h3> 
+                        <label class="btn btn-primary" style="background-color: #007B7C;"> <input type="file"
+                          (change)="selectFile2($event)">
+                        </label>
+                        <br>
+                        <h3 class="checkout__subtitle">Identity Document</h3> 
+                        <label class="btn btn-primary" style="background-color: #007B7C;"> <input type="file"
+                          (change)="selectFile3($event)">
+                        </label>
+                      </div>
+                     
+                    </div>
+          
+                    
+                
+                  </div>
+                 
+          
+          
+                </div>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+
+      </div>
+   
+      <div class="form-group">
+        <button class="checkout__total-button button button--primary" style="background-color:#007B7C"  (click)="this.Show =true" type="submit" [disabled]="!selectedCOLFiles && !selectedIDFiles && !selectedTFiles">SUBMIT DRIVER APPLICATION</button>
+        <ion-back-button class="checkout__total-button2 button button--primary" (click)="this.Show =false" text="Back" ></ion-back-button>
+     
+      </div>
+    </form>
+    </div>
+   
+
+    <!-- Remind Passowrd -->
+  
+
+  </div>
+</div>
+
+
+
+</ion-content>
+

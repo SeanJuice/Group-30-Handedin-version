@@ -1,0 +1,59 @@
+
+
+<!-- cONTENT GOES HERE -->
+<ion-content>
+ 
+
+
+    <div class="container"   align="center" style="padding-top: 10%; margin-left: auto;  margin-right: auto;">
+      <h1 style="color: honeydew; font-size: 200%" ><strong>Projects</strong></h1>
+            <div style="padding-left: 70%;">
+              <button class="pulse" style="padding-left: 15%; padding-right: 15%;background-color: #007B7C;"(click)="openAdd()">Add Project</button> 
+            </div> 
+            <div class="searchbox" >
+              <button class="btn-menu">
+                  <img src="https://img.icons8.com/cute-clipart/24/000000/top-menu.png">
+              </button>
+              <input id="search" type="text" placeholder="Search..." name="search" class="search" [(ngModel)]="searchText" #searchbar>
+            <button  class="btn-search">
+                <img src="https://img.icons8.com/cotton/24/000000/search--v2.png">
+              </button>
+            </div> 
+       <!-- Table-->
+      <table class="rwd-table" style="width: 100%;" >
+     
+        <thead>
+          <tr>
+            <th scope="col"> Project Name</th>
+            <th scope="col"> 	Contact Person</th>
+            <th scope="col"> 	Physical Address</th>
+            <th scope="col"> 	Category</th>
+              <th scope="col"> 	Description</th>
+               <th scope="col"> action</th>
+             <th scope="col"> action</th>
+       
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of projects|filter: searchText" >
+            <td data-th="Project Name">{{ x.Name }}</td>
+            <td data-th="Contact Person">{{ x.ContactPerson }}</td>
+            <td data-th="physical Address">{{ x.PhysicalAddress }}</td>
+            <td data-th="Category">{{ x.Category }}</td>
+            <td data-th="Description">{{ x.Description }}</td>
+            <td data-th="Action"><button class="slide" (click)="EditModal(x.id)"> Edit </button> </td>
+            <td data-th="Action"><button class="slide" (click)="DeleteProject(x)"> Delete </button> </td>
+          </tr>           
+        </tbody>
+      </table>
+    </div>
+    <br/><br/><br/>
+    <ion-footer>
+    
+    </ion-footer>
+  
+
+    
+
+</ion-content>

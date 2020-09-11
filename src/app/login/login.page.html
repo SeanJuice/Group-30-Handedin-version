@@ -1,0 +1,50 @@
+<br>
+<ion-content padding style="background-color: #007B7C;">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+
+
+<div class="wrapper fadeInDown" style="border: medium; background-color: #007B7C;">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active">Login to the
+      JCP Management System</h2>
+   
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      
+      <img src="https://drive.google.com/uc?export=download&id=19KQD94mApiT7z9RCKjwzKrQcfCynDYEI" alt="Avatar" style="width:200px;border-radius: 50%;">
+    </div>
+
+    <!-- Login Form -->
+    <form #form="ngForm" (submit)="onSubmit(email.value,password.value)">
+      <input type="text" id="email" name='email' #email="ngModel" ngModel class="fadeIn third"  placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+      <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+        <p *ngIf="email.errors?.required">Email is a required field!</p>
+        <p *ngIf="email.errors?.pattern">This is not a valid Email!!!</p>
+      </div>
+      <input type="password" id="password" name='password' #password="ngModel" ngModel class="fadeIn third" name="login" placeholder="password" required>
+      <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+        <p *ngIf="password.errors?.required">Password is a required!</p>
+      </div>
+      <input type="submit" class="fadeIn fourth" value="Log In" [disabled]="form.invalid">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <input type="submit" class="fadeIn fourth" style="color: gold;" value="GENERATE LOGIN CREDENTIALS" routerLink="generate-login-credentials">
+      <input type="submit" class="fadeIn fourth" value="APPLICATIONS" routerLink="./register">
+      <a class="underlineHover" routerLink="forgot-password">Forgot Password?</a>
+      <br>
+      <a class="underlineHover" routerLink="reset-password">Reset Password?</a>
+    </div>
+
+  </div>
+</div>
+
+
+
+</ion-content>
+
